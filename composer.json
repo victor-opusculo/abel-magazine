@@ -1,0 +1,32 @@
+{
+    "name": "victor-opusculo/abel-magazine",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "VictorOpusculo\\AbelMagazine\\App\\": "app/",
+            "VictorOpusculo\\AbelMagazine\\Api\\": "api/",
+            "VictorOpusculo\\AbelMagazine\\Components\\": "components/",
+            "VictorOpusculo\\AbelMagazine\\Lib\\": "lib/"
+        }
+    },
+    "require": 
+	{
+		"victor-opusculo/p-comp": "dev-master",
+		"victor-opusculo/my-orm": "dev-master",
+        "carry0987/i18n": "^2.1"
+	},
+	"repositories":
+	[
+		{
+			"type": "vcs",
+			"url":  "https://github.com/victor-opusculo/p-comp.git"
+		},
+        {
+			"type": "vcs",
+			"url":  "https://github.com/victor-opusculo/my-orm.git"
+		}
+	],
+    "require-dev": {
+        "robmorgan/phinx": "^0.16.0"
+    }
+}

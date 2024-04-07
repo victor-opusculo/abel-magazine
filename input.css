@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base
+{
+    *::selection { @apply bg-indigo-700 text-white }
+    * { font-family: sans-serif; }
+    h1 { @apply uppercase font-bold text-4xl my-8 text-center }
+    h2 { @apply font-bold text-3xl my-4 text-center }
+    h3 { @apply font-bold text-2xl my-2 text-left }
+
+    body { @apply bg-white text-black transition-colors }
+
+    table { @apply w-full }
+    table tbody tr { @apply border-b border-neutral-300 }
+    table th { @apply text-center text-xl font-bold }
+    table td { @apply text-left text-lg }
+
+    input[type='text'], input[type='password'], input[type='email'], input[type='search'], input[type='date'], input[type='time'], input[type='number'], textarea, select
+    {
+        @apply border border-neutral-700 rounded p-1
+    }
+}
+
+@layer components
+{
+    .btn { @apply cursor-pointer bg-indigo-700 hover:bg-indigo-800 active:bg-indigo-900 px-2 py-1 text-white rounded border border-indigo-900 min-w-[100px] text-center }
+
+    .link { @apply mx-2 hover:brightness-75 hover:underline active:brightness-50 text-indigo-700 }
+
+    .pagination { @apply block my-2 list-none text-lg ml-4 }
+    .pagination li { @apply inline mx-1 }
+    .pagination .currentPageNum { @apply font-bold }
+
+    .fieldset { @apply border border-2 rounded-md p-2 m-2 }
+
+    .responsibleTable { @apply block lg:table w-full }
+    .responsibleTable thead { @apply block lg:table-header-group }
+    .responsibleTable th { @apply absolute hidden lg:table-cell lg:relative }
+    .responsibleTable tbody { @apply block lg:table-row-group }
+    .responsibleTable tr { @apply block py-4 lg:py-2 lg:table-row }
+    .responsibleTable td { @apply block lg:table-cell before:font-bold before:content-[attr(data-th)':_'] lg:before:content-none }
+}
+
+html { scroll-behavior: smooth; font-size: 18px;}
