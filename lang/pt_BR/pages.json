@@ -1,0 +1,15 @@
+{
+    "adminLogin": "Log-in de administrador",
+    "adminHomeTitle": "Painel de administração",
+    "media": "Mídia",
+    "id": "ID",
+    "name": "Nome",
+    "description": "Descrição",
+    "directLink": "Link direto",
+    "fileExtension": "Extensão do arquivo",
+    "newMedia": "Nova mídia",
+    "viewMedia": "Ver mídia",
+    "editMedia": "Editar mídia",
+    "deleteMedia": "Excluir mídia",
+    "noPreview": "Sem visualização"
+}

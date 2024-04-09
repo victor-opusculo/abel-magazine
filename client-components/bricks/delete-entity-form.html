@@ -1,0 +1,42 @@
+
+<script>
+    const state =
+    {
+        delete_function_route_url: '',
+        function_name: 'del',
+        go_back_to_url: '',
+        lang: {},
+        slotId: ''
+    };
+
+    const methods = 
+    {
+        submit(e)
+        {
+            e.preventDefault();
+
+            import(this.state.delete_function_route_url)
+            .then(module => module[this.state.function_name]())
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess(this.state.go_back_to_url))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorDelete));
+        },
+
+        goBack() { history.back(); }
+    };
+
+    function setup()
+    {
+        this.render({ ...this.state, lang: JSON.parse(this.getAttribute('langJson')) });
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <slot id="${state.slotId}"></slot>
+        <div class="text-center my-4">
+            <button type="submit" class="btn mr-4">${state.lang.forms.yesDelete}</button>
+            <button type="button" class="btn" @click="goBack">${state.lang.forms.dontDelete}</button>
+        </div>
+    </form>
+</template>

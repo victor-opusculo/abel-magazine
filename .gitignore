@@ -1,3 +1,9 @@
 vendor/
 phinx.php
 /**/php_errors.log
+
+uploads/media/*
+!uploads/media/.gitkeep
+
+uploads/articles/**/*
+!uploads/articles/.gitkeep

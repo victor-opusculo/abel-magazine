@@ -1,0 +1,16 @@
+{
+    "adminLogin": "Administrator log-in",
+    "adminHomeTitle": "Administrator panel",
+    "media": "Media",
+    "id": "ID",
+    "name": "Name",
+    "description": "Description",
+    "fileExtension": "File extension",
+    "directLink": "Direct link",
+    "newMedia": "New media",
+    "viewMedia": "View media",
+    "editMedia": "Edit media",
+    "deleteMedia": "Delete media",
+    "noPreview": "No preview"
+
+}

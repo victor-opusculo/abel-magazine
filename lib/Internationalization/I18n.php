@@ -31,4 +31,14 @@ final class I18n
     {
         return self::$instance->fetchLangList();
     }
+
+    public static function getFormsTranslationsAsJson() : string
+    {
+        return json_encode(self::$instance->fetchList([ 'forms' ]));
+    }
+
+    public static function getAlertsTranslationsAsJson() : string
+    {
+        return json_encode(self::$instance->fetchList([ 'alerts' ]));
+    }
 }

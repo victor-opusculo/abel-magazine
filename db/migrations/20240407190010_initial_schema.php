@@ -44,7 +44,7 @@ final class InitialSchema extends AbstractMigration
         ->addColumn('password_hash', 'string', [ 'limit' => 280, 'null' => false ])
         ->addColumn('registration_datetime', 'datetime', [ 'null' => false ])
         ->addColumn('timezone', 'string', [ 'limit' => 100, 'null' => false ])
-        ->addIndex('email', [ 'unique' => true ])
+        ->addIndex('email', [ 'unique' => true, 'limit' => 50 ])
         ->create();
 
         $magazines = $this->table('magazines');

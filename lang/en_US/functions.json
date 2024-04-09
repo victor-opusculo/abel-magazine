@@ -1,0 +1,11 @@
+{
+    "greetings": "Welcome, {name}!",
+    "invalidPassword": "Incorrect password!",
+    "logoutSuccess": "Logged out with success!",
+    "noDataChanged": "Nothing changed.",
+    "mediaCreatedSuccess": "Media created successfully!",
+    "mediaCreatedError": "Not possible to create media.",
+    "mediaEditedSuccess": "Media edited successfully!",
+    "mediaDeletedSuccess": "Media deleted successfully!",
+    "mediaDeleteError": "Not possible to delete media."
+}

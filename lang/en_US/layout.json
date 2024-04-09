@@ -1,4 +1,7 @@
 {
     "topBarSiteDescription": "ABEL's scientific journal portal",
-    "homePageTitle": "Welcome!"
+    "homePageTitle": "Welcome!",
+    "adminLayoutAdminName": "Administrator logged-in: {name}",
+    "editProfile": "Edit profile",
+    "adminPanelHome": "Home"
 }

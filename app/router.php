@@ -5,5 +5,28 @@ return
 [
     '/' => \VictorOpusculo\AbelMagazine\App\HomePage::class,
     '__layout' => \VictorOpusculo\AbelMagazine\App\BaseLayout::class,
-    '__functions' => \VictorOpusculo\AbelMagazine\App\HomeFunctions::class
+    '__functions' => \VictorOpusculo\AbelMagazine\App\HomeFunctions::class,
+    '/admin' => fn() =>
+    [
+        '/login' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
+        '/panel' => fn() =>
+        [
+            '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Home::class,
+            '__layout' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Layout::class,
+            '/media' => fn() =>
+            [
+                '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\Home::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\Functions::class,
+                '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\Create::class,
+                '/[mediaId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\Functions::class,
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\Edit::class,
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\Delete::class
+                ]
+            ]
+        ],
+        '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Functions::class
+    ]
 ];

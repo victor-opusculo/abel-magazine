@@ -21,16 +21,19 @@ URLGenerator::loadConfigs();
 		<!-- Desenvolvido por Victor Opusculo -->
 		<meta charset="utf8"/>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Plataforma EAD da ABEL">
-		<meta name="keywords" content="">
+		<meta name="description" content="<?= \VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get("layout.topBarSiteDescription") ?>">
+		<meta name="keywords" content="revista, científica, ciência, escolas de governo, estado, governo, legislativo, contas públicas, artigos">
   		<meta name="author" content="Victor Opusculo Oliveira Ventura de Almeida">
 		<link rel="stylesheet" href="<?= URLGenerator::generateFileUrl('assets/twoutput.css') ?>"/>
 		<script>
 			const AbelMagazine = {};
+			AbelMagazine.Lang ??= { ...(() => (<?= I18n::getAlertsTranslationsAsJson() ?>))() };
 			const useFriendlyUrls = <?= URLGenerator::$useFriendlyUrls ? 'true' : 'false' ?>;
 			const baseUrl = '<?= URLGenerator::$baseUrl ?>';
 		</script>
 		<script src="<?= URLGenerator::generateFileUrl('assets/script/URLGenerator.js') ?>"></script>
+		<script src="<?= URLGenerator::generateFileUrl('assets/script/AlertManager.js') ?>"></script>
+		<script src="<?= URLGenerator::generateFileUrl('client-components/dist/index.js') ?>" type="module"></script>
 		<?= HeadManager::getHeadText() ?>
 		<?= StyleManager::getStylesText() ?>
 	</head>

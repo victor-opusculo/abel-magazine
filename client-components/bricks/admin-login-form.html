@@ -1,0 +1,60 @@
+
+<script>
+    const state = 
+    { 
+        password: "",
+        email: "",
+        lang: {}
+    };
+
+    const methods = 
+    {
+        async submit(e)
+        {
+            e.preventDefault();
+            
+            try
+            {
+                const { login } = await import(AbelMagazine.functionUrl('/admin'));  
+                const result = await login({ data: { email: this.state.email, password: this.state.password } });
+
+                AbelMagazine.Alerts.pushFromJsonResult(result)
+                .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/admin/panel'));
+            }
+            catch (err)
+            {
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorLogin);
+                console.error(err);
+            }
+        },
+
+        changeEmail(e)
+        {
+            this.render({ ...this.state, email: e.target.value });
+        },
+
+        changePassword(e)
+        {
+            this.render({ ...this.state, password: e.target.value }); 
+        }
+    };
+
+    function setup()
+    {
+        this.render({ ...this.state, lang: JSON.parse(this.getAttribute('langJson')) });
+    }
+</script>
+
+<template>
+    <form class="mx-auto max-w-[500px]" @submit="submit">
+        <ext-label label="${state.lang.forms.email}">
+            <input type="email" class="w-full" required :value="state.email" @input="changeEmail">
+        </ext-label>
+        <ext-label label="${state.lang.forms.password}">
+            <input type="password" class="w-full" required :value="state.password" @input="changePassword">
+        </ext-label>
+        <div class="text-center">
+            <button class="btn" type="submit">${state.lang.forms.enter}</button>
+        </div>
+    </form>
+</template>

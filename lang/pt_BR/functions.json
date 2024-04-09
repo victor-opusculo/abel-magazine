@@ -1,0 +1,11 @@
+{
+    "greetings": "Bem-vindo(a), {name}!",
+    "invalidPassword": "Senha incorreta!",
+    "logoutSuccess": "Você saiu!",
+    "noDataChanged": "Nenhum dado alterado.",
+    "mediaCreatedSuccess": "Mídia criada com sucesso!",
+    "mediaCreatedError": "Não foi possível criar a mídia.",
+    "mediaEditedSuccess": "Mídia editada com sucesso!",
+    "mediaDeletedSuccess": "Mídia excluída com sucesso!",
+    "mediaDeleteError": "Não foi possível excluir a mídia."
+}
