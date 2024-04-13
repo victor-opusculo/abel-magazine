@@ -32,6 +32,11 @@ final class Home extends Component
                     url: URLGenerator::generatePageUrl('/admin/panel/media'),
                     label: I18n::get('pages.media'),
                     iconUrl: URLGenerator::generateFileUrl('assets/pics/media.png')
+                ),
+                component(FeatureButton::class,
+                    url: URLGenerator::generatePageUrl('/admin/panel/magazines'),
+                    label: I18n::get('pages.journals'),
+                    iconUrl: URLGenerator::generateFileUrl('assets/pics/journal.svg')
                 )
             ])
         ]);

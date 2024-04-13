@@ -1,0 +1,29 @@
+
+<script>
+    const state = 
+    {
+        function_url: '',
+        restore_function_name: 'restore',
+        lang: {}
+    };
+
+    const methods =
+    {
+        restore()
+        {
+                import(this.state.function_url)
+                .then(module => module[this.state.restore_function_name]())
+                .then(AbelMagazine.Alerts.pushFromJsonResult)
+                .then(() => window.location.reload())
+                .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorRestoring));
+        }
+    };
+
+    function setup()
+    {
+        this.render({ lang: JSON.parse(this.getAttribute('langJson')) });
+    }
+</script>
+<template>
+    <button class="btn" @click="restore" type="button">${state.lang.forms.restoreFromExclusion}</button>
+</template>

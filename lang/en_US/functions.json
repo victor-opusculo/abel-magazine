@@ -7,5 +7,12 @@
     "mediaCreatedError": "Not possible to create media.",
     "mediaEditedSuccess": "Media edited successfully!",
     "mediaDeletedSuccess": "Media deleted successfully!",
-    "mediaDeleteError": "Not possible to delete media."
+    "mediaDeleteError": "Not possible to delete media.",
+    "magazineCreatedSuccess": "Journal created successfully!",
+    "magazineCreatedError": "Not possible to create journal.",
+    "magazineEditedSuccess": "Journal edited successfully!",
+    "magazineDeletedSuccess": "Journal deleted successfully!",
+    "magazineDeleteError": "Not possible to delete magazine.",
+    "magazineRestoreSuccess": "Jorunal restored successfully!",
+    "magazineRestoreError": "Not possible to restore journal!"
 }

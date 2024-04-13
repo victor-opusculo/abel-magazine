@@ -19,6 +19,9 @@ customElements.define('data-grid', DataGrid)
 import DeleteEntityForm from './delete-entity-form.js'
 customElements.define('delete-entity-form', DeleteEntityForm)
 
+import EditMagazineForm from './edit-magazine-form.js'
+customElements.define('edit-magazine-form', EditMagazineForm)
+
 import EditMediaForm from './edit-media-form.js'
 customElements.define('edit-media-form', EditMediaForm)
 
@@ -27,3 +30,9 @@ customElements.define('ext-label', ExtLabel)
 
 import LoadingSpinner from './loading-spinner.js'
 customElements.define('loading-spinner', LoadingSpinner)
+
+import MediaClientSelect from './media-client-select.js'
+customElements.define('media-client-select', MediaClientSelect)
+
+import RestoreDeletedButton from './restore-deleted-button.js'
+customElements.define('restore-deleted-button', RestoreDeletedButton)

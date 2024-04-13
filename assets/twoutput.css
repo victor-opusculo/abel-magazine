@@ -826,12 +826,12 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   margin-right: 1rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .block {
@@ -882,16 +882,20 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   width: 1.25rem;
 }
 
+.w-\[1em\] {
+  width: 1em;
+}
+
 .w-\[400px\] {
   width: 400px;
 }
 
-.w-full {
-  width: 100%;
+.w-\[calc\(100\%-200px\)\] {
+  width: calc(100% - 200px);
 }
 
-.w-\[1em\] {
-  width: 1em;
+.w-full {
+  width: 100%;
 }
 
 .min-w-0 {
@@ -958,6 +962,10 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
 
 .justify-between {
   justify-content: space-between;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
 }
 
 .rounded {

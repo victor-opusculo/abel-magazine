@@ -27,51 +27,34 @@
     };
 
   
-    const state =
+    const state = 
     {
-        datarows: [],
-        columnstohide: [],
-        returnidcallback: null,
-        selectlinkparamname: 'id',
+        function_url: '',
+        restore_function_name: 'restore',
         lang: {}
     };
 
-    const methods = 
+    const methods =
     {
-        selectClick(e)
+        restore()
         {
-            e.preventDefault();
-            const param = e.target.getAttribute('data-id');
-            this.state.returnidcallback(param);
-        },
-        
-    }; 
+                import(this.state.function_url)
+                .then(module => module[this.state.restore_function_name]())
+                .then(AbelMagazine.Alerts.pushFromJsonResult)
+                .then(() => window.location.reload())
+                .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorRestoring));
+        }
+    };
+
+    function setup()
+    {
+        this.render({ lang: JSON.parse(this.getAttribute('langJson')) });
+    }
 
 
   const __template = function({ state }) {
     return [  
-    ((!(state.datarows?.length)) ? h("p", {}, `${state.lang.forms.noDataAvailable}`) : ''),
-    ((state.datarows?.length > 0) ? h("table", {}, [
-      h("thead", {}, [
-        h("tr", {}, [
-          ((Object.keys(state.datarows[0])).map((header) => (h("th", {}, `
-                    ${header}
-                `)))),
-          ((state.returnidcallback) ? h("th", {}, `${state.lang.forms.select}`) : '')
-        ])
-      ]),
-      h("tbody", {}, [
-        ((state.datarows).map((row) => (h("tr", {}, [
-          ((Object.keys(row)).map((header) => (h("td", {"data-th": `${header}`}, [
-            ((typeof row[header] === 'string') ? h("span", {}, `${row[header]}`) : ''),
-            ((typeof row[header] === 'object' && row[header].type === 'image') ? h("img", {"src": `${row[header].src}`, "width": `${row[header].width}`}, "") : '')
-          ])))),
-          ((state.returnidcallback) ? h("td", {}, [
-            h("a", {"class": `link text-lg`, "onclick": this.selectClick.bind(this), "data-th": `${state.lang.forms.select}`, "data-id": `${row[state.selectlinkparamname]}`, "href": `#`}, `${state.lang.forms.select}`)
-          ]) : '')
-        ]))))
-      ])
-    ]) : '')
+    h("button", {"class": `btn`, "onclick": this.restore.bind(this), "type": `button`}, `${state.lang.forms.restoreFromExclusion}`)
   ]
   }
 

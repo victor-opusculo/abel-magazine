@@ -2,15 +2,25 @@
     "adminLogin": "Administrator log-in",
     "adminHomeTitle": "Administrator panel",
     "media": "Media",
+    "journals": "Journals",
     "id": "ID",
     "name": "Name",
     "description": "Description",
     "fileExtension": "File extension",
+    "stringIdentifier": "Text identifier",
     "directLink": "Direct link",
     "newMedia": "New media",
     "viewMedia": "View media",
     "editMedia": "Edit media",
     "deleteMedia": "Delete media",
-    "noPreview": "No preview"
+    "noPreview": "No preview",
+    "newJournal": "New journal",
+    "viewMagazine": "View journal",
+    "editMagazine": "Edt journal",
+    "deleteMagazine": "Delete journal",
+    "noPicture": "No picture",
+    "showDeleted": "Show deleted",
+    "showNonDeletedOnly": "Show non deleted only",
+    "newEdition": "New edition"
 
 }

@@ -25,6 +25,19 @@ return
                     '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\Edit::class,
                     '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId\Delete::class
                 ]
+            ],
+            '/magazines' => fn() =>
+            [
+                '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Home::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Functions::class,
+                '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Create::class,
+                '/[magazineId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Functions::class,
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Edit::class,
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Delete::class,
+                ]
             ]
         ],
         '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Functions::class

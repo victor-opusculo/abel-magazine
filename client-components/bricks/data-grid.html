@@ -4,7 +4,8 @@
         datarows: [],
         columnstohide: [],
         returnidcallback: null,
-        selectlinkparamname: 'id'
+        selectlinkparamname: 'id',
+        lang: {}
     };
 
     const methods = 
@@ -20,7 +21,7 @@
 </script>
 
 <template>
-    <p :if="!(state.datarows?.length)">Não há dados disponíveis.</p>
+    <p :if="!(state.datarows?.length)">${state.lang.forms.noDataAvailable}</p>
 
     <table :if="state.datarows?.length > 0">
         <thead>
@@ -28,7 +29,7 @@
                 <th :for="header in Object.keys(state.datarows[0])">
                     ${header}
                 </th>
-                <th :if="state.returnidcallback">Selecionar</th>
+                <th :if="state.returnidcallback">${state.lang.forms.select}</th>
             </tr>
         </thead>
         <tbody>
@@ -38,7 +39,7 @@
                     <img :if="typeof row[header] === 'object' && row[header].type === 'image'" src="${row[header].src}" width="${row[header].width}" />
                 </td>
                 <td :if="state.returnidcallback">
-                    <a class="link text-lg" @click="selectClick" data-th="Selecionar" data-id="${row[state.selectlinkparamname]}" href="#">Selecionar</a>
+                    <a class="link text-lg" @click="selectClick" data-th="${state.lang.forms.select}" data-id="${row[state.selectlinkparamname]}" href="#">${state.lang.forms.select}</a>
                 </td>
             </tr>
         </tbody>

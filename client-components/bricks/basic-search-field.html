@@ -3,7 +3,8 @@
     const state =
     {
         searchkeywords: '',
-        searchcallback: null
+        searchcallback: null,
+        lang: {}
     };
 
     const methods =
@@ -33,11 +34,11 @@
 <template>
     <span class="flex flex-row items-center">
         <label>
-            Pesquisar:
+            ${state.lang.forms.search}:
             <input type="search" :value="state.searchkeywords" @input="changeInput" @keydown="keydown" />
         </label>
         <button type="button" class="btn ml-2 min-w-[32px]" @click="buttonClicked">
-            <img src="${AbelMagazine.Helpers.URLGenerator.generateFileUrl('assets/pics/search.png')}" alt="Pesquisar" width="28" />
+            <img src="${AbelMagazine.Helpers.URLGenerator.generateFileUrl('assets/pics/search.png')}" alt="${state.lang.forms.search}" width="28" />
         </button>
     </span>
 </template>

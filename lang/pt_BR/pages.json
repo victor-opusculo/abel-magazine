@@ -2,14 +2,25 @@
     "adminLogin": "Log-in de administrador",
     "adminHomeTitle": "Painel de administração",
     "media": "Mídia",
+    "journals": "Revistas",
     "id": "ID",
     "name": "Nome",
     "description": "Descrição",
+    "stringIdentifier": "Termo identificador",
     "directLink": "Link direto",
     "fileExtension": "Extensão do arquivo",
     "newMedia": "Nova mídia",
     "viewMedia": "Ver mídia",
     "editMedia": "Editar mídia",
     "deleteMedia": "Excluir mídia",
-    "noPreview": "Sem visualização"
+    "noPreview": "Sem visualização",
+    "newJournal": "Nova revista",
+    "viewMagazine": "Ver revista",
+    "editMagazine": "Editar revista",
+    "deleteMagazine": "Excluir revista",
+    "noPicture": "Sem imagem",
+    "showDeleted": "Mostrar excluídos",
+    "showNonDeletedOnly": "Mostrar não excluídos somente",
+    "newEdition": "Nova edição"
+
 }

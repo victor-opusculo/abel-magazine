@@ -2,6 +2,7 @@
 namespace VictorOpusculo\AbelMagazine\App\Admin;
 
 use Exception;
+use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\UserTypes;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Administrators\Administrator;
@@ -30,6 +31,8 @@ final class Functions extends BaseFunctionsClass
                 $_SESSION['user_email'] = $admin->email->unwrapOr('n@a');
                 $_SESSION['user_timezone'] = $admin->timezone->unwrapOr('America/Sao_Paulo');
 
+                LogEngine::writeLog("Administrador logado! ID: " . $admin->id->unwrapOr(-1));
+
                 return [ 'success' => mb_ereg_replace('{name}', $admin->full_name->unwrapOr('***'), I18n::get('functions.greetings')) ];
             }
             else
@@ -39,11 +42,13 @@ final class Functions extends BaseFunctionsClass
                     session_unset();
                     session_destroy();
                 }
+                LogEngine::writeErrorLog("Senha incorreta no login de administrador. ID: " . $admin->id->unwrapOr(-1));
                 return [ 'error' => I18n::get('functions.invalidPassword') ];
             }
         }
         catch (Exception $e)
         {
+            LogEngine::writeErrorLog($e->getMessage());
             return [ 'error' => $e->getMessage() ];
         }
     }
@@ -54,6 +59,7 @@ final class Functions extends BaseFunctionsClass
         session_start();
         if (isset($_SESSION))
         {
+            LogEngine::writeLog("Administrador deslogado! ID: " . $_SESSION['user_id'] ?? -1);
             unset($_SESSION['user_type']);
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
@@ -61,6 +67,7 @@ final class Functions extends BaseFunctionsClass
             session_unset();
             session_destroy();
         }
+
         return [ 'success' => I18n::get('functions.logoutSuccess') ];
     }
 }

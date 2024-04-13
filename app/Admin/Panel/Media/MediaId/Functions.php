@@ -2,6 +2,7 @@
 namespace VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\MediaId;
 
 use Exception;
+use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Media\Media;
@@ -33,12 +34,19 @@ final class Functions extends BaseFunctionsClass
             $result = $media->save($conn);
 
             if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Mídia editada! ID: {$media->id->unwrapOr((0))}");
                 return [ 'success' => I18n::get('functions.mediaEditedSuccess') ];
+            }
             else
+            {
+                LogEngine::writeLog("Nenhum dado alterado em mídia! ID: {$media->id->unwrapOr((0))}");
                 return [ 'info' => I18n::get('functions.noDataChanged') ];
+            }
         }
         catch (Exception $e)
         {
+            LogEngine::writeErrorLog($e->getMessage());
             return [ 'error' => $e->getMessage() ];
         }
     }
@@ -52,12 +60,19 @@ final class Functions extends BaseFunctionsClass
             $result = $media->delete($conn);
 
             if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Mídia excluída! ID: {$media->id->unwrapOr((0))}");
                 return [ 'success' => I18n::get('functions.mediaDeletedSuccess') ];
+            }
             else
+            {
+                LogEngine::writeLog("Erro ao excluir mídia! ID: {$media->id->unwrapOr((0))}");
                 return [ 'error' => I18n::get('functions.mediaDeleteError') ];
+            }
         }
         catch (Exception $e)
         {
+            LogEngine::writeErrorLog($e->getMessage());
             return [ 'error' => $e->getMessage() ];
         }
     }

@@ -4,7 +4,8 @@
         totalitems: 0,
         resultsonpage: 20,
         pagenum: 1,
-        changepagecallback: null
+        changepagecallback: null,
+        lang: {}
     };
 
     const methods =
@@ -21,7 +22,7 @@
 
 <template>
     <ul :if="Math.ceil(state.totalitems / state.resultsonpage) > 0" class="pagination">
-        <li :if="state.pagenum > 1" class="prev"><a href="#" @click="changePage" data-topage="${state.pagenum - 1}">Anterior</a></li>
+        <li :if="state.pagenum > 1" class="prev"><a href="#" @click="changePage" data-topage="${state.pagenum - 1}">${state.lang.forms.prevPage}</a></li>
 
         <li :if="state.pagenum > 3" class="start"><a href="#" @click="changePage" data-topage="1">1</a></li>
         <li :if="state.pagenum > 3" class="dots">...</li>
@@ -37,6 +38,6 @@
         <li :if="state.pagenum < (Math.ceil(state.totalitems / state.resultsonpage) - 2)" class="dots">...</li>
         <li :if="state.pagenum < (Math.ceil(state.totalitems / state.resultsonpage) - 2)" class="end"><a href="#" @click="changePage" data-topage="${Math.ceil(state.totalitems / state.resultsonpage)}">${Math.ceil(state.totalitems / state.resultsonpage)}</a></li>
 
-        <li :if="state.pagenum < Math.ceil(state.totalitems / state.resultsonpage)" class="next"><a href="#" @click="changePage" data-topage="${state.pagenum + 1}">Próxima</a></li>
+        <li :if="state.pagenum < Math.ceil(state.totalitems / state.resultsonpage)" class="next"><a href="#" @click="changePage" data-topage="${state.pagenum + 1}">${state.lang.forms.nextPage}</a></li>
     </ul>
 </template>

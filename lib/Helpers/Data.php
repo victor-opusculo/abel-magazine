@@ -37,6 +37,12 @@ final class Data
         return $new_array;
     }
 
+    /** 
+     * @template T
+     * @param T[] $input
+     * @param (callable(T $row):mixed)[] $rules
+     * @return mixed[]
+     */
     public static function transformDataRows(array $input, array $rules) : array
     {
         $output = [];

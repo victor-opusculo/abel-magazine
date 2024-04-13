@@ -2,5 +2,8 @@
     "emailNotFound": "E-mail não localizado!",
     "newPasswordTooShort": "Senha nova muito curta! Deve haver pelo menos 5 caracteres.",
     "wrongUserTypeReqAdmin": "Você precisa estar logado como administrador.",
-    "invalidId": "ID inválido."
+    "invalidId": "ID inválido.",
+    "magazineNotFound": "Revista não encontrada!",
+    "stringIdentifierAlreadyExists": "Identificador de texto já existente!",
+    "editionNotFound": "Edição não encontrada!"
 }

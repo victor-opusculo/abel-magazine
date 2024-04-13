@@ -30,7 +30,8 @@
     const state =
     {
         searchkeywords: '',
-        searchcallback: null
+        searchcallback: null,
+        lang: {}
     };
 
     const methods =
@@ -62,12 +63,12 @@
     h("span", {"class": `flex flex-row items-center`}, [
       h("label", {}, [
 `
-            Pesquisar:
+            ${state.lang.forms.search}:
             `,
         h("input", {"type": `search`, "value": state.searchkeywords, "oninput": this.changeInput.bind(this), "onkeydown": this.keydown.bind(this)}, "")
       ]),
       h("button", {"type": `button`, "class": `btn ml-2 min-w-[32px]`, "onclick": this.buttonClicked.bind(this)}, [
-        h("img", {"src": `${AbelMagazine.Helpers.URLGenerator.generateFileUrl('assets/pics/search.png')}`, "alt": `Pesquisar`, "width": `28`}, "")
+        h("img", {"src": `${AbelMagazine.Helpers.URLGenerator.generateFileUrl('assets/pics/search.png')}`, "alt": `${state.lang.forms.search}`, "width": `28`}, "")
       ])
     ])
   ]

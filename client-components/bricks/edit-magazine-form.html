@@ -1,0 +1,88 @@
+<script>
+    const state =
+    {
+        id: null,
+        name: '',
+        description: '',
+        cover_image_media_id: null,
+        string_identifier: '',
+        search_media_enabled: false,
+        lang: {}
+    };
+
+    const methods = 
+    {
+        changeField(e)
+        {
+            this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        toggleMediaSelect(e)
+        {
+            this.render({ ...this.state, search_media_enabled: !this.state.search_media_enabled });
+        },
+
+        create(formData)
+        {
+            import(AbelMagazine.functionUrl('/admin/panel/magazines'))
+            .then(module => module.create(formData))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(([ ret, json ]) =>
+                {
+                    if (json.success && json.newId)
+                        window.location.href = AbelMagazine.Helpers.URLGenerator.generatePageUrl('/admin/panel/magazines/' + json.newId);
+                })
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorCreateMagazine));
+        },
+
+        edit(formData)
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/magazines/${this.state.id}`))
+            .then(module => module.edit(formData))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorEditMagazine));
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const data = {};
+            for (const prop in this.state)
+                if (prop !== "lang" && prop !== "search_media_enabled")
+                    data['magazines:' + prop] = this.state[prop];
+
+            if (this.state.id)
+                this.edit(data);
+            else
+                this.create(data);
+        }
+    };
+
+    function setup()
+    {
+        this.render({ ...this.state, lang: JSON.parse(this.getAttribute('langJson')) });
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.name}">
+            <input type="text" maxlength="140" class="w-full" name="name" @input="changeField" required :value="state.name" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.description}" linebreak="1">
+            <textarea type="text" maxlength="400" class="w-full" rows="5" name="description" @input="changeField" :value="state.description"></textarea>
+        </ext-label>
+        <ext-label label="${state.lang.forms.stringIdentifier}">
+            <input type="text" maxlength="140" class="w-full" name="string_identifier" @input="changeField" required :value="state.string_identifier" pattern="^[A-Za-z0-9_\\-]{5,140}$" placeholder="${state.lang.forms.noSpacesAllowedMin5chars}"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.logoImagePictureMediaId}">
+            <input type="number" min="1" step="1" class="w-[calc(100%-200px)] mr-2" name="cover_image_media_id" @input="changeField" :value="state.cover_image_media_id" />
+            <button type="button" class="btn" @click="toggleMediaSelect">${state.lang.forms.search}</button>
+        </ext-label>
+        <media-client-select :if="state.search_media_enabled" :lang="state.lang" :set_id_field_callback="id => this.changeField({ target: { name: 'cover_image_media_id', value: id } })"></media-client-select>
+        <div class="my-2 text-center">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

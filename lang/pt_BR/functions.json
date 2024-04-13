@@ -7,5 +7,12 @@
     "mediaCreatedError": "Não foi possível criar a mídia.",
     "mediaEditedSuccess": "Mídia editada com sucesso!",
     "mediaDeletedSuccess": "Mídia excluída com sucesso!",
-    "mediaDeleteError": "Não foi possível excluir a mídia."
+    "mediaDeleteError": "Não foi possível excluir a mídia.",
+    "magazineCreatedSuccess": "Revista criada com sucesso!",
+    "magazineCreatedError": "Não foi possível criar revista.",
+    "magazineEditedSuccess": "Revista editada com sucesso!",
+    "magazineDeletedSuccess": "Revista excluída com sucesso!",
+    "magazineDeleteError": "Não foi possível excluir a revista.",
+    "magazineRestoreSuccess": "Revista restaurada com sucesso!",
+    "magazineRestoreError": "Não foi possível restaurar a revista!"
 }
