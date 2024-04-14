@@ -30,7 +30,8 @@
     const state = 
     { 
         password: "",
-        email: "" 
+        email: "",
+        lang: {}
     };
 
     const methods = 
@@ -38,15 +39,13 @@
         submit(e)
         {
             e.preventDefault();
-            const headers = new Headers({ 'Content-Type': 'application/json' });
-            const body = JSON.stringify({ data: { email: this.state.email, password: this.state.password } });
-            fetch(Parlaflix.Helpers.URLGenerator.generateApiUrl('/student/login'), { method: 'POST', headers, body })
-            .then(res => res.json())
-            .then(Parlaflix.Alerts.pushFromJsonResult)
-            .then(Parlaflix.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/student/panel', {}))
-            .catch(reason => Parlaflix.Alerts.push(Parlaflix.Alerts.types.error, String(reason)));
-
-            return true;
+            const data = { email: this.state.email, password: this.state.password };
+            
+            import(AbelMagazine.functionUrl('/submitter'))
+            .then(module => module.login(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/panel'))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogin));  
         },
 
         changeEmail(e)
@@ -60,18 +59,23 @@
         }
     };
 
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+
 
   const __template = function({ state }) {
     return [  
     h("form", {"class": `mx-auto max-w-[500px]`}, [
-      h("ext-label", {"label": `E-mail`}, [
+      h("ext-label", {"label": `${state.lang.forms.email}`}, [
         h("input", {"type": `email`, "class": `w-full`, "value": state.email, "oninput": this.changeEmail.bind(this)}, "")
       ]),
-      h("ext-label", {"label": `Senha`}, [
+      h("ext-label", {"label": `${state.lang.forms.password}`}, [
         h("input", {"type": `password`, "class": `w-full`, "value": state.password, "oninput": this.changePassword.bind(this)}, "")
       ]),
       h("div", {"class": `text-center`}, [
-        h("button", {"class": `btn`, "type": `submit`, "onclick": this.submit.bind(this)}, `Entrar`)
+        h("button", {"class": `btn`, "type": `submit`, "onclick": this.submit.bind(this)}, `${state.lang.forms.enter}`)
       ])
     ])
   ]

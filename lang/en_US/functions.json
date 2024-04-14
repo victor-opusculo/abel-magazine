@@ -21,5 +21,7 @@
     "editionDeletedSuccess": "Edition deleted successfully!",
     "editionDeletedError": "Not possible to delete edition!",
     "editionRestoreSuccess": "Edition restored successfully!",
-    "editionRestoreError": "Not possible to restore edition!"
+    "editionRestoreError": "Not possible to restore edition!",
+    "submitterRegistrationSuccess": "Registered successfully!",
+    "submitterRegistrationError": "Not possible to register."
 }

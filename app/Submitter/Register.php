@@ -49,7 +49,7 @@ final class Register extends Component
                 langJson: Data::hscq(I18n::getFormsTranslationsAsJson()), 
                 lgpdtermversion: $this->lgpdTermVersion,
                 children:
-                tag('textarea', class: 'w-full h-[calc(100vh-200px)]', readonly: true, children: 
+                tag('textarea', class: 'w-full h-[calc(100vh-200px)]', name: 'lgpdTerm', readonly: true, children: 
                     text($this->lgpdTermText)
                 )    
             )

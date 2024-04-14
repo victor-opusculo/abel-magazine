@@ -35,6 +35,10 @@
     "approved": "Approved!",
     "disapproved": "Disapproved!",
     "approvedWithIddedFile": "Approved with identified authors.",
-    "submitterRegister": "Author/submitter registration"
+    "submitterRegister": "Author/submitter registration",
+    "submitterLogin": "Author log-in",
+    "submitterNotLoggedIn": "Author not logged in.",
+    "forgotPassword": "Forgot my password!",
+    "createAnAccount": "Create an account"
 
 }

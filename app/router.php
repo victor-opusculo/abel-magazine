@@ -62,6 +62,13 @@ return
     ],
     '/submitter' => fn() =>
     [
-        '/register' => \VictorOpusculo\AbelMagazine\App\Submitter\Register::class
+        '/login' => \VictorOpusculo\AbelMagazine\App\Submitter\Login::class,
+        '/register' => \VictorOpusculo\AbelMagazine\App\Submitter\Register::class,
+        '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Functions::class,
+        '/panel' => fn() =>
+        [
+            '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Home::class,
+            '__layout' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout::class
+        ]
     ]
 ];

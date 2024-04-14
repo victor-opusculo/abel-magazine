@@ -3,7 +3,8 @@
     const state = 
     { 
         password: "",
-        email: "" 
+        email: "",
+        lang: {}
     };
 
     const methods = 
@@ -11,15 +12,13 @@
         submit(e)
         {
             e.preventDefault();
-            const headers = new Headers({ 'Content-Type': 'application/json' });
-            const body = JSON.stringify({ data: { email: this.state.email, password: this.state.password } });
-            fetch(Parlaflix.Helpers.URLGenerator.generateApiUrl('/student/login'), { method: 'POST', headers, body })
-            .then(res => res.json())
-            .then(Parlaflix.Alerts.pushFromJsonResult)
-            .then(Parlaflix.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/student/panel', {}))
-            .catch(reason => Parlaflix.Alerts.push(Parlaflix.Alerts.types.error, String(reason)));
-
-            return true;
+            const data = { email: this.state.email, password: this.state.password };
+            
+            import(AbelMagazine.functionUrl('/submitter'))
+            .then(module => module.login(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/panel'))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogin));  
         },
 
         changeEmail(e)
@@ -32,18 +31,23 @@
             this.render({ ...this.state, password: e.target.value }); 
         }
     };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
 </script>
 
 <template>
     <form class="mx-auto max-w-[500px]">
-        <ext-label label="E-mail">
+        <ext-label label="${state.lang.forms.email}">
             <input type="email" class="w-full" :value="state.email" @input="changeEmail">
         </ext-label>
-        <ext-label label="Senha">
+        <ext-label label="${state.lang.forms.password}">
             <input type="password" class="w-full" :value="state.password" @input="changePassword">
         </ext-label>
         <div class="text-center">
-            <button class="btn" type="submit" @click="submit">Entrar</button>
+            <button class="btn" type="submit" @click="submit">${state.lang.forms.enter}</button>
         </div>
     </form>
 </template>

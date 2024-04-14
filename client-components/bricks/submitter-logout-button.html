@@ -1,18 +1,27 @@
 
 <script>
+    const state =
+    {
+        lang: {}
+    };
+
     const methods =
     {
         logout()
         {
-            fetch(Parlaflix.Helpers.URLGenerator.generateApiUrl('/student/logout'))
-            .then(res => res.json())
-            .then(Parlaflix.Alerts.pushFromJsonResult)
-            .then(Parlaflix.Helpers.URLGenerator.goToPageOnSuccess('/student/login', {}))
-            .catch(reason => Parlaflix.Alerts.push(Parlaflix.Alerts.types.error, String(reason)));
+            import(AbelMagazine.functionUrl('/submitter'))
+            .then(({ logout }) => logout())
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/login', {}))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogout));
         }
     };
 
+    function setup()
+    {
+        this.render({ lang: JSON.parse(this.getAttribute('langJson')) });
+    }
 </script>
 <template>
-    <button class="btn" @click="logout" type="button">Sair</button>
+    <button class="btn" @click="logout" type="button">${state.lang.forms.logout}</button>
 </template>

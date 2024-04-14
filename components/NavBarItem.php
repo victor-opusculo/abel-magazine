@@ -20,7 +20,7 @@ class NavBarItem extends Component
         class: '',
         children:
         [
-            tag('a', class: 'hover:bg-violet-700 active:bg-violet-800 rounded cursor-pointer inline-block px-4 py-1 md:py-2' , href: $this->url, children: text($this->label))
+            tag('a', class: 'hover:bg-indigo-700 font-bold hover:text-white active:bg-indigo-800 cursor-pointer inline-block px-4 py-1' , href: $this->url, children: text($this->label))
         ]);
     }
 }

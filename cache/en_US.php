@@ -23,6 +23,8 @@
     'fileAlreadyExistsOnServer' => 'Uploaded file already exists on server.',
     'errorDeletingArticleFile' => 'Error deleting article file.',
     'editionNotOpenForSubmissions' => 'This edition is not open for submissions.',
+    'emailAlreadyRegistered' => 'E-mail already registered.',
+    'passwordNotBlankMin5Chars' => 'Password should not be blank and must have 5 or more chars.',
   ),
   'forms' => 
   array (
@@ -105,14 +107,18 @@
     'editionDeletedError' => 'Not possible to delete edition!',
     'editionRestoreSuccess' => 'Edition restored successfully!',
     'editionRestoreError' => 'Not possible to restore edition!',
+    'submitterRegistrationSuccess' => 'Registered successfully!',
+    'submitterRegistrationError' => 'Not possible to register.',
   ),
   'layout' => 
   array (
     'topBarSiteDescription' => 'ABEL\'s scientific journal portal',
     'homePageTitle' => 'Welcome!',
     'adminLayoutAdminName' => 'Administrator logged-in: {name}',
+    'submitterLayoutUserName' => 'Author logged-in: {name}',
     'editProfile' => 'Edit profile',
     'adminPanelHome' => 'Home',
+    'submitterPanel' => 'Author panel',
   ),
   'pages' => 
   array (
@@ -153,5 +159,9 @@
     'disapproved' => 'Disapproved!',
     'approvedWithIddedFile' => 'Approved with identified authors.',
     'submitterRegister' => 'Author/submitter registration',
+    'submitterLogin' => 'Author log-in',
+    'submitterNotLoggedIn' => 'Author not logged in.',
+    'forgotPassword' => 'Forgot my password!',
+    'createAnAccount' => 'Create an account',
   ),
 );

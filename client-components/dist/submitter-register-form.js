@@ -37,7 +37,7 @@
         timezone: 'America/Sao_Paulo',
         lgpdConsentCheck: false,
         lgpdtermversion: 0,
-        lgpdTermText: '',
+        lgpd_term: '',
         lang: {},
         slotId: ''
     };
@@ -61,7 +61,7 @@
 
         submit(e)
         {
-            this.render({...this.state, lgpdTermText: document.getElementById('lgpdTermForm')?.elements['lgpdTerm']?.value ?? '***'});
+            this.render({...this.state, lgpd_term: document.getElementById('lgpdTermForm')?.elements['lgpdTerm']?.value ?? '***'});
             e.preventDefault();
 
             if (this.state.password !== this.state.password2)

@@ -10,5 +10,7 @@
     "errorMovingFileAfterUpload": "Error moving file after upload.",
     "fileAlreadyExistsOnServer": "Uploaded file already exists on server.",
     "errorDeletingArticleFile": "Error deleting article file.",
-    "editionNotOpenForSubmissions": "This edition is not open for submissions."
+    "editionNotOpenForSubmissions": "This edition is not open for submissions.",
+    "emailAlreadyRegistered": "E-mail already registered.",
+    "passwordNotBlankMin5Chars": "Password should not be blank and must have 5 or more chars."
 }

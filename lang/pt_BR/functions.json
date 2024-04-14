@@ -21,5 +21,7 @@
     "editionDeletedSuccess": "Edição excluída com sucesso!",
     "editionDeletedError": "Não foi possível excluir a edição!",
     "editionRestoreSuccess": "Edição restaurada com sucesso!",
-    "editionRestoreError": "Não foi possível restaurar a edição!"
+    "editionRestoreError": "Não foi possível restaurar a edição!",
+    "submitterRegistrationSuccess": "Registrado com sucesso!",
+    "submitterRegistrationError": "Não foi possível registrar."
 }

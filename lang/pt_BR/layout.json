@@ -2,6 +2,8 @@
     "topBarSiteDescription": "Portal de revistas da ABEL",
     "homePageTitle": "Bem vindo(a)!",
     "adminLayoutAdminName": "Administrador(a) logado(a): {name}",
+    "submitterLayoutUserName": "Autor logado: {name}",
     "editProfile": "Alterar perfil",
-    "adminPanelHome": "Home"
+    "adminPanelHome": "Home",
+    "submitterPanel": "Painel do autor"
 }

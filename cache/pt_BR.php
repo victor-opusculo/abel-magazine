@@ -23,6 +23,8 @@
     'fileAlreadyExistsOnServer' => 'Arquivo enviado já existente no servidor.',
     'errorDeletingArticleFile' => 'Erro ao excluir o arquivo de artigo.',
     'editionNotOpenForSubmissions' => 'Esta edição não está aberta para submissões.',
+    'emailAlreadyRegistered' => 'E-mail já cadastrado.',
+    'passwordNotBlankMin5Chars' => 'A senha não pode ser em branco e deve ter 5 ou mais caracteres.',
   ),
   'forms' => 
   array (
@@ -105,14 +107,18 @@
     'editionDeletedError' => 'Não foi possível excluir a edição!',
     'editionRestoreSuccess' => 'Edição restaurada com sucesso!',
     'editionRestoreError' => 'Não foi possível restaurar a edição!',
+    'submitterRegistrationSuccess' => 'Registrado com sucesso!',
+    'submitterRegistrationError' => 'Não foi possível registrar.',
   ),
   'layout' => 
   array (
     'topBarSiteDescription' => 'Portal de revistas da ABEL',
     'homePageTitle' => 'Bem vindo(a)!',
     'adminLayoutAdminName' => 'Administrador(a) logado(a): {name}',
+    'submitterLayoutUserName' => 'Autor logado: {name}',
     'editProfile' => 'Alterar perfil',
     'adminPanelHome' => 'Home',
+    'submitterPanel' => 'Painel do autor',
   ),
   'pages' => 
   array (
@@ -153,5 +159,9 @@
     'disapproved' => 'Reprovado!',
     'approvedWithIddedFile' => 'Aprovado com identificação dos autores.',
     'submitterRegister' => 'Cadastro de autor',
+    'submitterLogin' => 'Log-in de autor',
+    'submitterNotLoggedIn' => 'Autor não logado.',
+    'forgotPassword' => 'Esqueci minha senha!',
+    'createAnAccount' => 'Criar uma conta',
   ),
 );

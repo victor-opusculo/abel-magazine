@@ -1,6 +1,8 @@
 <?php
 namespace VictorOpusculo\AbelMagazine\App;
 
+use VictorOpusculo\AbelMagazine\Components\NavBar;
+use VictorOpusculo\AbelMagazine\Components\NavBarItem;
 use VictorOpusculo\AbelMagazine\Components\Navigation\TopBar;
 use VictorOpusculo\AbelMagazine\Components\PageMessages;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
@@ -21,6 +23,13 @@ final class BaseLayout extends Component
             tag('div', class: 'min-h-[calc(100vh-150px)]', children:
             [
                 component(TopBar::class),
+                tag('header', class: 'bg-indigo-300', children:
+                    component(NavBar::class, children:
+                    [
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/'), label: I18n::get('layout.adminPanelHome')),
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/submitter/panel'), label: I18n::get('layout.submitterPanel'))
+                    ])
+                ),
                 component(PageMessages::class),
                 $this->children
             ]),

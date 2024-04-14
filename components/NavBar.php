@@ -1,8 +1,6 @@
 <?php
 namespace VictorOpusculo\AbelMagazine\Components;
 
-use VictorOpusculo\AbelMagazine\Components\Layout\DarkModeToggler;
-use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\PComp\{Component, ScriptManager};
 use function VictorOpusculo\PComp\Prelude\{tag, component, scTag, text};
 
@@ -10,18 +8,11 @@ class NavBar extends Component
 {
     protected function setUp()
     {
-       ScriptManager::registerScript('darkModeTogglerScript', 
-            "window.addEventListener('load', () => document.getElementById('darkModeToggler').checked = window.localStorage.darkMode === '1');");
+
     } 
 
     protected function markup() : Component
     {
-        return tag('div', children: 
-        [
-            component(NavBarItem::class, url: URLGenerator::generatePageUrl('/'), label: 'Início'),
-            component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/category'), label: 'Cursos'),
-            component(NavBarItem::class, url: URLGenerator::generatePageUrl('/student/panel'), label: 'Área do estudante'),
-            component(NavBarItem::class, url: URLGenerator::generatePageUrl('/certificate/auth'), label: 'Verificar certificado')
-        ]);
+        return tag('div', children: $this->children);
     }
 }

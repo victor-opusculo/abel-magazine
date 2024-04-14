@@ -35,7 +35,13 @@
     "approved": "Aprovado!",
     "disapproved": "Reprovado!",
     "approvedWithIddedFile": "Aprovado com identificação dos autores.",
-    "submitterRegister": "Cadastro de autor"
+    "submitterRegister": "Cadastro de autor",
+    "submitterLogin": "Log-in de autor",
+    "submitterNotLoggedIn": "Autor não logado.",
+    "forgotPassword": "Esqueci minha senha!",
+    "createAnAccount": "Criar uma conta"
+
+
 
 
 

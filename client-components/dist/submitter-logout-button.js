@@ -27,23 +27,32 @@
     };
 
   
+    const state =
+    {
+        lang: {}
+    };
+
     const methods =
     {
         logout()
         {
-            fetch(Parlaflix.Helpers.URLGenerator.generateApiUrl('/student/logout'))
-            .then(res => res.json())
-            .then(Parlaflix.Alerts.pushFromJsonResult)
-            .then(Parlaflix.Helpers.URLGenerator.goToPageOnSuccess('/student/login', {}))
-            .catch(reason => Parlaflix.Alerts.push(Parlaflix.Alerts.types.error, String(reason)));
+            import(AbelMagazine.functionUrl('/submitter'))
+            .then(({ logout }) => logout())
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/login', {}))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogout));
         }
     };
 
+    function setup()
+    {
+        this.render({ lang: JSON.parse(this.getAttribute('langJson')) });
+    }
 
 
   const __template = function({ state }) {
     return [  
-    h("button", {"class": `btn`, "onclick": this.logout.bind(this), "type": `button`}, `Sair`)
+    h("button", {"class": `btn`, "onclick": this.logout.bind(this), "type": `button`}, `${state.lang.forms.logout}`)
   ]
   }
 
