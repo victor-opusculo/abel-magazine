@@ -14,5 +14,12 @@
     "magazineDeletedSuccess": "Journal deleted successfully!",
     "magazineDeleteError": "Not possible to delete magazine.",
     "magazineRestoreSuccess": "Jorunal restored successfully!",
-    "magazineRestoreError": "Not possible to restore journal!"
+    "magazineRestoreError": "Not possible to restore journal!",
+    "editionCreatedSuccess": "Edition created successfully!",
+    "editionCreatedError": "Not possible to create edition!",
+    "editionEditedSuccess": "Edition edited successfully!",
+    "editionDeletedSuccess": "Edition deleted successfully!",
+    "editionDeletedError": "Not possible to delete edition!",
+    "editionRestoreSuccess": "Edition restored successfully!",
+    "editionRestoreError": "Not possible to restore edition!"
 }

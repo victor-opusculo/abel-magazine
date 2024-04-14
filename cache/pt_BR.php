@@ -32,6 +32,8 @@
     'title' => 'Título',
     'refDate' => 'Data de publicação',
     'editionLabel' => 'Rótulo/número da edição',
+    'isEditionPublished' => 'Está publicada',
+    'isEditionOpen' => 'Está aberta para submissões',
     'file' => 'Arquivo',
     'fileExtension' => 'Extensão',
     'stringIdentifier' => 'Termo identificardor',
@@ -59,6 +61,8 @@
     'errorLogin' => 'Erro ao fazer log-in!',
     'errorCreateMagazine' => 'Erro ao criar revista!',
     'errorEditMagazine' => 'Erro ao editar revista!',
+    'errorCreateEdition' => 'Erro ao criar edição!',
+    'errorEditEdition' => 'Erro ao editar edição!',
   ),
   'functions' => 
   array (
@@ -78,6 +82,13 @@
     'magazineDeleteError' => 'Não foi possível excluir a revista.',
     'magazineRestoreSuccess' => 'Revista restaurada com sucesso!',
     'magazineRestoreError' => 'Não foi possível restaurar a revista!',
+    'editionCreatedSuccess' => 'Edição criada com sucesso!',
+    'editionCreatedError' => 'Não foi possível criar a edição!',
+    'editionEditedSuccess' => 'Edição editada com sucesso!',
+    'editionDeletedSuccess' => 'Edição excluída com sucesso!',
+    'editionDeletedError' => 'Não foi possível excluir a edição!',
+    'editionRestoreSuccess' => 'Edição restaurada com sucesso!',
+    'editionRestoreError' => 'Não foi possível restaurar a edição!',
   ),
   'layout' => 
   array (
@@ -112,5 +123,10 @@
     'showDeleted' => 'Mostrar excluídos',
     'showNonDeletedOnly' => 'Mostrar não excluídos somente',
     'newEdition' => 'Nova edição',
+    'viewEdition' => 'Ver edição',
+    'editEdition' => 'Editar edição',
+    'deleteEdition' => 'Excluir edição',
+    'submissions' => 'Submissões',
+    'magazine' => 'Revista',
   ),
 );

@@ -43,7 +43,7 @@ final class View extends Component
             $this->magazine = $this->magazine->getSingle($conn)
             ->fetchCoverImage($conn);
 
-            [ $edCount, $editions ] = $this->magazine->fetchMultipleEditions($conn, $_GET['q'] ?? '', $_GET['order_by'] ?? '', $_GET['page_num'] ?? 1, self::NUM_EDITIONS_ON_PAGE, $showSoftDeleted);
+            [ $edCount, $editions ] = $this->magazine->fetchMultipleEditions($conn, $_GET['q'] ?? '', $_GET['order_by'] ?? '', $_GET['page_num'] ?? 1, self::NUM_EDITIONS_ON_PAGE, $this->showSoftDeletedEditions);
             $this->edCount = $edCount;
             $this->editions = Data::transformDataRows($editions,
             [
@@ -116,9 +116,9 @@ final class View extends Component
             component(DataGrid::class,
                 dataRows: $this->editions,
                 rudButtonsFunctionParamName: I18n::get('forms.id'),
-                detailsButtonURL: URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}"),
-                editButtonURL: URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}/edit"),
-                deleteButtonURL: URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}/delete"),
+                detailsButtonURL: URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}", $this->showSoftDeletedEditions ? [ 'show_deleted' => 1 ] : []),
+                editButtonURL: !$this->showSoftDeletedEditions ? URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}/edit") : null,
+                deleteButtonURL: !$this->showSoftDeletedEditions ? URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazine->id->unwrapOr(0)}/editions/{param}/delete") : null,
             ),
             component(Paginator::class,
                 totalItems: $this->edCount,

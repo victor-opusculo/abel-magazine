@@ -40,7 +40,7 @@ final class Data
     /** 
      * @template T
      * @param T[] $input
-     * @param (callable(T $row):mixed)[] $rules
+     * @param array<string,pure-callable> $rules
      * @return mixed[]
      */
     public static function transformDataRows(array $input, array $rules) : array

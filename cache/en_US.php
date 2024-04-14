@@ -32,6 +32,8 @@
     'title' => 'Title',
     'refDate' => 'Publication date',
     'editionLabel' => 'Edition number label',
+    'isEditionPublished' => 'Is published',
+    'isEditionOpen' => 'Is open for submissions',
     'file' => 'File',
     'fileExtension' => 'File extension',
     'stringIdentifier' => 'String identifier',
@@ -59,6 +61,8 @@
     'errorLogin' => 'Log-in error!',
     'errorCreateMagazine' => 'Error creating journal!',
     'errorEditMagazine' => 'Error editing journal!',
+    'errorCreateEdition' => 'Error creating edition!',
+    'errorEditEdition' => 'Error editing edition!',
   ),
   'functions' => 
   array (
@@ -78,6 +82,13 @@
     'magazineDeleteError' => 'Not possible to delete magazine.',
     'magazineRestoreSuccess' => 'Jorunal restored successfully!',
     'magazineRestoreError' => 'Not possible to restore journal!',
+    'editionCreatedSuccess' => 'Edition created successfully!',
+    'editionCreatedError' => 'Not possible to create edition!',
+    'editionEditedSuccess' => 'Edition edited successfully!',
+    'editionDeletedSuccess' => 'Edition deleted successfully!',
+    'editionDeletedError' => 'Not possible to delete edition!',
+    'editionRestoreSuccess' => 'Edition restored successfully!',
+    'editionRestoreError' => 'Not possible to restore edition!',
   ),
   'layout' => 
   array (
@@ -112,5 +123,10 @@
     'showDeleted' => 'Show deleted',
     'showNonDeletedOnly' => 'Show non deleted only',
     'newEdition' => 'New edition',
+    'viewEdition' => 'View edition',
+    'editEdition' => 'Edit edition',
+    'deleteEdition' => 'Delete edition',
+    'submissions' => 'Submissions',
+    'magazine' => 'Journal',
   ),
 );

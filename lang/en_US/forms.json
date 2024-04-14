@@ -10,6 +10,8 @@
     "title": "Title",
     "refDate": "Publication date",
     "editionLabel": "Edition number label",
+    "isEditionPublished": "Is published",
+    "isEditionOpen": "Is open for submissions",
     "file": "File",
     "fileExtension": "File extension",
     "stringIdentifier": "String identifier",
@@ -36,5 +38,7 @@
     "errorEditMedia": "Error editing media!",
     "errorLogin": "Log-in error!",
     "errorCreateMagazine": "Error creating journal!",
-    "errorEditMagazine": "Error editing journal!"
+    "errorEditMagazine": "Error editing journal!",
+    "errorCreateEdition": "Error creating edition!",
+    "errorEditEdition": "Error editing edition!"
 }

@@ -21,6 +21,13 @@
     "noPicture": "Sem imagem",
     "showDeleted": "Mostrar excluídos",
     "showNonDeletedOnly": "Mostrar não excluídos somente",
-    "newEdition": "Nova edição"
+    "newEdition": "Nova edição",
+    "viewEdition": "Ver edição",
+    "editEdition": "Editar edição",
+    "deleteEdition": "Excluir edição",
+    "submissions": "Submissões",
+    "magazine": "Revista"
+
+
 
 }

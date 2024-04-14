@@ -34,7 +34,7 @@ class Edition extends DataEntity
             'description' => new DataProperty('description', fn() => '', DataProperty::MYSQL_STRING),
             'is_published' => new DataProperty('is_published', fn() => 1, DataProperty::MYSQL_INT),
             'is_open_for_submissions' => new DataProperty('is_open_for_submissions', fn() => 0, DataProperty::MYSQL_INT),
-            'deleted_at' => new DataProperty('deleted_at', fn() => null, DataProperty::MYSQL_STRING)
+            'deleted_at' => new DataProperty(null, fn() => null, DataProperty::MYSQL_STRING)
         ];
 
         $this->properties->is_published->valueTransformer = [\VictorOpusculo\AbelMagazine\Lib\Helpers\Data::class, 'booleanTransformer'];
@@ -48,7 +48,7 @@ class Edition extends DataEntity
     protected array $primaryKeys = ['id'];
 
     public bool $includeSoftDeleted = false;
-
+    public ?Magazine $magazine = null;
 
     public function getSingle(mysqli $conn): static
     {
@@ -179,5 +179,23 @@ class Edition extends DataEntity
 
         $drs = $selector->run($conn, SqlSelector::RETURN_ALL_ASSOC);
         return array_map([ $this, 'newInstanceFromDataRowFromDatabase' ], $drs);
+    }
+
+    public function fetchMagazine(mysqli $conn) : self
+    {
+        $this->magazine = (new Magazine([ 'id' => $this->magazine_id->unwrapOr(0) ]))->getSingle($conn);
+        return $this;
+    }
+
+    public function softRecover(mysqli $conn) : array
+    {
+        $this->deleted_at = Option::some(null);
+        return $this->save($conn);
+    }
+
+    public function softDelete(mysqli $conn) : array
+    {
+        $this->deleted_at = Option::some(gmdate('Y-m-d H:i:s'));
+        return $this->save($conn);
     }
 }

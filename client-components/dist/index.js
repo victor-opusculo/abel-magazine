@@ -19,6 +19,9 @@ customElements.define('data-grid', DataGrid)
 import DeleteEntityForm from './delete-entity-form.js'
 customElements.define('delete-entity-form', DeleteEntityForm)
 
+import EditEditionForm from './edit-edition-form.js'
+customElements.define('edit-edition-form', EditEditionForm)
+
 import EditMagazineForm from './edit-magazine-form.js'
 customElements.define('edit-magazine-form', EditMagazineForm)
 

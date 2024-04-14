@@ -14,5 +14,12 @@
     "magazineDeletedSuccess": "Revista excluída com sucesso!",
     "magazineDeleteError": "Não foi possível excluir a revista.",
     "magazineRestoreSuccess": "Revista restaurada com sucesso!",
-    "magazineRestoreError": "Não foi possível restaurar a revista!"
+    "magazineRestoreError": "Não foi possível restaurar a revista!",
+    "editionCreatedSuccess": "Edição criada com sucesso!",
+    "editionCreatedError": "Não foi possível criar a edição!",
+    "editionEditedSuccess": "Edição editada com sucesso!",
+    "editionDeletedSuccess": "Edição excluída com sucesso!",
+    "editionDeletedError": "Não foi possível excluir a edição!",
+    "editionRestoreSuccess": "Edição restaurada com sucesso!",
+    "editionRestoreError": "Não foi possível restaurar a edição!"
 }

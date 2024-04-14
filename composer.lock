@@ -92,12 +92,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/victor-opusculo/p-comp.git",
-                "reference": "88a861e990a818077065466a148b94ff6515b357"
+                "reference": "c8a5adc11331a2c48f1cdfd64a7fe8de46969d01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/victor-opusculo/p-comp/zipball/88a861e990a818077065466a148b94ff6515b357",
-                "reference": "88a861e990a818077065466a148b94ff6515b357",
+                "url": "https://api.github.com/repos/victor-opusculo/p-comp/zipball/c8a5adc11331a2c48f1cdfd64a7fe8de46969d01",
+                "reference": "c8a5adc11331a2c48f1cdfd64a7fe8de46969d01",
                 "shasum": ""
             },
             "require": {
@@ -122,10 +122,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/victor-opusculo/p-comp/tree/v0.1.0",
+                "source": "https://github.com/victor-opusculo/p-comp/tree/v0.1.1",
                 "issues": "https://github.com/victor-opusculo/p-comp/issues"
             },
-            "time": "2024-04-03T23:35:11+00:00"
+            "time": "2024-04-13T23:24:51+00:00"
         }
     ],
     "packages-dev": [

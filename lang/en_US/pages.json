@@ -21,6 +21,11 @@
     "noPicture": "No picture",
     "showDeleted": "Show deleted",
     "showNonDeletedOnly": "Show non deleted only",
-    "newEdition": "New edition"
+    "newEdition": "New edition",
+    "viewEdition": "View edition",
+    "editEdition": "Edit edition",
+    "deleteEdition": "Delete edition",
+    "submissions": "Submissions",
+    "magazine": "Journal"
 
 }

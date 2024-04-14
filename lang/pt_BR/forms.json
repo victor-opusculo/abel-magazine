@@ -10,6 +10,8 @@
     "title": "Título",
     "refDate": "Data de publicação",
     "editionLabel": "Rótulo/número da edição",
+    "isEditionPublished": "Está publicada",
+    "isEditionOpen": "Está aberta para submissões",
     "file": "Arquivo",
     "fileExtension": "Extensão",
     "stringIdentifier": "Termo identificardor",
@@ -36,6 +38,7 @@
     "errorEditMedia": "Erro ao editar mídia!",
     "errorLogin": "Erro ao fazer log-in!",
     "errorCreateMagazine": "Erro ao criar revista!",
-    "errorEditMagazine": "Erro ao editar revista!"
-
+    "errorEditMagazine": "Erro ao editar revista!",
+    "errorCreateEdition": "Erro ao criar edição!",
+    "errorEditEdition": "Erro ao editar edição!"
 }

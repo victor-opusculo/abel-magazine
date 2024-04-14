@@ -1,0 +1,92 @@
+<script>
+    const state =
+    {
+        id: null,
+        magazine_id: null,
+        ref_date: null,
+        edition_label: '',
+        title: '',
+        description: '',
+        is_published: 0,
+        is_open_for_submissions: 0,
+        lang: {}
+    };
+
+    const methods =
+    {
+        changeField(e)
+        {
+            if (e.target.type === 'checkbox')
+                this.render({ ...this.state, [e.target.name]: Number(!Number(this.state[e.target.name])) });
+            else
+                this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        create(data)
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/magazines/${this.state.magazine_id}/editions`))
+            .then(module => module.create(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(([ ret, json ]) =>
+                {
+                    if (json.success && json.newId)
+                        window.location.href = AbelMagazine.Helpers.URLGenerator.generatePageUrl(`/admin/panel/magazines/${this.state.magazine_id}/editions/${json.newId}`);
+                })
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorCreateEdition));
+        },
+
+        edit(data)
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/magazines/${this.state.magazine_id}/editions/${this.state.id}`))
+            .then(module => module.edit(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorEditEdition));
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const data = {};
+            for (const prop in this.state)
+                if (prop !== 'lang')
+                    data['editions:' + prop] = this.state[prop];
+
+            if (this.state.id)
+                this.edit(data);
+            else
+                this.create(data);
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.refDate}">
+            <input type="date" required name="ref_date" @change="changeField" :value="state.ref_date" class="w-full" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.title}">
+            <input type="text" maxlength="140" required name="title" @change="changeField" :value="state.title" class="w-full" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.description}" linebreak="1">
+            <textarea name="description" class="w-full" row="5" maxlength="2000" @change="changeField" :value="state.description"></textarea>
+        </ext-label>
+        <ext-label label="${state.lang.forms.editionLabel}">
+            <input type="text" maxlength="140" required name="edition_label" placeholder="Ex.: Ano 1, número 1" @change="changeField" :value="state.edition_label" class="w-full" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.isEditionPublished}" reverse="1">
+            <input type="checkbox" name="is_published" @change="changeField" :checked="Boolean(Number(state.is_published))"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.isEditionOpen}" reverse="1">
+            <input type="checkbox" name="is_open_for_submissions" @change="changeField" :checked="Boolean(Number(state.is_open_for_submissions))"/>
+        </ext-label>
+        <div class="mt-2 text-center">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

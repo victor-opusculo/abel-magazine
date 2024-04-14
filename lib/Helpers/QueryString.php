@@ -12,6 +12,16 @@ abstract class QueryString
 		
 		return array_search($keyValuePair[0], $exceptions) === false ? true : false;
 	}
+
+	public static function getQueryStringAsArrayExcept(...$exceptions) : array
+	{
+		$qs = $_GET;
+		foreach ($exceptions as $ex)
+			if ($qs[$ex])
+				unset($qs[$ex]);
+
+		return $qs;
+	}
 	
 	public static function formatNew($name, $value, $toBeAppendedToCurrentQueryString = true)
 	{

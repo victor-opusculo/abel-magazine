@@ -8,8 +8,16 @@ use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Magazine;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 
+require_once __DIR__ . '/../../../../../lib/Middlewares/AdminLoginCheck.php';
+
 final class Functions extends BaseFunctionsClass
 {
+    public function __construct(?array $params = [])
+    {
+        parent::__construct($params);
+        $this->middlewares[] = '\VictorOpusculo\AbelMagazine\Lib\Middlewares\adminLoginCheck';
+    }
+
     protected $magazineId;
 
     public function edit(array $data) : array
