@@ -9,8 +9,6 @@ use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Administrators\Administrator;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\PComp\Component;
-use VictorOpusculo\PComp\Context;
-use VictorOpusculo\PComp\HeadManager;
 
 use function VictorOpusculo\PComp\Prelude\tag;
 use function VictorOpusculo\PComp\Prelude\text;

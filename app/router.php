@@ -5,7 +5,6 @@ return
 [
     '/' => \VictorOpusculo\AbelMagazine\App\HomePage::class,
     '__layout' => \VictorOpusculo\AbelMagazine\App\BaseLayout::class,
-    '__functions' => \VictorOpusculo\AbelMagazine\App\HomeFunctions::class,
     '/admin' => fn() =>
     [
         '/login' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
@@ -53,5 +52,16 @@ return
             ]
         ],
         '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Functions::class
+    ],
+    '/magazine' => fn() =>
+    [
+        '/[magazineStrId]' => fn() =>
+        [
+            '/' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Home::class
+        ]
+    ],
+    '/submitter' => fn() =>
+    [
+        '/register' => \VictorOpusculo\AbelMagazine\App\Submitter\Register::class
     ]
 ];

@@ -2,8 +2,13 @@
     "emailNotFound": "E-mail not found!",
     "newPasswordTooShort": "New password is too short. It must be at least 5 chars long.",
     "wrongUserTypeReqAdmin": "You must be logged in as administrator.",
+    "wrongUserTypeReqAuthor": "You must be logged in as author/submitter.",
     "invalidId": "Invalid ID.",
     "magazineNotFound": "Journal not found!",
     "stringIdentifierAlreadyExists": "String identifier already exists",
-    "editionNotFound": "Edition not found!"
+    "editionNotFound": "Edition not found!",
+    "errorMovingFileAfterUpload": "Error moving file after upload.",
+    "fileAlreadyExistsOnServer": "Uploaded file already exists on server.",
+    "errorDeletingArticleFile": "Error deleting article file.",
+    "editionNotOpenForSubmissions": "This edition is not open for submissions."
 }

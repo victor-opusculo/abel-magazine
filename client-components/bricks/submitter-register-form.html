@@ -1,0 +1,105 @@
+
+<script>
+    const state =
+    {
+        fullname: '',
+        email: '',
+        telephone: '',
+        password: '',
+        password2: '',
+        timezone: 'America/Sao_Paulo',
+        lgpdConsentCheck: false,
+        lgpdtermversion: 0,
+        lgpdTermText: '',
+        lang: {},
+        slotId: ''
+    };
+
+    const methods =
+    {
+        fieldChanged(e)
+        {
+            this.render({ ...this.state, [ e.target.name ]: e.target.value });
+        },
+
+        consentChecked(e)
+        {
+            this.render({ ...this.state, lgpdConsentCheck: e.target.checked });
+        },
+
+        showLgpd()
+        {
+            document.getElementById('lgpdTermDialog')?.showModal();
+        },
+
+        submit(e)
+        {
+            this.render({...this.state, lgpdTermText: document.getElementById('lgpdTermForm')?.elements['lgpdTerm']?.value ?? '***'});
+            e.preventDefault();
+
+            if (this.state.password !== this.state.password2)
+            {
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.info, this.state.lang.forms.passwordsNotEqual);
+                return;
+            }
+
+            const data = {};
+            for (const prop in this.state)
+                data['submitters:' + prop] = this.state[prop];
+
+            import(AbelMagazine.functionUrl('/submitter'))
+            .then(module => module.register(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/login'))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorRegisterSubmitter));            
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+</script>
+
+<template>
+    <form class="mx-auto max-w-[700px]" @submit="submit">
+        <ext-label label="${state.lang.forms.fullName}">
+            <input type="text" required class="w-full" maxlength="140" name="fullname" :value="state.fullname" @input="fieldChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.email}">
+            <input type="email" required class="w-full" maxlength="140" name="email" :value="state.email" @input="fieldChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.telephone}">
+            <input type="text" class="w-full" maxlength="140" name="telephone" :value="state.telephone" @input="fieldChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.password}">
+            <input type="password" required class="w-full" maxlength="140" name="password" :value="state.password" @input="fieldChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.retypePassword}">
+            <input type="password" required class="w-full" maxlength="140" name="password2" :value="state.password2" @input="fieldChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.yourTimezone}">
+            <select @change="fieldChanged" name="timezone">
+                <option :for="dtz in AbelMagazine.Time.TimeZones" :value="dtz" :selected="dtz === 'America/Sao_Paulo'">${dtz}</option>
+            </select>
+        </ext-label>
+        <div class="mt-4">
+            ${state.lang.forms.doYouAgreeWithLgpdTerm}
+            <button type="button" class="btn" @click="showLgpd">${state.lang.forms.read}</button>
+        </div>
+        <ext-label reverse="1" label="${state.lang.forms.iAgree}">
+            <input type="checkbox" required value="${state.lgpdTermVersion}" :checked="state.lgpdConsentCheck" @change="consentChecked"/>
+        </ext-label>
+        <div class="text-center mt-4">
+            <button class="btn" type="submit">${state.lang.forms.register}</button>
+        </div>
+    </form>
+    <dialog id="lgpdTermDialog" class="md:w-[700px] w-screen h-screen backdrop:bg-gray-700/60 p-4 bg-neutral-100 dark:bg-neutral-800">
+        <form id="lgpdTermForm" method="dialog">
+            <slot id="${state.slotId}"></slot>
+            <div class="text-center my-4">
+                <button class="btn" type="submit">${state.lang.forms.close}</button>
+            </div>
+        </form>
+    </dialog>
+</template>

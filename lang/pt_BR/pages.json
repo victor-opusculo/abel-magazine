@@ -26,7 +26,16 @@
     "editEdition": "Editar edição",
     "deleteEdition": "Excluir edição",
     "submissions": "Submissões",
-    "magazine": "Revista"
+    "magazine": "Revista",
+    "edition": "Edição",
+    "editions": "Edições",
+    "submissionsOpen": "Submissões abertas!",
+    "publicationSoon": "Publicação em breve!",
+    "evaluationInProgress": "Aguardando parecer do avaliador.",
+    "approved": "Aprovado!",
+    "disapproved": "Reprovado!",
+    "approvedWithIddedFile": "Aprovado com identificação dos autores.",
+    "submitterRegister": "Cadastro de autor"
 
 
 

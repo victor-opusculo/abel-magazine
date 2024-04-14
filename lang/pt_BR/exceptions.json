@@ -2,8 +2,13 @@
     "emailNotFound": "E-mail não localizado!",
     "newPasswordTooShort": "Senha nova muito curta! Deve haver pelo menos 5 caracteres.",
     "wrongUserTypeReqAdmin": "Você precisa estar logado como administrador.",
+    "wrongUserTypeReqAuthor": "Você precisa estar logado como autor.",
     "invalidId": "ID inválido.",
     "magazineNotFound": "Revista não encontrada!",
     "stringIdentifierAlreadyExists": "Identificador de texto já existente!",
-    "editionNotFound": "Edição não encontrada!"
+    "editionNotFound": "Edição não encontrada!",
+    "errorMovingFileAfterUpload": "Erro ao mover arquivo após upload.",
+    "fileAlreadyExistsOnServer": "Arquivo enviado já existente no servidor.",
+    "errorDeletingArticleFile": "Erro ao excluir o arquivo de artigo.",
+    "editionNotOpenForSubmissions": "Esta edição não está aberta para submissões."
 }

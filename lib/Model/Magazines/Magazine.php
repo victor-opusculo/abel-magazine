@@ -40,6 +40,7 @@ class Magazine extends DataEntity
     protected array $primaryKeys = ['id'];
 
     public ?Media $coverImage = null;
+    public int $editionCount = 0;
     public bool $includeSoftDeleted = false;
 
     public function fetchCoverImage(mysqli $conn) : self
@@ -66,6 +67,19 @@ class Magazine extends DataEntity
             return $this->newInstanceFromDataRowFromDatabase($dr);
         else
             throw new DatabaseEntityNotFound(I18n::get('exceptions.magazineNotFound'), $this->databaseTable);
+    }
+
+    /** @return Magazine[] */
+    public function getAll(mysqli $conn): array
+    {
+        $selector = $this->getGetSingleSqlSelector();
+        $selector
+        ->clearValues()
+        ->clearWhereClauses()
+        ->setOrderBy("name ASC");
+
+        $drs = $selector->run($conn, SqlSelector::RETURN_ALL_ASSOC);
+        return array_map([ $this, 'newInstanceFromDataRowFromDatabase' ], $drs);
     }
 
     public function getCount(mysqli $conn, string $searchKeywords, bool $includeSoftDeleted = false) : int
@@ -168,6 +182,12 @@ class Magazine extends DataEntity
     {
         $this->deleted_at = Option::some(gmdate('Y-m-d H:i:s'));
         return $this->save($conn);
+    }
+
+    public function fetchEditionCount(mysqli $conn) : self
+    {
+        $this->editionCount = (new Edition([ 'magazine_id' => $this->id->unwrapOr(0) ]))->getCountFromMagazine($conn, '');
+        return $this;
     }
 
     /** @return array{int, Edition[]} */

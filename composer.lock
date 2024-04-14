@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/victor-opusculo/my-orm.git",
-                "reference": "ec1bd3f1d33f5cf8127c719f9bc539c67330242a"
+                "reference": "fa21f575e68f651122631b6c5f5946c01705e010"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/victor-opusculo/my-orm/zipball/ec1bd3f1d33f5cf8127c719f9bc539c67330242a",
-                "reference": "ec1bd3f1d33f5cf8127c719f9bc539c67330242a",
+                "url": "https://api.github.com/repos/victor-opusculo/my-orm/zipball/fa21f575e68f651122631b6c5f5946c01705e010",
+                "reference": "fa21f575e68f651122631b6c5f5946c01705e010",
                 "shasum": ""
             },
             "default-branch": true,
@@ -81,10 +81,10 @@
             ],
             "description": "ORM simples para apps PHP usando conexões com bancos MySQL/MariaDB através do driver mysqli.",
             "support": {
-                "source": "https://github.com/victor-opusculo/my-orm/tree/v0.1.0",
+                "source": "https://github.com/victor-opusculo/my-orm/tree/v0.1.1",
                 "issues": "https://github.com/victor-opusculo/my-orm/issues"
             },
-            "time": "2024-04-04T00:10:14+00:00"
+            "time": "2024-04-14T18:22:30+00:00"
         },
         {
             "name": "victor-opusculo/p-comp",

@@ -25,6 +25,7 @@ URLGenerator::loadConfigs();
 		<meta name="keywords" content="revista, científica, ciência, escolas de governo, estado, governo, legislativo, contas públicas, artigos">
   		<meta name="author" content="Victor Opusculo Oliveira Ventura de Almeida">
 		<link rel="stylesheet" href="<?= URLGenerator::generateFileUrl('assets/twoutput.css') ?>"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?= URLGenerator::generateFileUrl("assets/favicon.ico") ?>" />
 		<script>
 			const AbelMagazine = {};
 			AbelMagazine.Lang ??= { ...(() => (<?= I18n::getAlertsTranslationsAsJson() ?>))() };

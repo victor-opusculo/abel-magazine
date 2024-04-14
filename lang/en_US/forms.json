@@ -1,5 +1,14 @@
 {
     "email": "E-mail",
+    "telephone": "Telephone number",
+    "fullName": "Full name",
+    "retypePassword": "Retype password",
+    "yourTimezone": "Your timezone",
+    "doYouAgreeWithLgpdTerm": "Do you agree with the consent form for the use of your personal data?",
+    "read": "Read",
+    "iAgree": "I agree",
+    "register": "Register",
+    "close": "Close",
     "password": "Password",
     "enter": "Log-in",
     "logout": "Log-out",
@@ -40,5 +49,8 @@
     "errorCreateMagazine": "Error creating journal!",
     "errorEditMagazine": "Error editing journal!",
     "errorCreateEdition": "Error creating edition!",
-    "errorEditEdition": "Error editing edition!"
+    "errorEditEdition": "Error editing edition!",
+    "errorRegisterSubmitter": "Error registering!",
+    "passwordsNotEqual": "Passwords are not equal."
+
 }

@@ -3,19 +3,20 @@
 namespace VictorOpusculo\AbelMagazine\Lib\Middlewares;
 
 use VictorOpusculo\AbelMagazine\Lib\Helpers\UserTypes;
+use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 
 function studentLoginCheck()
 {
-    session_name('parlaflix_student_user');
+    session_name('abel_magazine_author_user');
     session_start();
 
-    if (($_SESSION['user_type'] ?? '') !== UserTypes::student)
+    if (($_SESSION['user_type'] ?? '') !== UserTypes::author)
     {
         session_unset();
         if (isset($_SESSION)) session_destroy();
 
         header('Content-Type: application/json', true, 401);
-        echo json_encode([ 'error' => 'Você não está logado como aluno!' ]);
+        echo json_encode([ 'error' => I18n::get('exceptions.wrongUserTypeReqAuthor') ]);
         exit;
     }
 }

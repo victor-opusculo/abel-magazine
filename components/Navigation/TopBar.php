@@ -25,7 +25,9 @@ class TopBar extends Component
     {
         return tag('div', class: 'flex flex-row justify-between p-2 bg-indigo-800', children: 
         [
-            tag('span', class: 'uppercase text-white', children: text(I18n::get("layout.topBarSiteDescription"))),
+            tag('span', class: 'uppercase text-white', children: 
+                tag('a', href: URLGenerator::generatePageUrl('/'), children: text(I18n::get("layout.topBarSiteDescription")))
+            ),
             tag('span', children: 
                 array_map(
                     fn($lang, $alias) => tag('a', class: 'mr-4 text-white hover:brightness-90 active:brightness-70', href: URLGenerator::generatePageUrl($_GET['page'] ?? '/', [ ...QueryString::getQueryStringAsArrayExcept('page'), 'change_lang' => $lang ]), children: text($alias)),

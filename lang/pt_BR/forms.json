@@ -1,5 +1,14 @@
 {
     "email": "E-mail",
+    "telephone": "Número de telefone",
+    "fullName": "Nome completo",
+    "retypePassword": "Confirme a senha",
+    "yourTimezone": "Seu fuso horário",
+    "doYouAgreeWithLgpdTerm": "Concorda com o termo de consentimento para o uso dos seus dados pessoais?",
+    "read": "Ler",
+    "iAgree": "Concordo",
+    "register": "Cadastrar",
+    "close": "Fechar",
     "password": "Senha",
     "enter": "Entrar",
     "logout": "Sair",
@@ -40,5 +49,7 @@
     "errorCreateMagazine": "Erro ao criar revista!",
     "errorEditMagazine": "Erro ao editar revista!",
     "errorCreateEdition": "Erro ao criar edição!",
-    "errorEditEdition": "Erro ao editar edição!"
+    "errorEditEdition": "Erro ao editar edição!",
+    "errorRegisterSubmitter": "Erro ao registrar!",
+    "passwordsNotEqual": "As senhas não coincidem."
 }

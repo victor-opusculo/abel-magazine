@@ -26,6 +26,15 @@
     "editEdition": "Edit edition",
     "deleteEdition": "Delete edition",
     "submissions": "Submissions",
-    "magazine": "Journal"
+    "magazine": "Journal",
+    "edition": "Edition",
+    "editions": "Editions",
+    "submissionsOpen": "Submissions open!",
+    "publicationSoon": "Publication soon!",
+    "evaluationInProgress": "Waiting opinion from reviewer.",
+    "approved": "Approved!",
+    "disapproved": "Disapproved!",
+    "approvedWithIddedFile": "Approved with identified authors.",
+    "submitterRegister": "Author/submitter registration"
 
 }
