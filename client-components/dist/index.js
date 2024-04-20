@@ -40,6 +40,9 @@ customElements.define('media-client-select', MediaClientSelect)
 import RestoreDeletedButton from './restore-deleted-button.js'
 customElements.define('restore-deleted-button', RestoreDeletedButton)
 
+import SubmitterEditArticle from './submitter-edit-article.js'
+customElements.define('submitter-edit-article', SubmitterEditArticle)
+
 import SubmitterLoginForm from './submitter-login-form.js'
 customElements.define('submitter-login-form', SubmitterLoginForm)
 

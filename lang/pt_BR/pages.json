@@ -39,7 +39,13 @@
     "submitterLogin": "Log-in de autor",
     "submitterNotLoggedIn": "Autor não logado.",
     "forgotPassword": "Esqueci minha senha!",
-    "createAnAccount": "Criar uma conta"
+    "createAnAccount": "Criar uma conta",
+    "myArticles": "Meus Artigos",
+    "newArticle": "Novo artigo",
+    "dateTimeFormat": "d/m/Y H:i:s",
+    "viewArticle": "Ver artigo",
+    "editArticle": "Editar artigo",
+    "cannotEditArticle": "Seu artigo foi avaliado. Você não pode mais editá-lo."
 
 
 

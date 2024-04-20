@@ -1,0 +1,157 @@
+<script>
+    const state =
+    {
+        allowed_mime_types: '',
+        availableEditions: [],
+        availableLanguages: [],
+        waiting: false,
+        id: null,
+        edition_id: null,
+        title: '',
+        authors: '[]',
+        resume: '',
+        keywords: '',
+        language: '',
+        articleFile: null,
+        authorsArr: [],
+        lang: {}
+    };
+
+    const methods = 
+    {
+        changeField(e)
+        {
+            this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        setFile(e)
+        {
+            this.render({ ...this.render, articleFile: e.target.files[0] });
+        },
+
+        addAuthor(e)
+        {
+            const newArr = [ ...this.state.authorsArr, "" ];
+            this.render({ ...this.state, authorsArr: newArr, authors: JSON.stringify(newArr) });
+        },
+
+        changeAuthor(e)
+        {
+            this.state.authorsArr[e.target.getAttribute('data-index')] = e.target.value;
+            this.render({ ...this.state, authors: JSON.stringify(this.state.authorsArr) });
+        },
+
+        deleteAuthor(e)
+        {
+            const index = Number(e.target.getAttribute('data-index'));
+            const newArr = this.state.authorsArr.filter((name, idx) => idx != index);
+            this.render({ ...this.state, authorsArr: newArr, authors: JSON.stringify(newArr) });
+        },
+
+        create(formData)
+        {
+            import(AbelMagazine.functionUrl('/submitter/panel/articles'))
+            .then(module => module.create(formData))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(([ret, json]) =>
+            {
+                if (json.success && json.newId)
+                    window.location.href = AbelMagazine.Helpers.URLGenerator.generatePageUrl(`/submitter/panel/articles/${json.newId}`);
+                else
+                    this.render({ ...this.state, waiting: false });
+            })
+            .catch(rs => (this.render({ ...this.state, waiting: false }), console.error(rs), AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorSubmittingArticle)));
+        },
+
+        edit(formData)
+        {
+            import(AbelMagazine.functionUrl(`/submitter/panel/articles/${this.state.id}`))
+            .then(module => module.edit(formData))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(_ => this.render({ ...this.state, waiting: false }))
+            .catch(rs => (this.render({ ...this.state, waiting: false }), console.error(rs), AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorSubmittingArticle)));
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            if (!this.state.authorsArr?.length)
+            {
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.mustHaveOneAuthor);
+                return;
+            }
+
+            this.render({ ...this.state, waiting: true });
+
+            const fd = new FormData();
+
+            for (const field in this.state)
+                if (!['lang', 'availableEditions', 'availableLanguages', 'allowed_mime_types', 'waiting', 'articleFile', 'authorsArr'].includes(field))
+                    fd.append("articles:" + field, this.state[field]);
+
+            if (this.state.articleFile)
+                fd.append('file_article_nid', this.state.articleFile);
+
+            if (this.state.id)
+                this.edit(fd);
+            else
+                this.create(fd);
+        }
+    };
+
+    function setup()
+    {
+        this.render(
+        { ...this.state, 
+            lang: JSON.parse(this.getAttribute('langJson')),
+            available_editions: JSON.parse(this.getAttribute('availableEditions')), 
+            available_languages: JSON.parse(this.getAttribute('availableLanguages')),
+            authorsArr: JSON.parse(this.getAttribute('authors') || '[]')
+        });
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.magazineEdition}">
+            <select name="edition_id" @change="changeField" required>
+                <option :selected="!state.edition_id" value>-- ${state.lang.forms.select} --</option>
+                <option :for="edit in state.available_editions" value="${edit.id}" :selected="state.edition_id == edit.id">${edit.title}</option>
+            </select>
+        </ext-label>
+        <hr/>
+        <ext-label label="${state.lang.forms.title}">
+            <input type="text" name="title" maxlength="140" required class="w-full" @change="changeField" :value="state.title" />
+        </ext-label>
+        <div class="ml-2">
+            <label>${state.lang.forms.authors}</label>
+            <ol class="list-decimal pl-4">
+                <li :for="name, idx in state.authorsArr" class="mb-1">
+                    <input type="text" class="w-[calc(100%-64px)]" required :data-index="idx" @change="changeAuthor" :value="name" />
+                    <button type="button" class="btn min-w-0 ml-2" :data-index="idx" @click="deleteAuthor">&times;</button>
+                </li>
+            </ol>
+            <button type="button" class="btn" @click="addAuthor">${state.lang.forms.add}</button>
+        </div>
+        <ext-label label="${state.lang.forms.resume}" linebreak="1">
+            <textarea name="resume" class="w-full" rows="8" @change="changeField" :value="state.resume" required></textarea>
+        </ext-label>
+        <ext-label label="${state.lang.forms.keywords}">
+            <input type="text" name="keywords" maxlength="140" required class="w-full" @change="changeField" :value="state.keywords" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.language}">
+            <select name="language" @change="changeField" required>
+                <option :selected="Boolean(state.language)" value>-- ${state.lang.forms.select} --</option>
+                <option :for="lang in state.available_languages" value="${lang.code}" :selected="state.language == lang.code">${lang.label}</option>
+            </select>
+        </ext-label>
+        <ext-label label="${state.lang.forms.file}">
+            <input type="file" accept="${state.allowed_mime_types}" name="file" class="file:btn" :required="!Boolean(this.state.id)" @change="setFile" />
+        </ext-label>
+        <p class="text-red-500 font-bold">${state.lang.forms.notIddedFileUploadWarning}</p>
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn" :disabled="state.waiting">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

@@ -23,5 +23,8 @@
     "editionRestoreSuccess": "Edition restored successfully!",
     "editionRestoreError": "Not possible to restore edition!",
     "submitterRegistrationSuccess": "Registered successfully!",
-    "submitterRegistrationError": "Not possible to register."
+    "submitterRegistrationError": "Not possible to register.",
+    "articleSubmissionSuccess": "Article sent successfully!",
+    "articleSubmissionError": "Not possible to send article!"
+
 }

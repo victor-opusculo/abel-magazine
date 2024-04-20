@@ -5,7 +5,7 @@ namespace VictorOpusculo\AbelMagazine\Lib\Middlewares;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\UserTypes;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 
-function studentLoginCheck()
+function authorLoginCheck()
 {
     session_name('abel_magazine_author_user');
     session_start();

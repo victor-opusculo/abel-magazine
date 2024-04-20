@@ -181,6 +181,20 @@ class Edition extends DataEntity
         return array_map([ $this, 'newInstanceFromDataRowFromDatabase' ], $drs);
     }
 
+    /** @return Edition[] */
+    public function getAllOpenForSubmittions(mysqli $conn) : array
+    {
+        $selector = $this->getGetSingleSqlSelector()
+        ->clearValues()
+        ->clearWhereClauses()
+        ->addJoin("INNER JOIN magazines ON magazines.id = {$this->databaseTable}.magazine_id")
+        ->addSelectColumn("magazines.name AS magazineName")
+        ->addWhereClause("{$this->getWhereQueryColumnName('is_open_for_submissions')} = 1");
+
+        $drs = $selector->run($conn, SqlSelector::RETURN_ALL_ASSOC);
+        return array_map([ $this, 'newInstanceFromDataRowFromDatabase' ], $drs);
+    }
+
     public function fetchMagazine(mysqli $conn) : self
     {
         $this->magazine = (new Magazine([ 'id' => $this->magazine_id->unwrapOr(0) ]))->getSingle($conn);

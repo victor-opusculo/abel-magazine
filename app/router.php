@@ -68,7 +68,19 @@ return
         '/panel' => fn() =>
         [
             '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Home::class,
-            '__layout' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout::class
+            '__layout' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout::class,
+            '/articles' => fn() =>
+            [
+                '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Functions::class,
+                '/create' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Create::class,
+                '/[articleId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions::class,
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Edit::class
+                ]
+            ]
         ]
     ]
 ];

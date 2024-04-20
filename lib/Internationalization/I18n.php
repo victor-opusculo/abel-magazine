@@ -27,6 +27,15 @@ final class I18n
         return self::$instance->fetch($identifier);
     }
 
+    public static function getAlias(string $lang) : string
+    {
+        $langs = self::availableLangs();
+        if (isset($langs[$lang]))
+            return $langs[$lang];
+        else
+            return '';
+    }
+
     public static function availableLangs() : array
     {
         return self::$instance->fetchLangList();

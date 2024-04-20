@@ -39,6 +39,12 @@
     "submitterLogin": "Author log-in",
     "submitterNotLoggedIn": "Author not logged in.",
     "forgotPassword": "Forgot my password!",
-    "createAnAccount": "Create an account"
+    "createAnAccount": "Create an account",
+    "myArticles": "My Articles",
+    "newArticle": "New article",
+    "dateTimeFormat": "m/d/Y h:i:s A",
+    "viewArticle": "View article",
+    "editArticle": "Edit article",
+    "cannotEditArticle": "Your article has been reviewed. You cannot edit it."
 
 }

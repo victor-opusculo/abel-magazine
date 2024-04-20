@@ -17,7 +17,7 @@ abstract class QueryString
 	{
 		$qs = $_GET;
 		foreach ($exceptions as $ex)
-			if ($qs[$ex])
+			if (isset($qs[$ex]))
 				unset($qs[$ex]);
 
 		return $qs;

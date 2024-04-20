@@ -12,5 +12,6 @@
     "errorDeletingArticleFile": "Erro ao excluir o arquivo de artigo.",
     "editionNotOpenForSubmissions": "Esta edição não está aberta para submissões.",
     "emailAlreadyRegistered": "E-mail já cadastrado.",
-    "passwordNotBlankMin5Chars": "A senha não pode ser em branco e deve ter 5 ou mais caracteres."
+    "passwordNotBlankMin5Chars": "A senha não pode ser em branco e deve ter 5 ou mais caracteres.",
+    "articleNotFound": "Artigo não encontrado!"
 }

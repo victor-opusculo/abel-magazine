@@ -42,7 +42,13 @@ AbelMagazine.Helpers.URLGenerator =
 
     generateFunctionUrl(routePath, call = "", query = {})
     {
-        const qs = (useFriendlyUrls ? '?' : '&') + (call ? "call=" + call : "") + (Object.keys(query).length > 0 ? "&" + this.generateQueryString(query) : '');
+        let qs = (useFriendlyUrls ? '?' : (call ? '&' : '')) + 
+        (call ? "call=" + call : "") + 
+        (Object.keys(query).length > 0 ? "&" + this.generateQueryString(query) : '');
+        
+        if (qs.endsWith('&'))
+            qs = qs.substring(0, qs.lastIndexOf('&'));
+
         if (useFriendlyUrls)
             return baseUrl + '/--function' + (routePath[0] === '/' ? routePath + qs : '/' + routePath + qs);
         else
