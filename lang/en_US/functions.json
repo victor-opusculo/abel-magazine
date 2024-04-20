@@ -25,6 +25,10 @@
     "submitterRegistrationSuccess": "Registered successfully!",
     "submitterRegistrationError": "Not possible to register.",
     "articleSubmissionSuccess": "Article sent successfully!",
-    "articleSubmissionError": "Not possible to send article!"
+    "articleSubmissionError": "Not possible to send article!",
+    "submitterEditProfileSuccess": "Profile edited successfully!",
+    "submitterEditProfileError": "Not possible to edit profile!",
+    "articleDeleteSuccess": "Article deleted successfully!",
+    "articleDeleteError": "Not possible to delete article!"
 
 }

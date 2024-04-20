@@ -45,6 +45,12 @@
     "dateTimeFormat": "m/d/Y h:i:s A",
     "viewArticle": "View article",
     "editArticle": "Edit article",
-    "cannotEditArticle": "Your article has been reviewed. You cannot edit it."
+    "deleteArticle": "Delete article",
+    "cannotEditArticle": "Your article has been reviewed. You cannot edit it.",
+    "editProfile": "Edit profile",
+    "articles": "Articles",
+    "isApproved": "Is approved?",
+    "view": "View",
+    "submitterAuthor": "Submitter author"
 
 }

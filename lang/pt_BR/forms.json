@@ -65,5 +65,12 @@
     "errorEditEdition": "Erro ao editar edição!",
     "errorRegisterSubmitter": "Erro ao registrar!",
     "passwordsNotEqual": "As senhas não coincidem.",
-    "errorSubmittingArticle": "Erro ao salvar artigo!"
+    "errorSubmittingArticle": "Erro ao salvar artigo!",
+    "errorEditingProfile": "Erro ao editar o perfil!",
+    "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
+    "changeData": "Alterar dados",
+    "changePassword": "Alterar senha",
+    "currentPassword": "Senha atual",
+    "newPassword": "Nova senha",
+    "remove": "Remover"
 }

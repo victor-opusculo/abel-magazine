@@ -13,5 +13,6 @@
     "editionNotOpenForSubmissions": "This edition is not open for submissions.",
     "emailAlreadyRegistered": "E-mail already registered.",
     "passwordNotBlankMin5Chars": "Password should not be blank and must have 5 or more chars.",
-    "articleNotFound": "Article not found!"
+    "articleNotFound": "Article not found!",
+    "incorrectCurrentPassword": "Current password is incorrect!"
 }

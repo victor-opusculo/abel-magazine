@@ -7,3 +7,5 @@ uploads/media/*
 
 uploads/articles/**/*
 !uploads/articles/.gitkeep
+
+token.txt

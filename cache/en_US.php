@@ -26,6 +26,7 @@
     'emailAlreadyRegistered' => 'E-mail already registered.',
     'passwordNotBlankMin5Chars' => 'Password should not be blank and must have 5 or more chars.',
     'articleNotFound' => 'Article not found!',
+    'incorrectCurrentPassword' => 'Current password is incorrect!',
   ),
   'forms' => 
   array (
@@ -96,6 +97,12 @@
     'errorRegisterSubmitter' => 'Error registering!',
     'passwordsNotEqual' => 'Passwords are not equal.',
     'errorSubmittingArticle' => 'Error saving article!',
+    'errorEditingProfile' => 'Error editing profile!',
+    'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
+    'changeData' => 'Change data',
+    'changePassword' => 'Change password',
+    'currentPassword' => 'Current password',
+    'newPassword' => 'New password',
   ),
   'functions' => 
   array (
@@ -126,6 +133,8 @@
     'submitterRegistrationError' => 'Not possible to register.',
     'articleSubmissionSuccess' => 'Article sent successfully!',
     'articleSubmissionError' => 'Not possible to send article!',
+    'submitterEditProfileSuccess' => 'Profile edited successfully!',
+    'submitterEditProfileError' => 'Not possible to edit profile!',
   ),
   'layout' => 
   array (
@@ -186,5 +195,9 @@
     'viewArticle' => 'View article',
     'editArticle' => 'Edit article',
     'cannotEditArticle' => 'Your article has been reviewed. You cannot edit it.',
+    'editProfile' => 'Edit profile',
+    'articles' => 'Articles',
+    'isApproved' => 'Is approved?',
+    'view' => 'View',
   ),
 );

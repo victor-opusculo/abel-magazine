@@ -24,6 +24,8 @@ final class Layout extends Component
         if (empty($_SESSION) || $_SESSION['user_type'] !== UserTypes::author)
         {
             header('location:' . URLGenerator::generatePageUrl('/submitter/login', [ 'messages' => I18n::get('pages.submitterNotLoggedIn') ]), true, 303);
+            if (isset($_SESSION)) session_unset();
+            session_destroy();
             exit;
         }
 
@@ -50,8 +52,10 @@ final class Layout extends Component
             [
                 tag('span', children: text(mb_ereg_replace('{name}', $this->submitter->full_name->unwrapOr(''), I18n::get('layout.submitterLayoutUserName')))),
                 tag('span', children:
+                [
+                    tag('a', class: 'inline-block mr-2 btn', href: URLGenerator::generatePageUrl("/submitter/panel/edit_profile"), children: text(I18n::get('pages.editProfile'))),
                     tag('submitter-logout-button', langJson: Data::hscq(I18n::getFormsTranslationsAsJson()))
-                )
+                ])
             ]),
             $this->children
         ]

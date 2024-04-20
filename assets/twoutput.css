@@ -842,6 +842,10 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   margin-bottom: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -864,10 +868,6 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mb-1 {
-  margin-bottom: 0.25rem;
 }
 
 .mt-8 {
@@ -926,6 +926,10 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   min-height: calc(100vh - 150px);
 }
 
+.min-h-\[calc\(100vh-200px\)\] {
+  min-height: calc(100vh - 200px);
+}
+
 .w-40 {
   width: 10rem;
 }
@@ -950,16 +954,16 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   width: calc(100% - 200px);
 }
 
+.w-\[calc\(100\%-64px\)\] {
+  width: calc(100% - 64px);
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[calc\(100\%-64px\)\] {
-  width: calc(100% - 64px);
 }
 
 .min-w-0 {
@@ -1176,6 +1180,11 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1184,11 +1193,6 @@ input[type='text'], input[type='password'], input[type='email'], input[type='sea
 .text-zinc-600 {
   --tw-text-opacity: 1;
   color: rgb(82 82 91 / var(--tw-text-opacity));
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .invert {

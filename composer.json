@@ -13,7 +13,9 @@
 	{
 		"victor-opusculo/p-comp": "dev-master",
 		"victor-opusculo/my-orm": "dev-master",
-        "carry0987/i18n": "^2.1"
+        "carry0987/i18n": "^2.1",
+        "ramsey/uuid": "^4.7",
+        "phpmailer/phpmailer": "^6.9"
 	},
 	"repositories":
 	[

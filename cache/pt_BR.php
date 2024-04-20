@@ -26,6 +26,7 @@
     'emailAlreadyRegistered' => 'E-mail já cadastrado.',
     'passwordNotBlankMin5Chars' => 'A senha não pode ser em branco e deve ter 5 ou mais caracteres.',
     'articleNotFound' => 'Artigo não encontrado!',
+    'incorrectCurrentPassword' => 'Senha atual incorreta!',
   ),
   'forms' => 
   array (
@@ -96,6 +97,13 @@
     'errorRegisterSubmitter' => 'Erro ao registrar!',
     'passwordsNotEqual' => 'As senhas não coincidem.',
     'errorSubmittingArticle' => 'Erro ao salvar artigo!',
+    'errorEditingProfile' => 'Erro ao editar o perfil!',
+    'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
+    'changeData' => 'Alterar dados',
+    'changePassword' => 'Alterar senha',
+    'currentPassword' => 'Senha atual',
+    'newPassword' => 'Nova senha',
+    'remove' => 'Remover',
   ),
   'functions' => 
   array (
@@ -126,6 +134,10 @@
     'submitterRegistrationError' => 'Não foi possível registrar.',
     'articleSubmissionSuccess' => 'Artigo enviado com sucesso!',
     'articleSubmissionError' => 'Não foi possível enviar o artigo!',
+    'submitterEditProfileSuccess' => 'Perfil editado com sucesso!',
+    'submitterEditProfileError' => 'Não foi possível editar o perfil!',
+    'articleDeleteSuccess' => 'Artigo excluído com sucesso!',
+    'articleDeleteError' => 'Não foi possível excluir o artigo!',
   ),
   'layout' => 
   array (
@@ -185,6 +197,12 @@
     'dateTimeFormat' => 'd/m/Y H:i:s',
     'viewArticle' => 'Ver artigo',
     'editArticle' => 'Editar artigo',
+    'deleteArticle' => 'Excluir artigo',
     'cannotEditArticle' => 'Seu artigo foi avaliado. Você não pode mais editá-lo.',
+    'editProfile' => 'Editar perfil',
+    'articles' => 'Artigos',
+    'isApproved' => 'Aprovado?',
+    'view' => 'Ver',
+    'submitterAuthor' => 'Autor submissor',
   ),
 );

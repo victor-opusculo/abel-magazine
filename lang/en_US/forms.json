@@ -65,6 +65,13 @@
     "errorEditEdition": "Error editing edition!",
     "errorRegisterSubmitter": "Error registering!",
     "passwordsNotEqual": "Passwords are not equal.",
-    "errorSubmittingArticle": "Error saving article!"
+    "errorSubmittingArticle": "Error saving article!",
+    "errorEditingProfile": "Error editing profile!",
+    "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
+    "changeData": "Change data",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "remove": "Remove"
 
 }

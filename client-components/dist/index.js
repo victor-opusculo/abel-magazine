@@ -1,6 +1,9 @@
 import AdminChangeDataForm from './admin-change-data-form.js'
 customElements.define('admin-change-data-form', AdminChangeDataForm)
 
+import AdminEditArticle from './admin-edit-article.js'
+customElements.define('admin-edit-article', AdminEditArticle)
+
 import AdminLoginForm from './admin-login-form.js'
 customElements.define('admin-login-form', AdminLoginForm)
 
@@ -39,6 +42,9 @@ customElements.define('media-client-select', MediaClientSelect)
 
 import RestoreDeletedButton from './restore-deleted-button.js'
 customElements.define('restore-deleted-button', RestoreDeletedButton)
+
+import SubmitterChangeDataForm from './submitter-change-data-form.js'
+customElements.define('submitter-change-data-form', SubmitterChangeDataForm)
 
 import SubmitterEditArticle from './submitter-edit-article.js'
 customElements.define('submitter-edit-article', SubmitterEditArticle)

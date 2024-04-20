@@ -45,7 +45,13 @@
     "dateTimeFormat": "d/m/Y H:i:s",
     "viewArticle": "Ver artigo",
     "editArticle": "Editar artigo",
-    "cannotEditArticle": "Seu artigo foi avaliado. Você não pode mais editá-lo."
+    "deleteArticle": "Excluir artigo",
+    "cannotEditArticle": "Seu artigo foi avaliado. Você não pode mais editá-lo.",
+    "editProfile": "Editar perfil",
+    "articles": "Artigos",
+    "isApproved": "Aprovado?",
+    "view": "Ver",
+    "submitterAuthor": "Autor submissor"
 
 
 

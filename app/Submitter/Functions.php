@@ -63,6 +63,7 @@ final class Functions extends BaseFunctionsClass
             session_start();
             $_SESSION['user_id'] = $submitter->id->unwrap();
             $_SESSION['user_type'] = UserTypes::author;
+            $_SESSION['user_email'] = $submitter->email->unwrapOr('n@d');
             $_SESSION['user_timezone'] = $submitter->timezone->unwrapOr('America/Sao_Paulo');
 
             LogEngine::writeLog("Log-in de autor efetuado. ID: {$submitter->id->unwrapOr(0)}");
@@ -85,6 +86,7 @@ final class Functions extends BaseFunctionsClass
             LogEngine::writeLog("Autor deslogado. ID: $_SESSION[user_id]");
             unset($_SESSION['user_id']);
             unset($_SESSION['user_type']);
+            unset($_SESSION['user_email']);
             unset($_SESSION['user_timezone']);
             session_unset();
             session_destroy();

@@ -30,7 +30,7 @@ class Submitter extends DataEntity
     {
         $this->properties = (object)
         [
-            'id' => new DataProperty('id', fn() => null, DataProperty::MYSQL_INT),
+            'id' => new DataProperty(null, fn() => null, DataProperty::MYSQL_INT),
             'email' => new DataProperty('email', fn() => null, DataProperty::MYSQL_STRING, true),
             'full_name' => new DataProperty('fullname', fn() => null, DataProperty::MYSQL_STRING, true),
             'other_infos' => new DataObjectProperty((object)

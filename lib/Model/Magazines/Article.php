@@ -5,6 +5,8 @@ use Exception;
 use mysqli;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\System;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
+use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\Submitter;
 use VictorOpusculo\MyOrm\DataEntity;
 use VictorOpusculo\MyOrm\DataProperty;
 use VictorOpusculo\MyOrm\Exceptions\DatabaseEntityNotFound;
@@ -57,7 +59,84 @@ class Article extends DataEntity
 
     private string $fileInputNameNotIdded = 'file_article_nid';
     private string $fileInputNameIdded = 'file_article_id';
+    public bool $adminEdit = false;
 
+    public ?Submitter $submitter = null;
+    public ?Edition $edition = null;
+
+    public function fetchSubmitter(mysqli $conn) : self
+    {
+        $this->submitter = (new Submitter([ 'id' => $this->submitter_id->unwrapOr(0) ]))
+        ->setCryptKey(Connection::getCryptoKey())
+        ->getSingle($conn);
+
+        return $this;
+    }
+
+    public function fetchEdition(mysqli $conn) : self
+    {
+        $this->edition = (new Edition([ 'id' => $this->edition_id->unwrapOr(0) ]))->getSingle($conn);
+        return $this;
+    }
+
+    public function getCountFromEdition(mysqli $conn, string $searchKeywords, bool $approvedOnly = true) : int
+    {
+        $selector = (new SqlSelector)
+        ->addSelectColumn('COUNT(*)')
+        ->setTable($this->databaseTable)
+        ->addWhereClause("{$this->getWhereQueryColumnName('edition_id')} = ?")
+        ->addValue('i', $this->edition_id->unwrapOr(null));
+
+        if (mb_strlen($searchKeywords) > 3)
+        {
+            $selector
+            ->addWhereClause("AND MATCH (title, resume, keywords) AGAINST (?)")
+            ->addValue('s', $searchKeywords);
+        }
+
+        if ($approvedOnly)
+            $selector->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1");
+
+        $count = (int)$selector->run($conn, SqlSelector::RETURN_FIRST_COLUMN_VALUE);
+        return $count;
+    }
+
+    /** @return Article[] */
+    public function getMultipleFromEdition(mysqli $conn, string $searchKeywords, string $orderBy, int $pageNum, int $numResultsOnPage, bool $approvedOnly = true) : array
+    {
+        $selector = $this->getGetSingleSqlSelector()
+        ->clearValues()
+        ->clearWhereClauses()
+        ->addWhereClause("{$this->getWhereQueryColumnName('edition_id')} = ?")
+        ->addValue('i', $this->edition_id->unwrapOr(null));
+
+        if (mb_strlen($searchKeywords) > 3)
+        {
+            $selector
+            ->addWhereClause("AND MATCH (title, resume, keywords) AGAINST (?)")
+            ->addValue('s', $searchKeywords);
+        }
+
+        if ($approvedOnly)
+            $selector->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1");
+
+        $selector->setOrderBy(match($orderBy)
+        {
+            'title' => "{$this->databaseTable}.title ASC",
+            'language' => "{$this->databaseTable}.language ASC",
+            'status' => "{$this->databaseTable}.status ASC",
+            'approved' => "{$this->databaseTable}.is_approved DESC",
+            'datetime' => "{$this->databaseTable}.submission_datetime DESC",
+            'id' => "{$this->databaseTable}.id DESC",
+            default => "{$this->databaseTable}.id DESC"
+        });
+
+        $calcPage = ($pageNum - 1) * $numResultsOnPage;
+        $selector->setLimit('?, ?')->addValues('ii', [ $calcPage, $numResultsOnPage ]);
+
+        $drs = $selector->run($conn, SqlSelector::RETURN_ALL_ASSOC);
+        return array_map([ $this, 'newInstanceFromDataRowFromDatabase' ], $drs);
+    }
 
     public function getSingleFromSubmitter(mysqli $conn) : self
     {
@@ -152,12 +231,37 @@ class Article extends DataEntity
 
     public function beforeDatabaseUpdate(mysqli $conn): int
     {
-        if (isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::Approved->value))
+        if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::Approved->value))
         {
             Upload\IddedArticleUpload::checkForUploadError($this->postFiles, $this->fileInputNameIdded);
             $extension = Upload\IddedArticleUpload::getExtension($this->postFiles, $this->fileInputNameIdded);
             $this->idded_file_extension = Option::some($extension);
             $this->status = Option::some(ArticleStatus::ApprovedWithIddedFile->value);
+        }
+        else if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameNotIdded]) && ($this->status->unwrapOr('') === ArticleStatus::EvaluationInProgress->value))
+        {
+            Upload\IddedArticleUpload::checkForUploadError($this->postFiles, $this->fileInputNameNotIdded);
+            $extension = Upload\NotIddedArticleUpload::getExtension($this->postFiles, $this->fileInputNameNotIdded);
+            $this->idded_file_extension = Option::some(null);
+            $this->not_idded_file_extension = Option::some($extension);
+            $this->status = Option::some(ArticleStatus::EvaluationInProgress->value);
+        }
+
+        if ($this->adminEdit && isset($this->otherProperties->remove_idded_file) && (int)$this->otherProperties->remove_idded_file)
+            $this->idded_file_extension = Option::some(null);
+
+        if ($this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]))
+        {
+            Upload\IddedArticleUpload::checkForUploadError($this->postFiles, $this->fileInputNameIdded);
+            $extension = Upload\IddedArticleUpload::getExtension($this->postFiles, $this->fileInputNameIdded);
+            $this->idded_file_extension = Option::some($extension);
+        }
+
+        if ($this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameNotIdded]))
+        {
+            Upload\IddedArticleUpload::checkForUploadError($this->postFiles, $this->fileInputNameNotIdded);
+            $extension = Upload\NotIddedArticleUpload::getExtension($this->postFiles, $this->fileInputNameNotIdded);
+            $this->not_idded_file_extension = Option::some($extension);
         }
 
         return 0;
@@ -165,8 +269,37 @@ class Article extends DataEntity
 
     public function afterDatabaseUpdate(mysqli $conn, $updateResult)
     {
-        if (isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::Approved->value))
+        if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::Approved->value))
+        {
             Upload\IddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameIdded);
+            $updateResult['affectedRows'] += 1;
+        }
+        else if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameNotIdded]) && ($this->status->unwrapOr('') === ArticleStatus::EvaluationInProgress->value))
+        {
+            Upload\NotIddedArticleUpload::cleanArticleFolder((int)$this->id->unwrap());
+            Upload\NotIddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameNotIdded);
+            $updateResult['affectedRows'] += 1;
+        }
+
+        if ($this->adminEdit && isset($this->otherProperties->remove_idded_file) && (int)$this->otherProperties->remove_idded_file)
+        {
+            Upload\IddedArticleUpload::deleteArticleFile((int)$this->id->unwrap());
+            $updateResult['affectedRows'] += 1;
+        }
+
+        if ($this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]))
+        {
+            Upload\IddedArticleUpload::deleteArticleFile((int)$this->id->unwrap());
+            Upload\IddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameIdded);
+            $updateResult['affectedRows'] += 1;
+        }
+
+        if ($this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameNotIdded]))
+        {
+            Upload\NotIddedArticleUpload::deleteArticleFile((int)$this->id->unwrap());
+            Upload\NotIddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameNotIdded);
+            $updateResult['affectedRows'] += 1;
+        }
 
         return $updateResult;
     }

@@ -45,9 +45,20 @@ return
                             '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\View::class,
                             '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\Functions::class,
                             '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\Edit::class,
-                            '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\Delete::class
+                            '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\Delete::class,
+                            '/articles' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\EditionId\Articles::class
                         ]
                     ]
+                ]
+            ],
+            '/articles' => fn() =>
+            [
+                '/[articleId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Functions::class,
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Edit::class,
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Delete::class
                 ]
             ]
         ],
@@ -69,6 +80,8 @@ return
         [
             '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Home::class,
             '__layout' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout::class,
+            '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Functions::class,
+            '/edit_profile' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\EditProfile::class,
             '/articles' => fn() =>
             [
                 '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home::class,

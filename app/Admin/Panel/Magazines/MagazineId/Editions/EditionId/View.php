@@ -69,6 +69,10 @@ final class View extends Component
             component(Label::class, labelBold: true, label: I18n::get('forms.isEditionPublished') . '?', children: text($this->edition->is_published->unwrapOr(false) ? I18n::get('alerts.yes') : I18n::get('alerts.no'))),
             component(Label::class, labelBold: true, label: I18n::get('forms.isEditionOpen') . '?', children: text($this->edition->is_open_for_submissions->unwrapOr(false) ? I18n::get('alerts.yes') : I18n::get('alerts.no'))),
 
+            component(Label::class, labelBold: true, label: I18n::get('pages.articles'), children:
+                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/magazines/{$this->magazineId}/editions/{$this->edition->id->unwrapOr(0)}/articles"), children: text(I18n::get('pages.view')))
+            ),
+
             $this->edition->deleted_at->unwrapOr(null)
                 ?   tag('restore-deleted-button', 
                         langJson: Data::hscq(I18n::getFormsTranslationsAsJson()),

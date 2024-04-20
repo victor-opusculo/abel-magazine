@@ -67,6 +67,10 @@ final class URLGenerator
 	{
 		self::loadConfigs();
 		$qs = (self::$useFriendlyUrls ? '?' : '&') . ($call ? "call=" . $call : "") . (count($query) > 0 ? '&' . self::generateQueryString($query) : '');
+
+		if ($qs[strlen($qs) - 1] === '&')
+			$qs = substr($qs, 0, strlen($qs) - 1);
+
 		return match (self::$useFriendlyUrls)
 		{
 			true => self::$baseUrl . '/--function' . ($route[0] == '/' ? substr($route, 1) . $qs : $route . $qs),
