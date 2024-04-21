@@ -32,6 +32,7 @@
     "submissionsOpen": "Submissions open!",
     "publicationSoon": "Publication soon!",
     "evaluationInProgress": "Waiting opinion from reviewer.",
+    "evaluationInProgress2": "Waiting opinion from another reviewer.",
     "approved": "Approved!",
     "disapproved": "Disapproved!",
     "approvedWithIddedFile": "Approved with identified authors.",
@@ -51,6 +52,15 @@
     "articles": "Articles",
     "isApproved": "Is approved?",
     "view": "View",
-    "submitterAuthor": "Submitter author"
-
+    "submitterAuthor": "Submitter author",
+    "reviewersOpinions": "Reviewers' opinions",
+    "opinionDateTime": "Opinion date time",
+    "existentEvTokens": "Existent tokens",
+    "createEvTokens": "Create reviewer token",
+    "token": "Token",
+    "deleteToken": "Delete token",
+    "reviewArticle": "Review article",
+    "viewOpinion": "View opinion",
+    "article": "Article",
+    "result": "Result"
 }

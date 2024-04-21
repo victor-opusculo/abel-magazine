@@ -67,10 +67,20 @@
     "passwordsNotEqual": "As senhas não coincidem.",
     "errorSubmittingArticle": "Erro ao salvar artigo!",
     "errorEditingProfile": "Erro ao editar o perfil!",
+    "errorCreatingToken": "Erro ao enviar dados para token!",
+    "errorSavingOpinion": "Erro ao salvar parecer!",
     "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
     "changeData": "Alterar dados",
     "changePassword": "Alterar senha",
     "currentPassword": "Senha atual",
     "newPassword": "Nova senha",
-    "remove": "Remover"
+    "remove": "Remover",
+    "reviewerName": "Nome do avaliador",
+    "reviewerEmail": "E-mail do avaliador",
+    "generateToken": "Gerar token",
+    "articleFeedbackConclusion": "Seu parecer",
+    "approved": "Aprovado",
+    "disapproved": "Reprovado",
+    "feedbackMessage": "Mensagem de feedback",
+    "send": "Enviar"
 }

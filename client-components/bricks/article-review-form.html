@@ -1,0 +1,69 @@
+<script>
+    const state = 
+    {
+        token: null,
+        article_id: null,
+        is_approved: null,
+        assessor_name: '',
+        assessor_email: '',
+        feedback_message: '',
+        lang: {}
+    };
+
+    const methods =
+    {
+        changeField(e)
+        {
+            if (e.target.type === 'radio')
+                this.render({ ...this.render, [ e.target.name ]: Number(e.target.value) });
+            else
+                this.render({ ...this.render, [ e.target.name ]: e.target.value });
+
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const data = {};
+
+            for (const prop in this.state)
+                if (prop !== 'lang')
+                    data['assessors_opinions:' + prop] = this.state[prop];
+
+            import(AbelMagazine.functionUrl(`/reviewer/review/${this.state.token}`))
+            .then(module => module.saveOpinion(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess("/"))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSavingOpinion));
+        }
+    }
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.reviewerName}">
+            <input type="text" class="w-full" name="assessor_name" @change="changeField" :value="state.assessor_name" required />
+        </ext-label>
+        <ext-label label="${state.lang.forms.reviewerEmail}">
+            <input type="email" class="w-full" name="assessor_email" @change="changeField" :value="state.assessor_email" required />
+        </ext-label>
+        <div class="ml-2">
+            <span>${state.lang.forms.articleFeedbackConclusion}: </span>
+            <label class="mr-4"><input type="radio" name="is_approved" value="1" @change="changeField" :checked="state.is_approved === 1" required /> ${state.lang.forms.approved}</label>
+            <label><input type="radio" name="is_approved" value="0" @change="changeField" :checked="state.is_approved === 0" required /> ${state.lang.forms.disapproved}</label>
+        </div>
+        <ext-label label="${state.lang.forms.feedbackMessage}" linebreak="1">
+            <textarea name="feedback_message" @change="changeField" :value="state.feedback_message" rows="6" class="w-full"></textarea>
+        </ext-label>
+
+        <div class="mt-2 text-center">
+            <button type="submit" class="btn">${state.lang.forms.send}</button>
+        </div>
+    </form>
+</template>

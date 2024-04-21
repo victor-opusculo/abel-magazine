@@ -1,0 +1,53 @@
+<script>
+    const state =
+    {
+        article_id: null,
+        assessor_name: '',
+        assessor_email: '',
+        lang: {}
+    };
+
+    const methods = 
+    {
+        changeField(e)
+        {
+            this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const data = {};
+            for (const prop in this.state)
+                if (prop !== 'lang')
+                    data['assessors_evaluation_tokens:' + prop] = this.state[prop];
+
+            import(AbelMagazine.functionUrl(`/admin/panel/articles/${this.state.article_id}/evaluation_tokens`))
+            .then(module => module.create(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess(`/admin/panel/articles/${this.state.article_id}/evaluation_tokens`))
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorCreatingToken));
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.reviewerName}">
+            <input type="text" class="w-full" @change="changeField" name="assessor_name" :value="state.assessor_name" required />
+        </ext-label>
+        <ext-label label="${state.lang.forms.reviewerEmail}">
+            <input type="email" class="w-full" @change="changeField" name="assessor_email" :value="state.assessor_email" required />
+        </ext-label>
+
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn">${state.lang.forms.generateToken}</button>
+        </div>
+    </form>
+</template>

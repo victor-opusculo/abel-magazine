@@ -14,5 +14,7 @@
     "emailAlreadyRegistered": "E-mail já cadastrado.",
     "passwordNotBlankMin5Chars": "A senha não pode ser em branco e deve ter 5 ou mais caracteres.",
     "articleNotFound": "Artigo não encontrado!",
-    "incorrectCurrentPassword": "Senha atual incorreta!"
+    "incorrectCurrentPassword": "Senha atual incorreta!",
+    "tokenNotFound": "Token não encontrado!",
+    "invalidToken": "Token inválido!"
 }

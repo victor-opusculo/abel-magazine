@@ -67,11 +67,21 @@
     "passwordsNotEqual": "Passwords are not equal.",
     "errorSubmittingArticle": "Error saving article!",
     "errorEditingProfile": "Error editing profile!",
+    "errorCreatingToken": "Error sending data for token creation.",
+    "errorSavingOpinion": "Error saving review!",
     "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
     "changeData": "Change data",
     "changePassword": "Change password",
     "currentPassword": "Current password",
     "newPassword": "New password",
-    "remove": "Remove"
+    "remove": "Remove",
+    "reviewerName": "Reviewer name",
+    "reviewerEmail": "Reviewer e-mail",
+    "generateToken": "Generate token",
+    "articleFeedbackConclusion": "Your opinion",
+    "approved": "Approved",
+    "disapproved": "Disapproved",
+    "feedbackMessage": "Feedback message",
+    "send": "Send"
 
 }

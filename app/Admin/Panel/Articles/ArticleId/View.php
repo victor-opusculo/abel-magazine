@@ -1,13 +1,17 @@
 <?php
 namespace VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId;
 
+use DateTimeZone;
 use Exception;
+use VictorOpusculo\AbelMagazine\Components\Data\DataGrid;
+use VictorOpusculo\AbelMagazine\Components\Data\DataGridIcon;
 use VictorOpusculo\AbelMagazine\Components\Data\DateTimeTranslator;
 use VictorOpusculo\AbelMagazine\Components\Label;
 use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
 use VictorOpusculo\AbelMagazine\Components\Panels\ConvenienceLinks;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
@@ -34,6 +38,20 @@ final class View extends Component
             ->getSingle($conn)
             ->fetchSubmitter($conn)
             ->fetchEdition($conn);
+
+            $opinions = (new AssessorOpinion([ 'article_id' => $this->articleId ]))->getAllFromArticle($conn);
+            $this->opinions = array_map(fn(AssessorOpinion $o) =>
+            [
+                I18n::get('forms.id') => $o->id->unwrapOr(0),
+                I18n::get('forms.fullName') => $o->assessor_name->unwrapOr(''),
+                I18n::get('forms.email') => $o->assessor_email->unwrapOr(''),
+                I18n::get('pages.isApproved') => $o->is_approved->unwrapOr(false)
+                                                    ?   new DataGridIcon('assets/pics/check.png', I18n::get('alerts.yes'))
+                                                    :   new DataGridIcon('assets/pics/wrong.png', I18n::get('alerts.no')),
+                I18n::get('pages.opinionDateTime') => date_create($o->datetime->unwrapOr('now'), new DateTimeZone('UTC'))
+                                                        ->setTimezone(new DateTimeZone($_SESSION['user_timezone'] ?? 'America/Sao_Paulo'))
+                                                        ->format(I18n::get('pages.dateTimeFormat'))
+            ], $opinions);
         }
         catch (Exception $e)
         {
@@ -44,6 +62,7 @@ final class View extends Component
     protected $articleId;
 
     private ?Article $article = null;
+    private array $opinions = [];
 
     protected function markup(): Component|array|null
     {
@@ -63,6 +82,7 @@ final class View extends Component
                 )    
             ),
             component(Label::class, labelBold: true, label: I18n::get('forms.title'), children: text($this->article->title->unwrapOr(''))),
+            component(Label::class, labelBold: true, label: I18n::get('forms.authors'), children: text(implode(', ', json_decode($this->article->authors->unwrapOr('[]'))))),
             component(Label::class, labelBold: true, label: I18n::get('forms.resume'), lineBreak: true, children: 
                 tag('div', class: 'whitespace-pre-line', children:
                     text($this->article->resume->unwrapOr(''))                
@@ -88,6 +108,21 @@ final class View extends Component
             component(ConvenienceLinks::class,
                 editUrl: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/edit"),
                 deleteUrl: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/delete")
+            ),
+
+            tag('h2', children: text(I18n::get('pages.reviewersOpinions'))),
+            
+            tag('div', class: 'my-2', children:
+            [
+                tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/evaluation_tokens"), children: text(I18n::get('pages.existentEvTokens'))),
+                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/evaluation_tokens/create"), children: text(I18n::get('pages.createEvTokens'))),
+            ]),
+
+            component(DataGrid::class,
+                dataRows: $this->opinions,
+                detailsButtonURL: URLGenerator::generatePageUrl("/admin/panel/opinions/{param}"),
+                deleteButtonURL: URLGenerator::generatePageUrl("/admin/panel/opinions/{param}/delete"),
+                rudButtonsFunctionParamName: I18n::get('forms.id')
             )
 
         ])

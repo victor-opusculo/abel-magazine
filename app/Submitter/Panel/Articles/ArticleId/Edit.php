@@ -5,6 +5,8 @@ use Exception;
 use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorEvaluationToken;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
@@ -39,7 +41,10 @@ final class Edit extends Component
             $article = (new Article([ 'id' => $this->articleId, 'submitter_id' => $_SESSION['user_id'] ?? 0 ]))->getSingleFromSubmitter($conn);
             $this->article = $article;
 
-            if ($article->status->unwrapOr('') !== ArticleStatus::EvaluationInProgress->value)
+            $evTokensExist = (new AssessorEvaluationToken([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
+            $asOpinionsExist = (new AssessorOpinion([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
+
+            if ($evTokensExist || $asOpinionsExist)
                 $this->canEdit = false;
         }
         catch (Exception $e)

@@ -10,11 +10,17 @@ customElements.define('admin-login-form', AdminLoginForm)
 import AdminLogoutButton from './admin-logout-button.js'
 customElements.define('admin-logout-button', AdminLogoutButton)
 
+import ArticleReviewForm from './article-review-form.js'
+customElements.define('article-review-form', ArticleReviewForm)
+
 import BasicSearchField from './basic-search-field.js'
 customElements.define('basic-search-field', BasicSearchField)
 
 import ClientPaginator from './client-paginator.js'
 customElements.define('client-paginator', ClientPaginator)
+
+import CreateEvaluationToken from './create-evaluation-token.js'
+customElements.define('create-evaluation-token', CreateEvaluationToken)
 
 import DataGrid from './data-grid.js'
 customElements.define('data-grid', DataGrid)

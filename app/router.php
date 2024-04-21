@@ -58,7 +58,25 @@ return
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\View::class,
                     '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Functions::class,
                     '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Edit::class,
-                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Delete::class
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Delete::class,
+                    '/evaluation_tokens' => fn() =>
+                    [
+                        '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\Home::class,
+                        '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\Functions::class,
+                        '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\Create::class,
+                        '/[tokenId]' => fn() =>
+                        [
+                            '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Delete::class,
+                            '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions::class
+                        ]
+                    ]
+                ]
+            ],
+            '/opinions' => fn() =>
+            [
+                '/[opinionId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\View::class
                 ]
             ]
         ],
@@ -93,6 +111,17 @@ return
                     '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions::class,
                     '/edit' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Edit::class
                 ]
+            ]
+        ]
+    ],
+    '/reviewer' => fn() =>
+    [
+        '/review' => fn() =>
+        [
+            '/[tokenStr]' => fn() =>
+            [
+                '/' => \VictorOpusculo\AbelMagazine\App\Reviewer\Review\TokenStr\Home::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Reviewer\Review\TokenStr\Functions::class
             ]
         ]
     ]

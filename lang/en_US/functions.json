@@ -29,6 +29,12 @@
     "submitterEditProfileSuccess": "Profile edited successfully!",
     "submitterEditProfileError": "Not possible to edit profile!",
     "articleDeleteSuccess": "Article deleted successfully!",
-    "articleDeleteError": "Not possible to delete article!"
+    "articleDeleteError": "Not possible to delete article!",
+    "tokenCreateSuccess": "Token created successfully!",
+    "tokenCreateError": "Not possible to create token!",
+    "tokenDeleteSuccess": "Token deleted successfully!",
+    "tokenDeleteError": "Not possible to delete token!",
+    "opinionCreateSuccess": "Review saved successfully!",
+    "opinionCreateError": "Not possible to save review!"
 
 }

@@ -32,6 +32,7 @@
     "submissionsOpen": "Submissões abertas!",
     "publicationSoon": "Publicação em breve!",
     "evaluationInProgress": "Aguardando parecer do avaliador.",
+    "evaluationInProgress2": "Aguardando parecer de mais um avaliador.",
     "approved": "Aprovado!",
     "disapproved": "Reprovado!",
     "approvedWithIddedFile": "Aprovado com identificação dos autores.",
@@ -51,7 +52,18 @@
     "articles": "Artigos",
     "isApproved": "Aprovado?",
     "view": "Ver",
-    "submitterAuthor": "Autor submissor"
+    "submitterAuthor": "Autor submissor",
+    "reviewersOpinions": "Pareceres dos avaliadores",
+    "opinionDateTime": "Data do parecer",
+    "existentEvTokens": "Tokens existentes",
+    "createEvTokens": "Criar token de avaliação",
+    "token": "Token",
+    "deleteToken": "Excluir token",
+    "reviewArticle": "Avaliar artigo",
+    "viewOpinion": "Ver parecer",
+    "article": "Artigo",
+    "result": "Resultado"
+
 
 
 

@@ -4,6 +4,8 @@ namespace VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId;
 use Exception;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorEvaluationToken;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
@@ -37,6 +39,12 @@ final class Functions extends BaseFunctionsClass
             $article = (new Article([ 'id' => $this->articleId, 'submitter_id' => $_SESSION['user_id'] ]))
             ->getSingleFromSubmitter($conn)
             ->fillPropertiesFromFormInput($post, $files);
+
+            $evTokensExist = (new AssessorEvaluationToken([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
+            $asOpinionsExist = (new AssessorOpinion([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
+
+            if ($evTokensExist || $asOpinionsExist)
+                throw new Exception(I18n::get('pages.cannotEditArticle'));
 
             $article->is_approved = Option::some(0);
             $article->status = Option::some(ArticleStatus::EvaluationInProgress->value);
