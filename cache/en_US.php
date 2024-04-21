@@ -156,6 +156,8 @@
     'tokenDeleteError' => 'Not possible to delete token!',
     'opinionCreateSuccess' => 'Review saved successfully!',
     'opinionCreateError' => 'Not possible to save review!',
+    'opinionDeleteSuccess' => 'Review deleted successfully!',
+    'opinionDeleteError' => 'Not possible to delete review!',
   ),
   'layout' => 
   array (
@@ -230,5 +232,10 @@
     'token' => 'Token',
     'deleteToken' => 'Delete token',
     'reviewArticle' => 'Review article',
+    'viewOpinion' => 'View opinion',
+    'deleteOpinion' => 'Delete opinion',
+    'article' => 'Article',
+    'result' => 'Result',
+    'deleteConfirmation' => 'Are you sure you want to delete this information? This operation can not be undone!',
   ),
 );

@@ -35,5 +35,9 @@
     "tokenDeleteSuccess": "Token excluído com sucesso!",
     "tokenDeleteError": "Não foi possível excluir o token!",
     "opinionCreateSuccess": "Parecer salvo com sucesso!",
-    "opinionCreateError": "Não foi possível salvar o parecer!"
+    "opinionCreateError": "Não foi possível salvar o parecer!",
+    "opinionDeleteSuccess": "Parecer excluído com sucesso!",
+    "opinionDeleteError": "Não foi possível excluir o parecer!",
+    "articleStatusChangeSuccess": "Status alterado com sucesso!",
+    "articleStatusChangeError": "Não foi possível alterar o status!"
 }

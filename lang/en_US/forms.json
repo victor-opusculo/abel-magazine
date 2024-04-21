@@ -69,6 +69,7 @@
     "errorEditingProfile": "Error editing profile!",
     "errorCreatingToken": "Error sending data for token creation.",
     "errorSavingOpinion": "Error saving review!",
+    "errorChangingStatus": "Error changind status!",
     "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
     "changeData": "Change data",
     "changePassword": "Change password",

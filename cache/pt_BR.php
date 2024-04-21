@@ -102,6 +102,7 @@
     'errorEditingProfile' => 'Erro ao editar o perfil!',
     'errorCreatingToken' => 'Erro ao enviar dados para token!',
     'errorSavingOpinion' => 'Erro ao salvar parecer!',
+    'errorChangingStatus' => 'Erro ao alterar status!',
     'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
     'changeData' => 'Alterar dados',
     'changePassword' => 'Alterar senha',
@@ -156,6 +157,10 @@
     'tokenDeleteError' => 'Não foi possível excluir o token!',
     'opinionCreateSuccess' => 'Parecer salvo com sucesso!',
     'opinionCreateError' => 'Não foi possível salvar o parecer!',
+    'opinionDeleteSuccess' => 'Parecer excluído com sucesso!',
+    'opinionDeleteError' => 'Não foi possível excluir o parecer!',
+    'articleStatusChangeSuccess' => 'Status alterado com sucesso!',
+    'articleStatusChangeError' => 'Não foi possível alterar o status!',
   ),
   'layout' => 
   array (
@@ -231,7 +236,10 @@
     'deleteToken' => 'Excluir token',
     'reviewArticle' => 'Avaliar artigo',
     'viewOpinion' => 'Ver parecer',
+    'deleteOpinion' => 'Excluir parecer',
     'article' => 'Artigo',
     'result' => 'Resultado',
+    'deleteConfirmation' => 'Você realmente deseja excluir esta informação? Esta operação é irreversível!',
+    'changeStatus' => 'Alterar status',
   ),
 );

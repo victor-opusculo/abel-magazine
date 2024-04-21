@@ -35,6 +35,10 @@
     "tokenDeleteSuccess": "Token deleted successfully!",
     "tokenDeleteError": "Not possible to delete token!",
     "opinionCreateSuccess": "Review saved successfully!",
-    "opinionCreateError": "Not possible to save review!"
+    "opinionCreateError": "Not possible to save review!",
+    "opinionDeleteSuccess": "Review deleted successfully!",
+    "opinionDeleteError": "Not possible to delete review!",
+    "articleStatusChangeSuccess": "Status changed successfully!",
+    "articleStatusChangeError": "Not possible to change status!"
 
 }

@@ -13,7 +13,7 @@
                 .then(({ logout }) => logout())
                 .then(AbelMagazine.Alerts.pushFromJsonResult)
                 .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/admin/login', {}))
-                .catch(reason => AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorLogout), console.error(reason));
+                .catch(reason => (AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorLogout), console.error(reason)));
         }
     };
 

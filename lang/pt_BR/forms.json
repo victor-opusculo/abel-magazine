@@ -69,6 +69,7 @@
     "errorEditingProfile": "Erro ao editar o perfil!",
     "errorCreatingToken": "Erro ao enviar dados para token!",
     "errorSavingOpinion": "Erro ao salvar parecer!",
+    "errorChangingStatus": "Erro ao alterar status!",
     "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
     "changeData": "Alterar dados",
     "changePassword": "Alterar senha",

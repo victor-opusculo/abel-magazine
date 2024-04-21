@@ -61,8 +61,12 @@
     "deleteToken": "Excluir token",
     "reviewArticle": "Avaliar artigo",
     "viewOpinion": "Ver parecer",
+    "deleteOpinion": "Excluir parecer",
     "article": "Artigo",
-    "result": "Resultado"
+    "result": "Resultado",
+    "deleteConfirmation": "Você realmente deseja excluir esta informação? Esta operação é irreversível!",
+    "changeStatus": "Alterar status"
+
 
 
 

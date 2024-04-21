@@ -76,7 +76,9 @@ return
             [
                 '/[opinionId]' => fn() =>
                 [
-                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\View::class
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\Functions::class,
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\Delete::class
                 ]
             ]
         ],

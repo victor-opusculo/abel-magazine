@@ -1,0 +1,25 @@
+
+<script>
+    const state = 
+    {
+        article_id: null,
+        to_status: null,
+        label: '',
+        error: ''
+    };
+
+    const methods =
+    {
+        change()
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/articles/${this.state.article_id}`))
+            .then(({ changeStatus }) => changeStatus({ articleId: this.state.article_id, toStatus: this.state.to_status }))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(() => window.location.reload())
+            .catch(AbelMagazine.Alerts.pushError(this.state.error));
+        }
+    };
+</script>
+<template>
+    <button class="btn mr-2" @click="change" type="button">${state.label}</button>
+</template>

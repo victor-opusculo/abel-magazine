@@ -29,30 +29,28 @@
   
     const state = 
     {
-        lang: {}
+        article_id: null,
+        to_status: null,
+        label: '',
+        error: ''
     };
 
     const methods =
     {
-        logout()
+        change()
         {
-                import(AbelMagazine.functionUrl('/admin'))
-                .then(({ logout }) => logout())
-                .then(AbelMagazine.Alerts.pushFromJsonResult)
-                .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/admin/login', {}))
-                .catch(reason => (AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorLogout), console.error(reason)));
+            import(AbelMagazine.functionUrl(`/admin/panel/articles/${this.state.article_id}`))
+            .then(({ changeStatus }) => changeStatus({ articleId: this.state.article_id, toStatus: this.state.to_status }))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(() => window.location.reload())
+            .catch(AbelMagazine.Alerts.pushError(this.state.error));
         }
     };
-
-    function setup()
-    {
-        this.render({ lang: JSON.parse(this.getAttribute('langJson')) });
-    }
 
 
   const __template = function({ state }) {
     return [  
-    h("button", {"class": `btn`, "onclick": this.logout.bind(this), "type": `button`}, `${state.lang.forms.logout}`)
+    h("button", {"class": `btn mr-2`, "onclick": this.change.bind(this), "type": `button`}, `${state.label}`)
   ]
   }
 

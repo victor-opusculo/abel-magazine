@@ -16,6 +16,9 @@ customElements.define('article-review-form', ArticleReviewForm)
 import BasicSearchField from './basic-search-field.js'
 customElements.define('basic-search-field', BasicSearchField)
 
+import ChangeArticleStatus from './change-article-status.js'
+customElements.define('change-article-status', ChangeArticleStatus)
+
 import ClientPaginator from './client-paginator.js'
 customElements.define('client-paginator', ClientPaginator)
 

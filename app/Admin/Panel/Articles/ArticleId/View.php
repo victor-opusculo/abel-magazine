@@ -9,6 +9,7 @@ use VictorOpusculo\AbelMagazine\Components\Data\DateTimeTranslator;
 use VictorOpusculo\AbelMagazine\Components\Label;
 use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
 use VictorOpusculo\AbelMagazine\Components\Panels\ConvenienceLinks;
+use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
@@ -104,6 +105,19 @@ final class View extends Component
                 ?   tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->article->iddedFilePathFromBaseDir()), children: text(I18n::get('pages.view')))
                 :   text('-')
             ),
+
+            tag('div', class: 'ml-2', children:
+            [
+                tag('span', class: 'font-bold mr-2', children: text(I18n::get('pages.changeStatus') . ': ')),
+                tag('change-article-status', article_id: $this->article->id->unwrapOr(0), to_status: Data::hscq(ArticleStatus::EvaluationInProgress->value), label: Data::hscq(ArticleStatus::translate(ArticleStatus::EvaluationInProgress)), error: I18n::get('forms.errorChangingStatus')),
+                tag('change-article-status', article_id: $this->article->id->unwrapOr(0), to_status: Data::hscq(ArticleStatus::EvaluationInProgress2->value), label: Data::hscq(ArticleStatus::translate(ArticleStatus::EvaluationInProgress2)), error: I18n::get('forms.errorChangingStatus')),
+                tag('change-article-status', article_id: $this->article->id->unwrapOr(0), to_status: Data::hscq(ArticleStatus::Approved->value), label: Data::hscq(ArticleStatus::translate(ArticleStatus::Approved)), error: I18n::get('forms.errorChangingStatus')),
+                tag('change-article-status', article_id: $this->article->id->unwrapOr(0), to_status: Data::hscq(ArticleStatus::Disapproved->value), label: Data::hscq(ArticleStatus::translate(ArticleStatus::Disapproved)), error: I18n::get('forms.errorChangingStatus')),
+                
+                $this->article->idded_file_extension->unwrapOr(null)
+                    ?   tag('change-article-status', article_id: $this->article->id->unwrapOr(0), to_status: Data::hscq(ArticleStatus::ApprovedWithIddedFile->value), label: Data::hscq(ArticleStatus::translate(ArticleStatus::ApprovedWithIddedFile)), error: I18n::get('forms.errorChangingStatus'))
+                    :   null
+            ]),
 
             component(ConvenienceLinks::class,
                 editUrl: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/edit"),
