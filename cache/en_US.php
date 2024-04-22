@@ -102,6 +102,7 @@
     'errorEditingProfile' => 'Error editing profile!',
     'errorCreatingToken' => 'Error sending data for token creation.',
     'errorSavingOpinion' => 'Error saving review!',
+    'errorChangingStatus' => 'Error changind status!',
     'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
     'changeData' => 'Change data',
     'changePassword' => 'Change password',
@@ -158,6 +159,8 @@
     'opinionCreateError' => 'Not possible to save review!',
     'opinionDeleteSuccess' => 'Review deleted successfully!',
     'opinionDeleteError' => 'Not possible to delete review!',
+    'articleStatusChangeSuccess' => 'Status changed successfully!',
+    'articleStatusChangeError' => 'Not possible to change status!',
   ),
   'layout' => 
   array (
@@ -216,6 +219,7 @@
     'myArticles' => 'My Articles',
     'newArticle' => 'New article',
     'dateTimeFormat' => 'm/d/Y h:i:s A',
+    'dateFormat' => 'm/d/Y',
     'viewArticle' => 'View article',
     'editArticle' => 'Edit article',
     'deleteArticle' => 'Delete article',
@@ -237,5 +241,9 @@
     'article' => 'Article',
     'result' => 'Result',
     'deleteConfirmation' => 'Are you sure you want to delete this information? This operation can not be undone!',
+    'changeStatus' => 'Change status',
+    'notPublishedYet' => 'This edition is not published yet.',
+    'sendYourArticle' => 'Submit your article',
+    'sendYourFinalArticleVersion' => 'Submit the version with identified authors',
   ),
 );

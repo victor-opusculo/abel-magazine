@@ -88,7 +88,11 @@ return
     [
         '/[magazineStrId]' => fn() =>
         [
-            '/' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Home::class
+            '/' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Home::class,
+            '/edition' => fn() =>
+            [
+                '/[editionId]' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Edition\EditionId::class
+            ]
         ]
     ],
     '/submitter' => fn() =>

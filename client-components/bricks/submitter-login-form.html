@@ -17,7 +17,7 @@
             import(AbelMagazine.functionUrl('/submitter'))
             .then(module => module.login(data))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
-            .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/submitter/panel'))
+            .then(AbelMagazine.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/submitter/panel'))
             .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogin));  
         },
 

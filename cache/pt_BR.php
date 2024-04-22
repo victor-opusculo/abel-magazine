@@ -29,6 +29,7 @@
     'incorrectCurrentPassword' => 'Senha atual incorreta!',
     'tokenNotFound' => 'Token não encontrado!',
     'invalidToken' => 'Token inválido!',
+    'finalArticleAlreadyUploaded' => 'The file with authors is already uploaded.',
   ),
   'forms' => 
   array (
@@ -219,6 +220,7 @@
     'myArticles' => 'Meus Artigos',
     'newArticle' => 'Novo artigo',
     'dateTimeFormat' => 'd/m/Y H:i:s',
+    'dateFormat' => 'd/m/Y',
     'viewArticle' => 'Ver artigo',
     'editArticle' => 'Editar artigo',
     'deleteArticle' => 'Excluir artigo',
@@ -241,5 +243,8 @@
     'result' => 'Resultado',
     'deleteConfirmation' => 'Você realmente deseja excluir esta informação? Esta operação é irreversível!',
     'changeStatus' => 'Alterar status',
+    'notPublishedYet' => 'Esta edição ainda não foi publicada.',
+    'sendYourArticle' => 'Envie seu artigo',
+    'sendYourFinalArticleVersion' => 'Envie a versão com identificação de autores',
   ),
 );

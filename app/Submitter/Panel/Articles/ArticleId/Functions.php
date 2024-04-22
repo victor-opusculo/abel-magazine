@@ -13,6 +13,7 @@ use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 use VictorOpusculo\PComp\Rpc\FormDataBody;
 use VictorOpusculo\PComp\Rpc\IgnoreMethod;
+use VictorOpusculo\PComp\Rpc\ReturnsContentType;
 
 require_once __DIR__ . '/../../../../../lib/Middlewares/AuthorLoginCheck.php';
 
@@ -65,6 +66,38 @@ final class Functions extends BaseFunctionsClass
         {
             LogEngine::writeErrorLog($e->getMessage());
             return [ 'error' => $e->getMessage() ];
+        }
+    }
+
+    #[FormDataBody]
+    public function uploadFinal(array $post, array $files) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            $article = (new Article([ 'id' => $this->articleId, 'submitter_id' => $_SESSION['user_id'] ?? 0 ]))->getSingleFromSubmitter($conn);
+
+            if ($article->idded_file_extension->unwrapOr(false))
+                throw new Exception(I18n::get('exceptions.finalArticleAlreadyUploaded'));
+
+            $article->fillPropertiesFromFormInput($post, $files);
+
+            $result = $article->save($conn);
+            if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Artigo com identificação salvo. ID: {$article->id->unwrapOr(0)}");
+                return [ 'success' => I18n::get('functions.articleSubmissionSuccess') ];
+            }
+            else
+            {
+                LogEngine::writeErrorLog("Erro ao salvar artigo com identificação!");
+                return [ 'error' => I18n::get('functions.articleSubmissionError') ];
+            }
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];            
         }
     }
 }

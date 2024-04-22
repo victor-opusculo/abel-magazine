@@ -66,3 +66,6 @@ customElements.define('submitter-logout-button', SubmitterLogoutButton)
 
 import SubmitterRegisterForm from './submitter-register-form.js'
 customElements.define('submitter-register-form', SubmitterRegisterForm)
+
+import SubmitterSendFinalArticle from './submitter-send-final-article.js'
+customElements.define('submitter-send-final-article', SubmitterSendFinalArticle)

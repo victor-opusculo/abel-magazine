@@ -7,11 +7,13 @@ use VictorOpusculo\AbelMagazine\Components\Data\DateTimeTranslator;
 use VictorOpusculo\AbelMagazine\Components\Label;
 use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
 use VictorOpusculo\AbelMagazine\Components\Panels\ConvenienceLinks;
+use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\IddedArticleUpload;
 use VictorOpusculo\PComp\Component;
 use VictorOpusculo\PComp\Context;
 use VictorOpusculo\PComp\HeadManager;
@@ -69,6 +71,19 @@ final class View extends Component
                 ?   tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->article->iddedFilePathFromBaseDir()), children: text(I18n::get('forms.download'))) 
                 :   text('-')   
             ),
+
+            $this->article->is_approved->unwrapOr(false) && ($this->article->idded_file_extension->unwrapOr(null) === null)
+            ?   tag('fieldset', class: 'fieldset', children:
+                [
+                    tag('legend', children: text(I18n::get('pages.sendYourFinalArticleVersion'))),
+                    tag('submitter-send-final-article', 
+                        button_label: I18n::get('forms.send'), 
+                        allowed_mime_types: Data::hscq(implode(',', IddedArticleUpload::ALLOWED_TYPES)),
+                        error: I18n::get('forms.errorSubmittingArticle'),
+                        article_id: $this->article->id->unwrapOr(0)
+                    )
+                ])
+            :   null,
 
             component(ConvenienceLinks::class, editUrl: URLGenerator::generatePageUrl("/submitter/panel/articles/{$this->article->id->unwrapOr(0)}/edit"))
         ])

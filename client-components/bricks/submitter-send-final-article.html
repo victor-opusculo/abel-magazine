@@ -1,0 +1,39 @@
+<script>
+    const state = 
+    {
+        article_id: null,
+        file: null,
+        allowed_mime_types: '',
+        button_label: '',
+        error: ''
+    }
+
+    const methods =
+    {
+        setFile(e)
+        {
+            this.render({ ...this.state, file: e.target.files[0] });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const fd = new FormData();
+            fd.append('file_article_id', this.state.file);
+
+            import(AbelMagazine.functionUrl(`/submitter/panel/articles/${this.state.article_id}`))
+            .then(module => module.uploadFinal(fd))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(() => window.location.reload())
+            .catch(AbelMagazine.Alerts.pushError(this.state.error));
+        }
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <input type="file" accept="${state.allowed_mime_types}" @change="setFile" class="file:btn mr-2" required />
+        <button type="submit" class="btn">${state.button_label}</button>
+    </form>
+</template>

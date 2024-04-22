@@ -23,7 +23,7 @@ final class Layout extends Component
 
         if (empty($_SESSION) || $_SESSION['user_type'] !== UserTypes::author)
         {
-            header('location:' . URLGenerator::generatePageUrl('/submitter/login', [ 'messages' => I18n::get('pages.submitterNotLoggedIn') ]), true, 303);
+            header('location:' . URLGenerator::generatePageUrl('/submitter/login', [ 'messages' => I18n::get('pages.submitterNotLoggedIn'), 'back_to' => $_GET['page'] ]), true, 303);
             if (isset($_SESSION)) session_unset();
             session_destroy();
             exit;

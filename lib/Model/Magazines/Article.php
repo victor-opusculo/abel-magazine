@@ -95,7 +95,9 @@ class Article extends DataEntity
         }
 
         if ($approvedOnly)
-            $selector->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1");
+            $selector
+            ->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1")
+            ->addWhereClause("AND {$this->getWhereQueryColumnName('idded_file_extension')} IS NOT NULL");
 
         $count = (int)$selector->run($conn, SqlSelector::RETURN_FIRST_COLUMN_VALUE);
         return $count;
@@ -118,7 +120,9 @@ class Article extends DataEntity
         }
 
         if ($approvedOnly)
-            $selector->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1");
+            $selector
+            ->addWhereClause("AND {$this->getWhereQueryColumnName('is_approved')} = 1")
+            ->addWhereClause("AND {$this->getWhereQueryColumnName('idded_file_extension')} IS NOT NULL");
 
         $selector->setOrderBy(match($orderBy)
         {
@@ -269,13 +273,14 @@ class Article extends DataEntity
 
     public function afterDatabaseUpdate(mysqli $conn, $updateResult)
     {
-        if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::Approved->value))
+        if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameIdded]) && ($this->status->unwrapOr('') === ArticleStatus::ApprovedWithIddedFile->value))
         {
             Upload\IddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameIdded);
             $updateResult['affectedRows'] += 1;
         }
         else if (!$this->adminEdit && isset($this->postFiles) && isset($this->postFiles[$this->fileInputNameNotIdded]) && ($this->status->unwrapOr('') === ArticleStatus::EvaluationInProgress->value))
         {
+            throw new Exception("AAa");
             Upload\NotIddedArticleUpload::cleanArticleFolder((int)$this->id->unwrap());
             Upload\NotIddedArticleUpload::uploadArticleFile((int)$this->id->unwrap(), $this->postFiles, $this->fileInputNameNotIdded);
             $updateResult['affectedRows'] += 1;

@@ -28,55 +28,42 @@
 
   
     const state = 
-    { 
-        password: "",
-        email: "",
-        lang: {}
-    };
-
-    const methods = 
     {
+        article_id: null,
+        file: null,
+        allowed_mime_types: '',
+        button_label: '',
+        error: ''
+    }
+
+    const methods =
+    {
+        setFile(e)
+        {
+            this.render({ ...this.state, file: e.target.files[0] });
+        },
+
         submit(e)
         {
             e.preventDefault();
-            const data = { email: this.state.email, password: this.state.password };
-            
-            import(AbelMagazine.functionUrl('/submitter'))
-            .then(module => module.login(data))
+
+            const fd = new FormData();
+            fd.append('file_article_id', this.state.file);
+
+            import(AbelMagazine.functionUrl(`/submitter/panel/articles/${this.state.article_id}`))
+            .then(module => module.uploadFinal(fd))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
-            .then(AbelMagazine.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/submitter/panel'))
-            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorLogin));  
-        },
-
-        changeEmail(e)
-        {
-            this.render({ ...this.state, email: e.target.value });
-        },
-
-        changePassword(e)
-        {
-            this.render({ ...this.state, password: e.target.value }); 
+            .then(() => window.location.reload())
+            .catch(AbelMagazine.Alerts.pushError(this.state.error));
         }
-    };
-
-    function setup()
-    {
-        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
     }
 
 
   const __template = function({ state }) {
     return [  
-    h("form", {"class": `mx-auto max-w-[500px]`}, [
-      h("ext-label", {"label": `${state.lang.forms.email}`}, [
-        h("input", {"type": `email`, "class": `w-full`, "value": state.email, "oninput": this.changeEmail.bind(this)}, "")
-      ]),
-      h("ext-label", {"label": `${state.lang.forms.password}`}, [
-        h("input", {"type": `password`, "class": `w-full`, "value": state.password, "oninput": this.changePassword.bind(this)}, "")
-      ]),
-      h("div", {"class": `text-center`}, [
-        h("button", {"class": `btn`, "type": `submit`, "onclick": this.submit.bind(this)}, `${state.lang.forms.enter}`)
-      ])
+    h("form", {"onsubmit": this.submit.bind(this)}, [
+      h("input", {"type": `file`, "accept": `${state.allowed_mime_types}`, "onchange": this.setFile.bind(this), "class": `file:btn mr-2`, "required": ``}, ""),
+      h("button", {"type": `submit`, "class": `btn`}, `${state.button_label}`)
     ])
   ]
   }
