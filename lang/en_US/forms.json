@@ -76,6 +76,8 @@
     "errorCreatingPage": "Error creating page!",
     "errorEditingPage": "Error editing page!",
     "errorSettingSubmissionRulesPage": "Error setting page!",
+    "errorGeneratingOtp": "Error creating temporary password!",
+    "errorChangingEmail": "Error changing e-mail!",
     "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
     "changeData": "Change data",
     "changePassword": "Change password",
@@ -91,6 +93,9 @@
     "feedbackMessage": "Feedback message",
     "send": "Send",
     "specifyPageOrSelectRemove": "Specify a page or mark the remove option",
-    "pageId": "Page ID"
+    "pageId": "Page ID",
+    "codeSentToYourEmail": "Code sent to your e-mail",
+    "wait": "Wait...",
+    "proceed": "Proceed"
 
 }

@@ -44,7 +44,11 @@ final class Edit extends Component
             $evTokensExist = (new AssessorEvaluationToken([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
             $asOpinionsExist = (new AssessorOpinion([ 'article_id' => $this->articleId ]))->existsForArticle($conn);
 
-            if ($evTokensExist || $asOpinionsExist)
+            if ($evTokensExist || 
+                $asOpinionsExist || 
+                $article->status->unwrapOr('') === ArticleStatus::Approved->value ||
+                $article->status->unwrapOr('') === ArticleStatus::Disapproved->value ||
+                $article->is_approved->unwrapOr(false))
                 $this->canEdit = false;
 
             $langs = I18n::availableLangs() + [ 'es' => 'Español' ];

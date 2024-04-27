@@ -31,6 +31,9 @@
     'invalidToken' => 'Token inválido!',
     'finalArticleAlreadyUploaded' => 'O arquivo com autores já foi enviado.',
     'pageNotFound' => 'Página não encontrada.',
+    'expiredOtp' => 'Código temporário expirado! Tente gerar um novo.',
+    'wrongOtp' => 'Código temporário incorreto!',
+    'invalidEmail' => 'E-mail inválido!',
   ),
   'forms' => 
   array (
@@ -111,6 +114,8 @@
     'errorCreatingPage' => 'Erro ao criar página!',
     'errorEditingPage' => 'Erro ao editar página!',
     'errorSettingSubmissionRulesPage' => 'Erro ao definir página!',
+    'errorGeneratingOtp' => 'Erro ao criar o código temporário!',
+    'errorChangingEmail' => 'Erro ao definir e-mail!',
     'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
     'changeData' => 'Alterar dados',
     'changePassword' => 'Alterar senha',
@@ -127,6 +132,9 @@
     'send' => 'Enviar',
     'specifyPageOrSelectRemove' => 'Specifique uma página ou marque a opção de remover',
     'pageId' => 'Página ID',
+    'codeSentToYourEmail' => 'Código enviado para seu e-mail',
+    'wait' => 'Aguarde...',
+    'proceed' => 'Proceder',
   ),
   'functions' => 
   array (
@@ -178,6 +186,14 @@
     'pageDeleteError' => 'Não foi possível excluir a página!',
     'settingChangeSuccess' => 'Configuração alterada com sucesso!',
     'settingChangeError' => 'Não foi possível alterar a configuração!',
+    'changeApprovedStatusSuccess' => 'Publicação alterada com successo!',
+    'changeApprovedStatusError' => 'Não foi possível alterar a publicação!',
+    'changeApprovedStatusNotIddedFille' => 'O arquivo com autores não foi enviado ainda pelo autor!',
+    'otpCreated' => 'Seu código temporário foi enviado para seu e-mail. Consulte sua caixa de entrada, incluindo a pasta de spam/lixo eletrônico.',
+    'otpCreateError' => 'Erro ao criar código temporário!',
+    'passwordChangedSuccess' => 'Senha alterada com sucesso!',
+    'passwordChangedError' => 'Erro ao alterar senha!',
+    'notifyEmailChangeSuccess' => 'E-mail alterado com sucesso!',
   ),
   'layout' => 
   array (
@@ -189,6 +205,14 @@
     'adminPanelHome' => 'Home',
     'submitterPanel' => 'Painel do autor',
     'submissionRules' => 'Normas de submissão',
+  ),
+  'mail' => 
+  array (
+    'recoverLoginTitle' => 'ABEL - Recuperar acesso ao painel de autor',
+    'recoverLoginGreeting' => 'Olá, {name}!',
+    'recoverLoginMessage' => 'Você solicitou a recuperação do seu acesso ao painel de autor do portal de revistas da ABEL. Informe o código temporário abaixo na página que o pede: ',
+    'newArticleTitle' => 'ABEL - Novo artigo enviado!',
+    'newArticleMessage' => 'Um novo artigo foi enviado no portal de revistas da ABEL. Acesse-o pelo link abaixo:',
   ),
   'pages' => 
   array (
@@ -269,5 +293,15 @@
     'editPage' => 'Editar página',
     'deletePage' => 'Excluir página',
     'defineSubmissionRulesPage' => 'Definir página de regras de submissão',
+    'publishArticle' => 'Publicar artigo',
+    'unpublishArticle' => 'Despublicar artigo',
+    'publicationStatus' => 'Status de publicação',
+    'published' => 'Publicado!',
+    'notPublished' => 'Não publicado.',
+    'downloadFullArticle' => 'Baixar artigo completo',
+    'reviewDirectLink' => 'Link direto para avaliação',
+    'noneYet' => 'Nenhum ainda',
+    'recoveryAccess' => 'Recuperação de acesso',
+    'changeNotificationEmail' => 'Alterar e-mail de notificação',
   ),
 );

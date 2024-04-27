@@ -27,62 +27,44 @@
     };
 
   
-    const state = 
-    { 
-        password: "",
-        email: "",
+    const state =
+    {
+        email: '',
         lang: {}
     };
 
-    const methods = 
+    function setup()
     {
-        async submit(e)
-        {
-            e.preventDefault();
-            
-            try
-            {
-                const { login } = await import(AbelMagazine.functionUrl('/admin'));  
-                const result = await login({ data: { email: this.state.email, password: this.state.password } });
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
 
-                AbelMagazine.Alerts.pushFromJsonResult(result)
-                .then(AbelMagazine.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/admin/panel'));
-            }
-            catch (err)
-            {
-                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, this.state.lang.forms.errorLogin);
-                console.error(err);
-            }
-        },
-
+    const methods =
+    {
         changeEmail(e)
         {
             this.render({ ...this.state, email: e.target.value });
         },
 
-        changePassword(e)
+        submit(e)
         {
-            this.render({ ...this.state, password: e.target.value }); 
+            e.preventDefault();
+
+            import(AbelMagazine.functionUrl('/admin/panel/articles'))
+            .then(module => module.changeNotifyEmail({ email: this.state.email }))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorChangingEmail));
         }
     };
-
-    function setup()
-    {
-        this.render({ ...this.state, lang: JSON.parse(this.getAttribute('langJson')) });
-    }
 
 
   const __template = function({ state }) {
     return [  
-    h("form", {"class": `mx-auto max-w-[500px]`, "onsubmit": this.submit.bind(this)}, [
+    h("form", {"onsubmit": this.submit.bind(this)}, [
       h("ext-label", {"label": `${state.lang.forms.email}`}, [
-        h("input", {"type": `email`, "class": `w-full`, "required": ``, "value": state.email, "oninput": this.changeEmail.bind(this)}, "")
+        h("input", {"type": `email`, "maxlength": `140`, "required": ``, "value": state.email, "onchange": this.changeEmail.bind(this), "class": `w-full`}, "")
       ]),
-      h("ext-label", {"label": `${state.lang.forms.password}`}, [
-        h("input", {"type": `password`, "class": `w-full`, "required": ``, "value": state.password, "oninput": this.changePassword.bind(this)}, "")
-      ]),
-      h("div", {"class": `text-center`}, [
-        h("button", {"class": `btn`, "type": `submit`}, `${state.lang.forms.enter}`)
+      h("div", {"class": `text-center mt-2`}, [
+        h("button", {"type": `submit`, "class": `btn`}, `${state.lang.forms.save}`)
       ])
     ])
   ]

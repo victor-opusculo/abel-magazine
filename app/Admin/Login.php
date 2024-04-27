@@ -20,7 +20,7 @@ final class Login extends Component
         session_name('abel_magazine_admin_user');
         session_start();
 
-        if (isset($_SESSION) && $_SESSION['user_type'] === UserTypes::administrator)
+        if (isset($_SESSION) && ($_SESSION['user_type'] ?? '') === UserTypes::administrator)
         {
             header('location:' . URLGenerator::generatePageUrl('/admin/panel'), true, 303);
             exit;

@@ -6,8 +6,10 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\UserTypes;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
+use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\SubmitterOtp;
 use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\Submitter;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
+use VictorOpusculo\PComp\Rpc\ReturnsContentType;
 
 final class Functions extends BaseFunctionsClass
 {
@@ -93,5 +95,84 @@ final class Functions extends BaseFunctionsClass
         }
 
         return [ 'success' => I18n::get('functions.logoutSuccess') ];
+    }
+
+    public function createOtp(array $data) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            [ 'email' => $email ] = $data;
+
+            $submitter = (new Submitter([ 'email' => $email ]))
+            ->setCryptKey(Connection::getCryptoKey())
+            ->getSingleFromEmail($conn);
+
+            [ $otpObj, $otpStr ] = SubmitterOtp::createNow($submitter->id->unwrap());
+            $otpObj->clearAllOtpsFromSubmitter($conn);
+            $result = $otpObj->save($conn);
+
+            if ($result['newId'])
+            {
+                LogEngine::writeLog("OTP de autor criada! ID: $result[newId]");
+                SubmitterOtp::sendEmail($otpStr, $submitter->email->unwrap(), $submitter->full_name->unwrap());
+                return [ 'success' => I18n::get('functions.otpCreated'), 'otpId' => $result['newId'] ];
+            }
+            else
+            {
+                LogEngine::writeErrorLog("Ao gerar OTP para recuperação de senha de autor.");
+                return [ 'error' => I18n::get('functions.otpCreateError') ];
+            }
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];
+        }
+    }
+
+    public function changePassword(array $data) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            [ 'otpId' => $otpId, 'givenOtp' => $givenOtp, 'newPassword' => $newPassword ] = $data;
+
+            $otp = (new SubmitterOtp([ 'id' => $otpId ]))->getSingle($conn);
+
+            $submitter = (new Submitter([ 'id' => $otp->submitter_id->unwrap() ]))
+            ->setCryptKey(Connection::getCryptoKey())
+            ->getSingle($conn)
+            ->setCryptKey(Connection::getCryptoKey());
+
+            if (!$otp->verifyDatetime())
+                return [ 'error' => I18n::get('exceptions.expiredOtp'), 'reset' => true ];
+
+            if (!$otp->verifyOtp($givenOtp))
+                return [ 'error' => I18n::get('exceptions.wrongOtp'), 'reset' => false ];
+
+            if (!$newPassword || mb_strlen($newPassword) < 5)
+                return [ 'error' => I18n::get('exceptions.passwordNotBlankMin5Chars'), 'reset' => false ];
+
+            $submitter->hashPassword($newPassword);
+            $result = $submitter->save($conn);
+
+            if ($result['affectedRows'] > 0)
+            {
+                $otp->delete($conn);
+                LogEngine::writeLog("Senha de autor alterada pela recuperação de acesso perdido. Autor ID: {$submitter->id->unwrapOr(0)}");
+                return [ 'success' => I18n::get('functions.passwordChangedSuccess') ];
+            }
+            else
+            {
+                LogEngine::writeErrorLog("Ao alterar senha de autor pela recuperação de acesso perdido. Autor ID: {$submitter->id->unwrapOr(0)}");
+                return [ 'error' => I18n::get('functions.passwordChangedError'), 'reset' => true ];
+            }
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage(), 'reset' => true ];
+        }
     }
 }

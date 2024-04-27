@@ -1,0 +1,42 @@
+<script>
+    const state =
+    {
+        email: '',
+        lang: {}
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
+
+    const methods =
+    {
+        changeEmail(e)
+        {
+            this.render({ ...this.state, email: e.target.value });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            import(AbelMagazine.functionUrl('/admin/panel/articles'))
+            .then(module => module.changeNotifyEmail({ email: this.state.email }))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorChangingEmail));
+        }
+    };
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.email}">
+            <input type="email" maxlength="140" required :value="state.email" @change="changeEmail" class="w-full" />
+        </ext-label>
+        <div class="text-center mt-2">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>
+

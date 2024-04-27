@@ -11,7 +11,7 @@ final class IddedArticleUpload
     private function __construct() { }
 
     public const UPLOAD_DIR = 'uploads/articles/{articleId}/';
-    public const ALLOWED_TYPES = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    public const ALLOWED_TYPES = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
     public const MAX_SIZE = 10485760 /* 10MB */;
 
     /**

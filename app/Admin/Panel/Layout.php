@@ -23,8 +23,16 @@ final class Layout extends Component
             session_name('abel_magazine_admin_user');
             session_start();
 
-            if ($_SESSION['user_type'] !== UserTypes::administrator)
-                throw new Exception(I18n::get('exceptions.wrongUserTypeReqAdmin'));
+            if (empty($_SESSION) || $_SESSION['user_type'] !== UserTypes::administrator)
+            {
+                header('location:' . URLGenerator::generatePageUrl('/admin/login', [ 'messages' => I18n::get('pages.submitterNotLoggedIn'), 'back_to' => $_GET['page'] ]), true, 303);
+                if (isset($_SESSION)) session_unset();
+                session_destroy();
+                exit;
+            }
+
+            // ($_SESSION['user_type'] !== UserTypes::administrator)
+            //    throw new Exception(I18n::get('exceptions.wrongUserTypeReqAdmin'));
 
             $this->administrator = (new Administrator([ 'id' => $_SESSION['user_id'] ?? 0 ]))->getSingle($conn);
         }

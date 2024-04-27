@@ -26,4 +26,5 @@ class SubmissionRulesPageId extends DataEntity
     protected string $databaseTable = 'settings';
     protected string $formFieldPrefixName = 'submissionRulesPageId';
     protected array $primaryKeys = ['name'];
+    protected array $setPrimaryKeysValue = ['name'];
 }

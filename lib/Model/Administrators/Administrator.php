@@ -24,7 +24,7 @@ class Administrator extends DataEntity
             'id' => new DataProperty('id', fn() => null, DataProperty::MYSQL_INT),
             'email' => new DataProperty('email', fn() => null, DataProperty::MYSQL_STRING),
             'full_name' => new DataProperty('full_name', fn() => null, DataProperty::MYSQL_STRING),
-            'password_hash' => new DataProperty('password_hash', fn() => null, DataProperty::MYSQL_STRING),
+            'password_hash' => new DataProperty(null, fn() => null, DataProperty::MYSQL_STRING),
             'timezone' => new DataProperty('timezone', fn() => 'America/Sao_Paulo', DataProperty::MYSQL_STRING)
         ];
 

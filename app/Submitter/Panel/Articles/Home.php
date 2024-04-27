@@ -37,7 +37,7 @@ final class Home extends Component
             [
                 'id' => $a->id->unwrapOr(0),
                 I18n::get('forms.title') => Data::truncateText($a->title->unwrapOr(''), 40),
-                I18n::get('forms.status') => ArticleStatus::translate($a->status->unwrapOr('')),
+                I18n::get('forms.status') => $a->is_approved->unwrapOr(0) ? I18n::get('pages.published') : ArticleStatus::translate($a->status->unwrapOr('')),
                 I18n::get('forms.submissionDate') => date_create($a->submission_datetime->unwrapOr('now'), new DateTimeZone('UTC'))
                     ->setTimezone(new DateTimeZone($_SESSION['user_timezone'] ?? 'America/Sao_Paulo'))
                     ->format(I18n::get('pages.dateTimeFormat')),

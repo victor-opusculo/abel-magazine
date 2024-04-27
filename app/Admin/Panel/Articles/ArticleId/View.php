@@ -119,6 +119,27 @@ final class View extends Component
                     :   null
             ]),
 
+            
+            tag('div', class: 'ml-2 my-2', children: 
+            [
+                tag('span', class: 'mr-2', children:
+                [
+                    tag('span', class: 'font-bold', children: text(I18n::get('pages.publicationStatus') . ': ')),
+                    $this->article->is_approved->unwrapOr(false)
+                        ?   text(I18n::get('pages.published'))
+                        :   text(I18n::get('pages.notPublished'))
+                ]),
+                
+                $this->article->status->unwrapOr('') === ArticleStatus::ApprovedWithIddedFile->value && $this->article->idded_file_extension->unwrapOr(null)
+                    ?    tag('change-article-approvation-status',
+                            error: I18n::get('forms.errorChangingStatus'),
+                            article_id: $this->article->id->unwrapOr(0),
+                            label_approve: !$this->article->is_approved->unwrapOr(false) ? I18n::get('pages.publishArticle') : '',
+                            label_disapprove: $this->article->is_approved->unwrapOr(false) ? I18n::get('pages.unpublishArticle') : ''
+                        )
+                    : null
+            ]),
+
             component(ConvenienceLinks::class,
                 editUrl: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/edit"),
                 deleteUrl: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->article->id->unwrapOr(0)}/delete")

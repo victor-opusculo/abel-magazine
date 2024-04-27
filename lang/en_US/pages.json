@@ -75,5 +75,15 @@
     "newPage": "New page",
     "editPage": "Edit page",
     "deletePage": "Delete page",
-    "defineSubmissionRulesPage": "Set submission rules page"
+    "defineSubmissionRulesPage": "Set submission rules page",
+    "publishArticle": "Publish article",
+    "unpublishArticle": "Unpublish article",
+    "publicationStatus": "Publication status",
+    "published": "Published!",
+    "notPublished": "Unpublished.",
+    "downloadFullArticle": "Download full article",
+    "reviewDirectLink": "Review direct link",
+    "noneYet": "None yet",
+    "recoveryAccess": "Access recovery",
+    "changeNotificationEmail": "Change notification e-mail"
 }

@@ -1,25 +1,31 @@
 <script>
     const state = 
     {
-        fullname: '',
+        full_name: '',
         email: '',
         password: '',
         password2: '',
-        adminid: 0,
+        timezone: '',
         currpassword: '',
-        slotId: ''
+
+        lang: {}
     };
 
     const methods =
     {
         nameChanged(e)
         {
-            this.render({ ...this.state, fullname: e.target.value });
+            this.render({ ...this.state, full_name: e.target.value });
         },
 
         emailChanged(e)
         {
             this.render({ ...this.state, email: e.target.value });
+        },
+
+        changeField(e)
+        {
+            this.render({ ...this.state, [ e.target.name ]: e.target.value });
         },
 
         currpasswordChanged(e)
@@ -43,7 +49,7 @@
 
             if ((this.state.password || this.state.password2) && (this.state.password !== this.state.password2))
             {
-                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.info, "As senhas não coincidem!");
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.info, this.state.lang.forms.passwordsNotEqual);
                 return;
             }
 
@@ -51,43 +57,48 @@
             for (const prop in this.state)
                 data['administrators:' + prop] = this.state[prop];
 
-            const headers = new Headers({ 'Content-Type': 'application/json' });
-            const body = JSON.stringify({ data });
-            fetch(AbelMagazine.Helpers.URLGenerator.generateApiUrl('/administrator/' + this.state.adminid), { method: 'PUT', headers, body })
-            .then(res => res.json())
-            .then(json =>
-            {
-                AbelMagazine.Alerts.pushFromJsonResult(json);
-            })
-            .catch(reason => AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, String(reason)));
+            import(AbelMagazine.functionUrl(`/admin/panel`))
+            .then(module => module.editProfile(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorEditingProfile));
         }
     };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
 </script>
 
 <template>
     <form class="mx-auto max-w-[700px]" @submit="submit">
-        <ext-label label="Nome completo">
-            <input type="text" required class="w-full" maxlength="140" :value="state.fullname" @input="nameChanged"/>
+        <ext-label label="${state.lang.forms.fullName}">
+            <input type="text" required class="w-full" maxlength="140" :value="state.full_name" @input="nameChanged"/>
         </ext-label>
-        <ext-label label="E-mail">
+        <ext-label label="${state.lang.forms.email}">
             <input type="email" required class="w-full" maxlength="140" :value="state.email" @input="emailChanged"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.yourTimezone}">
+            <select @change="changeField" name="timezone">
+                <option :for="dtz in AbelMagazine.Time.TimeZones" :value="dtz" :selected="dtz === this.state.timezone">${dtz}</option>
+            </select>
         </ext-label>
 
         <fieldset class="fieldset">
-            <legend>Alterar senha</legend>
-            <ext-label label="Senha atual">
+            <legend>${state.lang.forms.changePassword}</legend>
+            <ext-label label="${state.lang.forms.currentPassword}">
                 <input type="password" class="w-full" maxlength="140" :value="state.currpassword" @input="currpasswordChanged" />
             </ext-label>
-            <ext-label label="Nova senha">
+            <ext-label label="${state.lang.forms.newPassword}">
                 <input type="password" class="w-full" maxlength="140" :value="state.password" @input="passwordChanged"/>
             </ext-label>
-            <ext-label label="Confirme a senha alterada">
+            <ext-label label="${state.lang.forms.retypePassword}">
                 <input type="password" class="w-full" maxlength="140" :value="state.password2" @input="password2Changed"/>
             </ext-label>
         </fieldset>
         
         <div class="text-center mt-4">
-            <button class="btn" type="submit">Alterar dados</button>
+            <button class="btn" type="submit">${state.lang.forms.changeData}</button>
         </div>
     </form>
 </template>

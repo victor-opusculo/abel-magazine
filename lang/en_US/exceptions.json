@@ -18,5 +18,8 @@
     "tokenNotFound": "Token not found!",
     "invalidToken": "Invalid token!",
     "finalArticleAlreadyUploaded": "The file with authors is already uploaded.",
-    "pageNotFound": "Page not found."
+    "pageNotFound": "Page not found.",
+    "expiredOtp": "Temporary password has expired! Try generating a new one.",
+    "wrongOtp": "Temporary password is incorrect!",
+    "invalidEmail": "Invalid e-mail!"
 }

@@ -16,6 +16,9 @@ customElements.define('article-review-form', ArticleReviewForm)
 import BasicSearchField from './basic-search-field.js'
 customElements.define('basic-search-field', BasicSearchField)
 
+import ChangeArticleApprovationStatus from './change-article-approvation-status.js'
+customElements.define('change-article-approvation-status', ChangeArticleApprovationStatus)
+
 import ChangeArticleStatus from './change-article-status.js'
 customElements.define('change-article-status', ChangeArticleStatus)
 
@@ -58,6 +61,9 @@ customElements.define('page-client-select', PageClientSelect)
 import RestoreDeletedButton from './restore-deleted-button.js'
 customElements.define('restore-deleted-button', RestoreDeletedButton)
 
+import SetNotificationEmailNewArticle from './set-notification-email-new-article.js'
+customElements.define('set-notification-email-new-article', SetNotificationEmailNewArticle)
+
 import SetSubmissionRulesPageForm from './set-submission-rules-page-form.js'
 customElements.define('set-submission-rules-page-form', SetSubmissionRulesPageForm)
 
@@ -72,6 +78,9 @@ customElements.define('submitter-login-form', SubmitterLoginForm)
 
 import SubmitterLogoutButton from './submitter-logout-button.js'
 customElements.define('submitter-logout-button', SubmitterLogoutButton)
+
+import SubmitterRecoverPassword from './submitter-recover-password.js'
+customElements.define('submitter-recover-password', SubmitterRecoverPassword)
 
 import SubmitterRegisterForm from './submitter-register-form.js'
 customElements.define('submitter-register-form', SubmitterRegisterForm)

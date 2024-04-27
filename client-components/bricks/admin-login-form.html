@@ -19,7 +19,7 @@
                 const result = await login({ data: { email: this.state.email, password: this.state.password } });
 
                 AbelMagazine.Alerts.pushFromJsonResult(result)
-                .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess('/admin/panel'));
+                .then(AbelMagazine.Helpers.URLGenerator.goToPageOrBackToOnSuccess('/admin/panel'));
             }
             catch (err)
             {

@@ -1,0 +1,7 @@
+{
+    "recoverLoginTitle": "ABEL - Recuperar acesso ao painel de autor",
+    "recoverLoginGreeting": "Olá, {name}!",
+    "recoverLoginMessage": "Você solicitou a recuperação do seu acesso ao painel de autor do portal de revistas da ABEL. Informe o código temporário abaixo na página que o pede: ",
+    "newArticleTitle": "ABEL - Novo artigo enviado!",
+    "newArticleMessage": "Um novo artigo foi enviado no portal de revistas da ABEL. Acesse-o pelo link abaixo:"
+}

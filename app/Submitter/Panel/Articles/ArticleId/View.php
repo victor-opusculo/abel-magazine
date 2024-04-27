@@ -72,7 +72,15 @@ final class View extends Component
                 :   text('-')   
             ),
 
-            $this->article->is_approved->unwrapOr(false) && ($this->article->idded_file_extension->unwrapOr(null) === null)
+            component(Label::class, labelBold: true, label: I18n::get('pages.publicationStatus'), children:
+                text($this->article->is_approved->unwrapOr(0) ? I18n::get('pages.published') : I18n::get('pages.notPublished'))
+            ),
+
+            component(Label::class, labelBold: true, label: I18n::get('pages.reviewersOpinions'), children:
+                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/submitter/panel/articles/{$this->article->id->unwrapOr(0)}/reviews"), children: text(I18n::get('pages.view'))),
+            ),
+
+            $this->article->status->unwrapOr('') === ArticleStatus::Approved->value && ($this->article->idded_file_extension->unwrapOr(null) === null)
             ?   tag('fieldset', class: 'fieldset', children:
                 [
                     tag('legend', children: text(I18n::get('pages.sendYourFinalArticleVersion'))),

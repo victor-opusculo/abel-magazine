@@ -101,11 +101,7 @@ final class Functions extends BaseFunctionsClass
 
             $newStatus = ArticleStatus::tryFrom($toStatus) ?? ArticleStatus::EvaluationInProgress;
             $article->status = Option::some($newStatus->value);
-
-            if ($newStatus !== ArticleStatus::Approved && $newStatus !== ArticleStatus::ApprovedWithIddedFile)
-                $article->is_approved = Option::some(0);
-            else
-                $article->is_approved = Option::some(1);
+            $article->is_approved = Option::some(0);
 
             $result = $article->save($conn);
             if ($result['affectedRows'])
@@ -124,5 +120,47 @@ final class Functions extends BaseFunctionsClass
             LogEngine::writeErrorLog($e->getMessage());
             return [ 'error' => $e->getMessage() ];
         }
+    }
+
+    public function approveForPublication(array $data) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            if (!Connection::isId($this->articleId) || !Connection::isId($data['articleId'] ?? 0))
+                throw new Exception(I18n::get('exceptions.invalidId'));
+
+            [ 'articleId' => $id, 'toStatus' => $toStatus ] = $data;
+
+            $article = (new Article([ 'id' => $id ]))->getSingle($conn);
+
+            if ($article->status->unwrapOr('') !== ArticleStatus::ApprovedWithIddedFile->value)
+                throw new Exception(I18n::get('functions.changeApprovedStatusNotIddedFille'));
+
+            $article->is_approved = Option::some(match ($toStatus)
+            {
+                'approve' => 1,
+                'disapprove' => 0,
+                default => 0
+            });
+
+            $result = $article->save($conn);
+            if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Status de aprovação de artigo alterado! Artigo ID: {$id}");
+                return [ 'success' => I18n::get('functions.changeApprovedStatusSuccess') ];
+            }
+            else
+            {
+                LogEngine::writeErrorLog("Ao alterar status de aprovação de artigo. Artigo ID: $id");
+                return [ 'error' => I18n::get('functions.changeApprovedStatusError') ];
+            }
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];
+        }
+
     }
 }

@@ -76,6 +76,8 @@
     "errorCreatingPage": "Erro ao criar página!",
     "errorEditingPage": "Erro ao editar página!",
     "errorSettingSubmissionRulesPage": "Erro ao definir página!",
+    "errorGeneratingOtp": "Erro ao criar o código temporário!",
+    "errorChangingEmail": "Erro ao definir e-mail!",
     "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
     "changeData": "Alterar dados",
     "changePassword": "Alterar senha",
@@ -91,5 +93,8 @@
     "feedbackMessage": "Mensagem de feedback",
     "send": "Enviar",
     "specifyPageOrSelectRemove": "Specifique uma página ou marque a opção de remover",
-    "pageId": "Página ID"
+    "pageId": "Página ID",
+    "codeSentToYourEmail": "Código enviado para seu e-mail",
+    "wait": "Aguarde...",
+    "proceed": "Proceder"
 }

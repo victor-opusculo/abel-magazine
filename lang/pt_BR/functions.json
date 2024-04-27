@@ -46,6 +46,14 @@
     "pageDeleteSuccess": "Página excluída com sucesso!",
     "pageDeleteError": "Não foi possível excluir a página!",
     "settingChangeSuccess": "Configuração alterada com sucesso!",
-    "settingChangeError": "Não foi possível alterar a configuração!"
+    "settingChangeError": "Não foi possível alterar a configuração!",
+    "changeApprovedStatusSuccess": "Publicação alterada com successo!",
+    "changeApprovedStatusError": "Não foi possível alterar a publicação!",
+    "changeApprovedStatusNotIddedFille": "O arquivo com autores não foi enviado ainda pelo autor!",
+    "otpCreated": "Seu código temporário foi enviado para seu e-mail. Consulte sua caixa de entrada, incluindo a pasta de spam/lixo eletrônico.",
+    "otpCreateError": "Erro ao criar código temporário!",
+    "passwordChangedSuccess": "Senha alterada com sucesso!",
+    "passwordChangedError": "Erro ao alterar senha!",
+    "notifyEmailChangeSuccess": "E-mail alterado com sucesso!"
 
 }

@@ -1,15 +1,15 @@
 <?php
-namespace VictorOpusculo\AbelMagazine\App\Submitter\Panel;
+namespace VictorOpusculo\AbelMagazine\App\Admin\Panel;
 
 use Exception;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Administrators\Administrator;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
-use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\Submitter;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 use VictorOpusculo\PComp\Rpc\IgnoreMethod;
 
-require_once __DIR__ . '/../../../lib/Middlewares/AuthorLoginCheck.php';
+require_once __DIR__ . '/../../../lib/Middlewares/AdminLoginCheck.php';
 
 final class Functions extends BaseFunctionsClass
 {
@@ -17,7 +17,7 @@ final class Functions extends BaseFunctionsClass
     public function __construct($params)
     {
         parent::__construct($params);
-        $this->middlewares[] = '\VictorOpusculo\AbelMagazine\Lib\Middlewares\authorLoginCheck';
+        $this->middlewares[] = '\VictorOpusculo\AbelMagazine\Lib\Middlewares\adminLoginCheck';
     }
 
     public function editProfile(array $data) : array
@@ -25,18 +25,16 @@ final class Functions extends BaseFunctionsClass
         $conn = Connection::get();
         try
         {
-            $submitter = (new Submitter([ 'id' => $_SESSION['user_id'] ?? 0 ]))
-            ->setCryptKey(Connection::getCryptoKey())
+            $admin = (new Administrator([ 'id' => $_SESSION['user_id'] ?? 0 ]))
             ->getSingle($conn)
-            ->setCryptKey(Connection::getCryptoKey())
             ->fillPropertiesFromFormInput($data);
 
-            if ($data['submitters:currpassword'])
+            if ($data['administrators:currpassword'])
             {
-                if ($submitter->verifyPassword($data['submitters:currpassword']))
+                if ($admin->verifyPasswords($data['administrators:currpassword']))
                 {
-                    if (mb_strlen($data['submitters:password']) >= 5)
-                        $submitter->hashPassword($data['submitters:password']);
+                    if (mb_strlen($data['administrators:password']) >= 5)
+                        $admin->hashPassword($data['administrators:password']);
                     else
                         throw new Exception(I18n::get('exceptions.newPasswordTooShort'));
                 }
@@ -44,10 +42,10 @@ final class Functions extends BaseFunctionsClass
                     throw new Exception(I18n::get('exceptions.incorrectCurrentPassword'));
             }
 
-            $result = $submitter->save($conn);
+            $result = $admin->save($conn);
             if ($result['affectedRows'] > 0)
             {
-                LogEngine::writeLog("Perfil de autor editado! ID: {$submitter->id->unwrapOr(0)}");
+                LogEngine::writeLog("Perfil de administrador editado! ID: {$admin->id->unwrapOr(0)}");
                 return [ 'success' => I18n::get('functions.submitterEditProfileSuccess') ];
             }
             else

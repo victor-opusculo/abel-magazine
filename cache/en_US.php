@@ -31,6 +31,9 @@
     'invalidToken' => 'Invalid token!',
     'finalArticleAlreadyUploaded' => 'The file with authors is already uploaded.',
     'pageNotFound' => 'Page not found.',
+    'expiredOtp' => 'Temporary password has expired! Try generating a new one.',
+    'wrongOtp' => 'Temporary password is incorrect!',
+    'invalidEmail' => 'Invalid e-mail!',
   ),
   'forms' => 
   array (
@@ -111,6 +114,8 @@
     'errorCreatingPage' => 'Error creating page!',
     'errorEditingPage' => 'Error editing page!',
     'errorSettingSubmissionRulesPage' => 'Error setting page!',
+    'errorGeneratingOtp' => 'Error creating temporary password!',
+    'errorChangingEmail' => 'Error changing e-mail!',
     'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
     'changeData' => 'Change data',
     'changePassword' => 'Change password',
@@ -127,6 +132,9 @@
     'send' => 'Send',
     'specifyPageOrSelectRemove' => 'Specify a page or mark the remove option',
     'pageId' => 'Page ID',
+    'codeSentToYourEmail' => 'Code sent to your e-mail',
+    'wait' => 'Wait...',
+    'proceed' => 'Proceed',
   ),
   'functions' => 
   array (
@@ -178,6 +186,14 @@
     'pageDeleteError' => 'Not possible to delete page!',
     'settingChangeSuccess' => 'Setting changed successfully!',
     'settingChangeError' => 'Not possible to change setting!',
+    'changeApprovedStatusSuccess' => 'Publication status changed successfully!',
+    'changeApprovedStatusError' => 'Not possible to change Publication status!',
+    'changeApprovedStatusNotIddedFille' => 'The file with authors was not uploaded yet!',
+    'otpCreated' => 'Your temporary password has been sent to your e-mail. Check your inbox and spam folder.',
+    'otpCreateError' => 'Error creating temporary password!',
+    'passwordChangedSuccess' => 'Password changed successfully!',
+    'passwordChangedError' => 'Error changing password!',
+    'notifyEmailChangeSuccess' => 'E-mail changed successfully!',
   ),
   'layout' => 
   array (
@@ -189,6 +205,14 @@
     'adminPanelHome' => 'Home',
     'submitterPanel' => 'Author\'s panel',
     'submissionRules' => 'Submission rules',
+  ),
+  'mail' => 
+  array (
+    'recoverLoginTitle' => 'ABEL - Recover access to your author panel',
+    'recoverLoginGreeting' => 'Hello, {name}!',
+    'recoverLoginMessage' => 'You have requested the recovery of your access to the author panel of the ABEL\'s journal portal. Enter the temporary code below on the page that requests it:',
+    'newArticleTitle' => 'ABEL - New article sent!',
+    'newArticleMessage' => 'A new article has been sent on ABEL\'s journal portal. Open it by clicking the link below:',
   ),
   'pages' => 
   array (
@@ -269,5 +293,15 @@
     'editPage' => 'Edit page',
     'deletePage' => 'Delete page',
     'defineSubmissionRulesPage' => 'Set submission rules page',
+    'publishArticle' => 'Publish article',
+    'unpublishArticle' => 'Unpublish article',
+    'publicationStatus' => 'Publication status',
+    'published' => 'Published!',
+    'notPublished' => 'Unpublished.',
+    'downloadFullArticle' => 'Download full article',
+    'reviewDirectLink' => 'Review direct link',
+    'noneYet' => 'None yet',
+    'recoveryAccess' => 'Access recovery',
+    'changeNotificationEmail' => 'Change notification e-mail',
   ),
 );

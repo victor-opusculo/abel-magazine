@@ -13,6 +13,8 @@ return
         [
             '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Home::class,
             '__layout' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Layout::class,
+            '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Functions::class,
+            '/edit_profile' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\EditProfile::class,
             '/media' => fn() =>
             [
                 '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\Home::class,
@@ -54,6 +56,8 @@ return
             ],
             '/articles' => fn() =>
             [
+                '/change_notification_email' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ChangeNotificationEmail::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\Functions::class,
                 '/[articleId]' => fn() =>
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\View::class,
@@ -67,6 +71,7 @@ return
                         '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\Create::class,
                         '/[tokenId]' => fn() =>
                         [
+                            '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\View::class,
                             '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Delete::class,
                             '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions::class
                         ]
@@ -107,6 +112,10 @@ return
             '/edition' => fn() =>
             [
                 '/[editionId]' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Edition\EditionId::class
+            ],
+            '/article' => fn() =>
+            [
+                '/[articleId]' => \VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId::class
             ]
         ]
     ],
@@ -114,6 +123,7 @@ return
     [
         '/login' => \VictorOpusculo\AbelMagazine\App\Submitter\Login::class,
         '/register' => \VictorOpusculo\AbelMagazine\App\Submitter\Register::class,
+        '/recover_password' => \VictorOpusculo\AbelMagazine\App\Submitter\RecoverPassword::class,
         '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Functions::class,
         '/panel' => fn() =>
         [
@@ -130,7 +140,8 @@ return
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\View::class,
                     '__functions' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions::class,
-                    '/edit' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Edit::class
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Edit::class,
+                    '/reviews' => \VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Reviews::class
                 ]
             ]
         ]

@@ -43,11 +43,9 @@ final class Articles extends Component
                 I18n::get('forms.id') => $a->id->unwrapOr(0),
                 I18n::get('forms.title') => Data::truncateText($a->title->unwrapOr(''), 60),
                 I18n::get('forms.status') => ArticleStatus::translate($a->status->unwrapOr('')),
-                I18n::get('pages.isApproved') => $a->is_approved->unwrapOr(false)
-                                                    ?   new DataGridIcon('assets/pics/check.png', I18n::get('pages.approved'))
-                                                    :   ($a->status->unwrapOr('') === ArticleStatus::Disapproved->value
-                                                        ?   new DataGridIcon('assets/pics/wrong.png', I18n::get('pages.disapproved'))
-                                                        :   ''),
+                I18n::get('pages.publicationStatus') => $a->is_approved->unwrapOr(false)
+                                                    ?   new DataGridIcon('assets/pics/check.png', I18n::get('pages.published'))
+                                                    :   new DataGridIcon('assets/pics/wrong.png', I18n::get('pages.notPublished')),
                 I18n::get('forms.submissionDate') => date_create($a->submission_datetime->unwrapOr('now'), new DateTimeZone('UTC'))
                                                         ->setTimezone(new DateTimeZone($_SESSION['user_timezone'] ?? 'America/Sao_Paulo'))
                                                         ->format(I18n::get('pages.dateTimeFormat')),

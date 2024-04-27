@@ -58,6 +58,7 @@ final class Home extends Component
 
             component(DataGrid::class,
                 dataRows: $this->tokens,
+                detailsButtonURL: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->articleId}/evaluation_tokens/{param}"),
                 deleteButtonURL: URLGenerator::generatePageUrl("/admin/panel/articles/{$this->articleId}/evaluation_tokens/{param}/delete"),
                 rudButtonsFunctionParamName: 'id',
                 columnsToHide: ['id']

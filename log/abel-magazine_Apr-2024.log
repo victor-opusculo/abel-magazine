@@ -135,3 +135,58 @@
 26/04/2024 21:37:55 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo sem identificação enviado. ID: 3
 26/04/2024 21:39:34 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de artigo alterado manualmente pela administração. Artigo ID: 3
 26/04/2024 21:39:48 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo com identificação salvo. ID: 3
+27/04/2024 10:40:18 | IP: ::1 | Usuário: Desconhecido | *** ERRO *** Senha incorreta!
+27/04/2024 10:40:23 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Log-in de autor efetuado. ID: 1
+27/04/2024 10:43:20 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Administrador logado! ID: 1
+27/04/2024 10:45:06 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de aprovação de artigo alterado! Artigo ID: 3
+27/04/2024 10:45:40 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de aprovação de artigo alterado! Artigo ID: 3
+27/04/2024 10:46:27 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de aprovação de artigo alterado! Artigo ID: 3
+27/04/2024 10:46:33 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de aprovação de artigo alterado! Artigo ID: 3
+27/04/2024 10:46:42 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de artigo alterado manualmente pela administração. Artigo ID: 3
+27/04/2024 10:46:51 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de artigo alterado manualmente pela administração. Artigo ID: 3
+27/04/2024 10:46:57 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de artigo alterado manualmente pela administração. Artigo ID: 3
+27/04/2024 10:47:01 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Status de aprovação de artigo alterado! Artigo ID: 3
+27/04/2024 11:16:38 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo sem identificação enviado. ID: 4
+27/04/2024 11:19:36 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo sem identificação editado. ID: 4
+27/04/2024 11:20:33 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Token de avaliação gerado. ID: 7
+27/04/2024 11:56:42 | IP: ::1 | Usuário: Desconhecido | Parecer de avaliador enviado! ID: 6
+27/04/2024 11:59:15 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Token de avaliação gerado. ID: 8
+27/04/2024 11:59:33 | IP: ::1 | Usuário: Desconhecido | Parecer de avaliador enviado! ID: 7
+27/04/2024 12:00:15 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Parecer de avaliador excluído! 
+27/04/2024 12:00:53 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Token de avaliação gerado. ID: 9
+27/04/2024 12:01:12 | IP: ::1 | Usuário: Desconhecido | Parecer de avaliador enviado! ID: 8
+27/04/2024 12:02:35 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo com identificação salvo. ID: 4
+27/04/2024 12:20:08 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Perfil de administrador editado! ID: 1
+27/04/2024 12:20:11 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Perfil de administrador editado! ID: 1
+27/04/2024 12:20:18 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Senha atual incorreta!
+27/04/2024 12:20:33 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Perfil de administrador editado! ID: 1
+27/04/2024 12:20:35 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Administrador deslogado! ID: 1
+27/04/2024 12:20:45 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Administrador logado! ID: 1
+27/04/2024 12:20:58 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Perfil de administrador editado! ID: 1
+27/04/2024 14:34:01 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Autor deslogado. ID: 1
+27/04/2024 14:37:48 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 1
+27/04/2024 14:37:49 | IP: ::1 | Usuário: Desconhecido | *** ERRO *** Não foi possível enviar o e-mail! Detalhes do erro: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+27/04/2024 14:38:22 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 2
+27/04/2024 14:38:22 | IP: ::1 | Usuário: Desconhecido | *** ERRO *** Não foi possível enviar o e-mail! Detalhes do erro: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+27/04/2024 14:40:07 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 3
+27/04/2024 14:41:05 | IP: ::1 | Usuário: Desconhecido | *** ERRO *** Código temporário incorreto!
+27/04/2024 14:41:40 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 4
+27/04/2024 14:42:11 | IP: ::1 | Usuário: Desconhecido | Senha de autor alterada pela recuperação de acesso perdido. Autor ID: 1
+27/04/2024 14:45:47 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 5
+27/04/2024 14:46:15 | IP: ::1 | Usuário: Desconhecido | OTP de autor criada! ID: 6
+27/04/2024 14:46:43 | IP: ::1 | Usuário: Desconhecido | Senha de autor alterada pela recuperação de acesso perdido. Autor ID: 1
+27/04/2024 14:46:57 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Log-in de autor efetuado. ID: 1
+27/04/2024 15:13:35 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:14:39 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:14:41 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:15:07 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:15:58 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:15:58 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:16:48 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:18:16 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** E-mail inválido!
+27/04/2024 15:18:24 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | *** ERRO *** Field 'name' doesn't have a default value
+27/04/2024 15:21:03 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | E-mail de notificação de envios de artigos alterado para: victor.ventura@uol.com.br
+27/04/2024 15:24:40 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo sem identificação enviado. ID: 5
+27/04/2024 15:31:07 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Artigo excluído pela administração. ID: 5
+27/04/2024 15:31:59 | IP: ::1 | Usuário: Autor: victor.ventura@uol.com.br. ID: 1 | Artigo sem identificação enviado. ID: 6
+27/04/2024 15:32:16 | IP: ::1 | Usuário: Admin: victor.ventura@uol.com.br. ID: 1 | Administrador logado! ID: 1

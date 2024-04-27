@@ -46,7 +46,7 @@ final class Functions extends BaseFunctionsClass
                 else if ($opinion->isArticleApproved($conn))
                 {
                     $token->article->status = Option::some(ArticleStatus::Approved->value);
-                    $token->article->is_approved = Option::some(1);
+                    $token->article->is_approved = Option::some(0);
                 }
                 else
                 {

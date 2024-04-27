@@ -1,0 +1,7 @@
+{
+    "recoverLoginTitle": "ABEL - Recover access to your author panel",
+    "recoverLoginGreeting": "Hello, {name}!",
+    "recoverLoginMessage": "You have requested the recovery of your access to the author panel of the ABEL's journal portal. Enter the temporary code below on the page that requests it:",
+    "newArticleTitle": "ABEL - New article sent!",
+    "newArticleMessage": "A new article has been sent on ABEL's journal portal. Open it by clicking the link below:"
+}

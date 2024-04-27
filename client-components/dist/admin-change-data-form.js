@@ -29,25 +29,31 @@
   
     const state = 
     {
-        fullname: '',
+        full_name: '',
         email: '',
         password: '',
         password2: '',
-        adminid: 0,
+        timezone: '',
         currpassword: '',
-        slotId: ''
+
+        lang: {}
     };
 
     const methods =
     {
         nameChanged(e)
         {
-            this.render({ ...this.state, fullname: e.target.value });
+            this.render({ ...this.state, full_name: e.target.value });
         },
 
         emailChanged(e)
         {
             this.render({ ...this.state, email: e.target.value });
+        },
+
+        changeField(e)
+        {
+            this.render({ ...this.state, [ e.target.name ]: e.target.value });
         },
 
         currpasswordChanged(e)
@@ -71,7 +77,7 @@
 
             if ((this.state.password || this.state.password2) && (this.state.password !== this.state.password2))
             {
-                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.info, "As senhas não coincidem!");
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.info, this.state.lang.forms.passwordsNotEqual);
                 return;
             }
 
@@ -79,42 +85,47 @@
             for (const prop in this.state)
                 data['administrators:' + prop] = this.state[prop];
 
-            const headers = new Headers({ 'Content-Type': 'application/json' });
-            const body = JSON.stringify({ data });
-            fetch(AbelMagazine.Helpers.URLGenerator.generateApiUrl('/administrator/' + this.state.adminid), { method: 'PUT', headers, body })
-            .then(res => res.json())
-            .then(json =>
-            {
-                AbelMagazine.Alerts.pushFromJsonResult(json);
-            })
-            .catch(reason => AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, String(reason)));
+            import(AbelMagazine.functionUrl(`/admin/panel`))
+            .then(module => module.editProfile(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorEditingProfile));
         }
     };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+    }
 
 
   const __template = function({ state }) {
     return [  
     h("form", {"class": `mx-auto max-w-[700px]`, "onsubmit": this.submit.bind(this)}, [
-      h("ext-label", {"label": `Nome completo`}, [
-        h("input", {"type": `text`, "required": ``, "class": `w-full`, "maxlength": `140`, "value": state.fullname, "oninput": this.nameChanged.bind(this)}, "")
+      h("ext-label", {"label": `${state.lang.forms.fullName}`}, [
+        h("input", {"type": `text`, "required": ``, "class": `w-full`, "maxlength": `140`, "value": state.full_name, "oninput": this.nameChanged.bind(this)}, "")
       ]),
-      h("ext-label", {"label": `E-mail`}, [
+      h("ext-label", {"label": `${state.lang.forms.email}`}, [
         h("input", {"type": `email`, "required": ``, "class": `w-full`, "maxlength": `140`, "value": state.email, "oninput": this.emailChanged.bind(this)}, "")
       ]),
+      h("ext-label", {"label": `${state.lang.forms.yourTimezone}`}, [
+        h("select", {"onchange": this.changeField.bind(this), "name": `timezone`}, [
+          ((AbelMagazine.Time.TimeZones).map((dtz) => (h("option", {"value": dtz, "selected": dtz === this.state.timezone}, `${dtz}`))))
+        ])
+      ]),
       h("fieldset", {"class": `fieldset`}, [
-        h("legend", {}, `Alterar senha`),
-        h("ext-label", {"label": `Senha atual`}, [
+        h("legend", {}, `${state.lang.forms.changePassword}`),
+        h("ext-label", {"label": `${state.lang.forms.currentPassword}`}, [
           h("input", {"type": `password`, "class": `w-full`, "maxlength": `140`, "value": state.currpassword, "oninput": this.currpasswordChanged.bind(this)}, "")
         ]),
-        h("ext-label", {"label": `Nova senha`}, [
+        h("ext-label", {"label": `${state.lang.forms.newPassword}`}, [
           h("input", {"type": `password`, "class": `w-full`, "maxlength": `140`, "value": state.password, "oninput": this.passwordChanged.bind(this)}, "")
         ]),
-        h("ext-label", {"label": `Confirme a senha alterada`}, [
+        h("ext-label", {"label": `${state.lang.forms.retypePassword}`}, [
           h("input", {"type": `password`, "class": `w-full`, "maxlength": `140`, "value": state.password2, "oninput": this.password2Changed.bind(this)}, "")
         ])
       ]),
       h("div", {"class": `text-center mt-4`}, [
-        h("button", {"class": `btn`, "type": `submit`}, `Alterar dados`)
+        h("button", {"class": `btn`, "type": `submit`}, `${state.lang.forms.changeData}`)
       ])
     ])
   ]

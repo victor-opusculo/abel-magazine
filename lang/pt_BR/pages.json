@@ -75,5 +75,15 @@
     "newPage": "Nova página",
     "editPage": "Editar página",
     "deletePage": "Excluir página",
-    "defineSubmissionRulesPage": "Definir página de regras de submissão"
+    "defineSubmissionRulesPage": "Definir página de regras de submissão",
+    "publishArticle": "Publicar artigo",
+    "unpublishArticle": "Despublicar artigo",
+    "publicationStatus": "Status de publicação",
+    "published": "Publicado!",
+    "notPublished": "Não publicado.",
+    "downloadFullArticle": "Baixar artigo completo",
+    "reviewDirectLink": "Link direto para avaliação",
+    "noneYet": "Nenhum ainda",
+    "recoveryAccess": "Recuperação de acesso",
+    "changeNotificationEmail": "Alterar e-mail de notificação"
 }

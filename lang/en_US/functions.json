@@ -46,6 +46,14 @@
     "pageDeleteSuccess": "Page deleted successfully!",
     "pageDeleteError": "Not possible to delete page!",
     "settingChangeSuccess": "Setting changed successfully!",
-    "settingChangeError": "Not possible to change setting!"
+    "settingChangeError": "Not possible to change setting!",
+    "changeApprovedStatusSuccess": "Publication status changed successfully!",
+    "changeApprovedStatusError": "Not possible to change Publication status!",
+    "changeApprovedStatusNotIddedFille": "The file with authors was not uploaded yet!",
+    "otpCreated": "Your temporary password has been sent to your e-mail. Check your inbox and spam folder.",
+    "otpCreateError": "Error creating temporary password!",
+    "passwordChangedSuccess": "Password changed successfully!",
+    "passwordChangedError": "Error changing password!",
+    "notifyEmailChangeSuccess": "E-mail changed successfully!"
 
 }

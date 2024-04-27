@@ -8,6 +8,7 @@ use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Edition;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToNotifyNewArticle;
 use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 use VictorOpusculo\PComp\Rpc\FormDataBody;
@@ -31,6 +32,9 @@ final class Functions extends BaseFunctionsClass
         try
         {
             $article = (new Article)->fillPropertiesFromFormInput($post, $files);
+
+            $jsonAuthors = json_decode($article->authors->unwrapOr('[]'), false, 512, JSON_THROW_ON_ERROR);
+
             $article->is_approved = Option::some(0);
             $article->status = Option::some(ArticleStatus::EvaluationInProgress->value);
             $article->submitter_id = Option::some($_SESSION['user_id']);
@@ -39,6 +43,14 @@ final class Functions extends BaseFunctionsClass
             if ($result['newId'])
             {
                 LogEngine::writeLog("Artigo sem identificação enviado. ID: $result[newId]");
+
+                try
+                {
+                    $sett = (new EmailToNotifyNewArticle)->getSingle($conn);
+                    $sett->sendEmail((new Article([ 'id' => $result['newId'] ]))->getSingle($conn));
+                }
+                catch (Exception) {}
+
                 return [ 'success' => I18n::get('functions.articleSubmissionSuccess'), 'newId' => $result['newId'] ];
             }
             else

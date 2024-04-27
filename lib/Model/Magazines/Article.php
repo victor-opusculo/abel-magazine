@@ -5,6 +5,7 @@ use Exception;
 use mysqli;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\System;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\Submitter;
 use VictorOpusculo\MyOrm\DataEntity;
@@ -63,6 +64,8 @@ class Article extends DataEntity
 
     public ?Submitter $submitter = null;
     public ?Edition $edition = null;
+    /** @var AssessorOpinion[] */
+    public array $opinions = [];
 
     public function fetchSubmitter(mysqli $conn) : self
     {
@@ -76,6 +79,12 @@ class Article extends DataEntity
     public function fetchEdition(mysqli $conn) : self
     {
         $this->edition = (new Edition([ 'id' => $this->edition_id->unwrapOr(0) ]))->getSingle($conn);
+        return $this;
+    }
+
+    public function fetchOpinions(mysqli $conn) : self
+    {
+        $this->opinions = (new AssessorOpinion([ 'article_id' => $this->id->unwrapOr(0) ]))->getAllFromArticle($conn);
         return $this;
     }
 
