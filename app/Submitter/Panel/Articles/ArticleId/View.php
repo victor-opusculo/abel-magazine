@@ -64,11 +64,11 @@ final class View extends Component
             ),
             component(Label::class, labelBold: true, label: I18n::get('forms.language'), children: text(I18n::getAlias($this->article->language->unwrapOr('')))),
             component(Label::class, labelBold: true, label: I18n::get('forms.file'), children:
-                tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->article->notIddedFilePathFromBaseDir()), children: text(I18n::get('forms.download')))    
+                tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('/fetch_article_nid.php', [ 'id' => $this->article->id->unwrapOr(0) ]), children: text(I18n::get('forms.download')))    
             ),
             component(Label::class, labelBold: true, label: I18n::get('forms.iddedFile'), children:
                 $this->article->idded_file_extension->unwrapOr(false)
-                ?   tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->article->iddedFilePathFromBaseDir()), children: text(I18n::get('forms.download'))) 
+                ?   tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('/fetch_article.php', [ 'id' => $this->article->id->unwrapOr(0) ]), children: text(I18n::get('forms.download'))) 
                 :   text('-')   
             ),
 

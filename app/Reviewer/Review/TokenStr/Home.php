@@ -62,7 +62,7 @@ final class Home extends Component
                 )
             ),
             component(Label::class, labelBold: true, label: I18n::get('forms.file'), children: 
-                tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->token->article->notIddedFilePathFromBaseDir()), children: text(I18n::get('forms.download')))
+                tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('/fetch_article_nid.php', [ 'id' => $this->token->article->id->unwrapOr(0), 'review_token' => $this->token->token->unwrapOr('') ]), children: text(I18n::get('forms.download')))
             ),
 
             scTag('hr'),

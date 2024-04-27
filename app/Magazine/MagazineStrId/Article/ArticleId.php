@@ -65,7 +65,7 @@ final class ArticleId extends Component
             )),
             component(Label::class, labelBold: true, label: I18n::get('forms.language'), children: text(I18n::getAlias($this->article->language->unwrapOr('')))),
             component(Label::class, labelBold: true, label: I18n::get('forms.resume'), lineBreak: true, children: 
-                tag('div', class: 'whitespace-pre-line', children: text(I18n::getAlias($this->article->resume->unwrapOr(''))))
+                tag('div', class: 'whitespace-pre-line', children: text($this->article->resume->unwrapOr('')))
             ),
             component(Label::class, labelBold: true, label: I18n::get('forms.keywords'), children: text($this->article->keywords->unwrapOr(''))),
 
@@ -74,7 +74,7 @@ final class ArticleId extends Component
             ),
 
             component(Label::class, labelBold: true, label: I18n::get('pages.article'), children: 
-                tag('a', class: 'btn', href: URLGenerator::generateFileUrl($this->article->iddedFilePathFromBaseDir()), children: text(I18n::get('pages.downloadFullArticle')))
+                tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('/fetch_article.php', [ 'id' => $this->article->id->unwrapOr(0) ]), children: text(I18n::get('pages.downloadFullArticle')))
             )
         ])
         : null;
