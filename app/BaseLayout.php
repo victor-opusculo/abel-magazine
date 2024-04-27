@@ -27,7 +27,9 @@ final class BaseLayout extends Component
                     component(NavBar::class, children:
                     [
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/'), label: I18n::get('layout.adminPanelHome')),
-                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/submitter/panel'), label: I18n::get('layout.submitterPanel'))
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/submitter/panel'), label: I18n::get('layout.submitterPanel')),
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_rules'), label: I18n::get('layout.submissionRules'))
+                        
                     ])
                 ),
                 component(PageMessages::class),

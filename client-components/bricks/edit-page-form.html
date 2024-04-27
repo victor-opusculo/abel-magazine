@@ -1,0 +1,81 @@
+<script>
+    const state = 
+    {
+        id: 0,
+        title: '',
+        content: '',
+        html_enabled: 0,
+        is_published: 1,
+
+        lang: {}
+    };
+
+    const methods = 
+    {
+        changeField(e)
+        {
+            this.render({ ...this.state, [ e.target.getAttribute('data-fieldname') ]: e.target.type !== 'checkbox' ? e.target.value : (e.target.checked ? 1 : 0) });
+        },
+
+        create(data)
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/pages`))
+            .then(module => module.create(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(([ ret, json ]) =>
+                {
+                    if (json.success && json.newId)
+                        window.location.href = AbelMagazine.Helpers.URLGenerator.generatePageUrl(`/admin/panel/pages/${json.newId}/edit`);
+                })
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorCreatingPage));
+        },
+
+        edit(data)
+        {
+            import(AbelMagazine.functionUrl(`/admin/panel/pages/${this.state.id}`))
+            .then(module => module.edit(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorEditingPage));
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const data = {};
+            for (const prop in this.state)
+                if (prop !== 'lang')
+                    data['pages:' + prop] = this.state[prop];
+
+            if (this.state.id)
+                this.edit(data);
+            else
+                this.create(data);
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute("langJson")) };
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.title}">
+            <input type="text" maxlength="140" class="w-full" data-fieldname="title" required value="${state.title}" @input="changeField"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.content}" linebreak="1">
+            <textarea rows="20" class="w-full" data-fieldname="content" @input="changeField">${state.content}</textarea>
+        </ext-label>
+        <ext-label label="${state.lang.forms.enableHtml}" reverse="1">
+            <input type="checkbox" value="1" data-fieldname="html_enabled" @change="changeField" :checked="Boolean(Number(state.html_enabled)) ? true : false" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.published}" reverse="1">
+            <input type="checkbox" value="1" data-fieldname="is_published" @change="changeField" :checked="Boolean(Number(state.is_published)) ? true : false" />
+        </ext-label>
+        <div class="text-center mt-2">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

@@ -69,6 +69,11 @@
     "changeStatus": "Alterar status",
     "notPublishedYet": "Esta edição ainda não foi publicada.",
     "sendYourArticle": "Envie seu artigo",
-    "sendYourFinalArticleVersion": "Envie a versão com identificação de autores"
-
+    "sendYourFinalArticleVersion": "Envie a versão com identificação de autores",
+    "page": "Página",
+    "pages": "Páginas",
+    "newPage": "Nova página",
+    "editPage": "Editar página",
+    "deletePage": "Excluir página",
+    "defineSubmissionRulesPage": "Definir página de regras de submissão"
 }

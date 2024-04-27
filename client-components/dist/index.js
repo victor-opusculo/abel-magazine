@@ -40,6 +40,9 @@ customElements.define('edit-magazine-form', EditMagazineForm)
 import EditMediaForm from './edit-media-form.js'
 customElements.define('edit-media-form', EditMediaForm)
 
+import EditPageForm from './edit-page-form.js'
+customElements.define('edit-page-form', EditPageForm)
+
 import ExtLabel from './ext-label.js'
 customElements.define('ext-label', ExtLabel)
 
@@ -49,8 +52,14 @@ customElements.define('loading-spinner', LoadingSpinner)
 import MediaClientSelect from './media-client-select.js'
 customElements.define('media-client-select', MediaClientSelect)
 
+import PageClientSelect from './page-client-select.js'
+customElements.define('page-client-select', PageClientSelect)
+
 import RestoreDeletedButton from './restore-deleted-button.js'
 customElements.define('restore-deleted-button', RestoreDeletedButton)
+
+import SetSubmissionRulesPageForm from './set-submission-rules-page-form.js'
+customElements.define('set-submission-rules-page-form', SetSubmissionRulesPageForm)
 
 import SubmitterChangeDataForm from './submitter-change-data-form.js'
 customElements.define('submitter-change-data-form', SubmitterChangeDataForm)

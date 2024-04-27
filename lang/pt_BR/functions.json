@@ -39,5 +39,13 @@
     "opinionDeleteSuccess": "Parecer excluído com sucesso!",
     "opinionDeleteError": "Não foi possível excluir o parecer!",
     "articleStatusChangeSuccess": "Status alterado com sucesso!",
-    "articleStatusChangeError": "Não foi possível alterar o status!"
+    "articleStatusChangeError": "Não foi possível alterar o status!",
+    "pageCreateSuccess": "Página criada com sucesso!",
+    "pageCreateError": "Não foi possível criar a página!",
+    "pageEditSuccess": "Página editada com sucesso!",
+    "pageDeleteSuccess": "Página excluída com sucesso!",
+    "pageDeleteError": "Não foi possível excluir a página!",
+    "settingChangeSuccess": "Configuração alterada com sucesso!",
+    "settingChangeError": "Não foi possível alterar a configuração!"
+
 }

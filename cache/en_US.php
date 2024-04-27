@@ -29,6 +29,8 @@
     'incorrectCurrentPassword' => 'Current password is incorrect!',
     'tokenNotFound' => 'Token not found!',
     'invalidToken' => 'Invalid token!',
+    'finalArticleAlreadyUploaded' => 'The file with authors is already uploaded.',
+    'pageNotFound' => 'Page not found.',
   ),
   'forms' => 
   array (
@@ -49,6 +51,9 @@
     'save' => 'Save',
     'id' => 'ID',
     'name' => 'Name',
+    'content' => 'Content',
+    'enableHtml' => 'Enable HTML',
+    'published' => 'Published',
     'description' => 'Description',
     'title' => 'Title',
     'authors' => 'Author(s)',
@@ -102,7 +107,10 @@
     'errorEditingProfile' => 'Error editing profile!',
     'errorCreatingToken' => 'Error sending data for token creation.',
     'errorSavingOpinion' => 'Error saving review!',
-    'errorChangingStatus' => 'Error changind status!',
+    'errorChangingStatus' => 'Error changing status!',
+    'errorCreatingPage' => 'Error creating page!',
+    'errorEditingPage' => 'Error editing page!',
+    'errorSettingSubmissionRulesPage' => 'Error setting page!',
     'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
     'changeData' => 'Change data',
     'changePassword' => 'Change password',
@@ -117,6 +125,8 @@
     'disapproved' => 'Disapproved',
     'feedbackMessage' => 'Feedback message',
     'send' => 'Send',
+    'specifyPageOrSelectRemove' => 'Specify a page or mark the remove option',
+    'pageId' => 'Page ID',
   ),
   'functions' => 
   array (
@@ -161,6 +171,13 @@
     'opinionDeleteError' => 'Not possible to delete review!',
     'articleStatusChangeSuccess' => 'Status changed successfully!',
     'articleStatusChangeError' => 'Not possible to change status!',
+    'pageCreateSuccess' => 'Page created successfully!',
+    'pageCreateError' => 'Not possible to create page!',
+    'pageEditSuccess' => 'Page edited successfully!',
+    'pageDeleteSuccess' => 'Page deleted successfully!',
+    'pageDeleteError' => 'Not possible to delete page!',
+    'settingChangeSuccess' => 'Setting changed successfully!',
+    'settingChangeError' => 'Not possible to change setting!',
   ),
   'layout' => 
   array (
@@ -170,7 +187,8 @@
     'submitterLayoutUserName' => 'Author logged-in: {name}',
     'editProfile' => 'Edit profile',
     'adminPanelHome' => 'Home',
-    'submitterPanel' => 'Author panel',
+    'submitterPanel' => 'Author\'s panel',
+    'submissionRules' => 'Submission rules',
   ),
   'pages' => 
   array (
@@ -245,5 +263,11 @@
     'notPublishedYet' => 'This edition is not published yet.',
     'sendYourArticle' => 'Submit your article',
     'sendYourFinalArticleVersion' => 'Submit the version with identified authors',
+    'page' => 'Page',
+    'pages' => 'Pages',
+    'newPage' => 'New page',
+    'editPage' => 'Edit page',
+    'deletePage' => 'Delete page',
+    'defineSubmissionRulesPage' => 'Set submission rules page',
   ),
 );

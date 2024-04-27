@@ -7,6 +7,7 @@ return
     '__layout' => \VictorOpusculo\AbelMagazine\App\BaseLayout::class,
     '/admin' => fn() =>
     [
+        '/' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
         '/login' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
         '/panel' => fn() =>
         [
@@ -80,6 +81,20 @@ return
                     '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\Functions::class,
                     '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Opinions\OpinionId\Delete::class
                 ]
+            ],
+            '/pages' => fn() =>
+            [
+                '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Home::class,
+                '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Functions::class,
+                '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Create::class,
+                '/set_submission_rules_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubRulesPageId::class,
+                '/[pageId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\View::class,
+                    '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\Functions::class,
+                    '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\Edit::class,
+                    '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\Delete::class
+                ]
             ]
         ],
         '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Functions::class
@@ -130,5 +145,13 @@ return
                 '__functions' => \VictorOpusculo\AbelMagazine\App\Reviewer\Review\TokenStr\Functions::class
             ]
         ]
+    ],
+    '/page' => fn() =>
+    [
+        '/[pageId]' => \VictorOpusculo\AbelMagazine\App\Page\PageId::class
+    ],
+    '/info' => fn() =>
+    [
+        '/submission_rules' => \VictorOpusculo\AbelMagazine\App\Info\SubmissionRules::class
     ]
 ];

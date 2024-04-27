@@ -17,5 +17,6 @@
     "incorrectCurrentPassword": "Senha atual incorreta!",
     "tokenNotFound": "Token não encontrado!",
     "invalidToken": "Token inválido!",
-    "finalArticleAlreadyUploaded": "The file with authors is already uploaded."
+    "finalArticleAlreadyUploaded": "O arquivo com autores já foi enviado.",
+    "pageNotFound": "Página não encontrada."
 }

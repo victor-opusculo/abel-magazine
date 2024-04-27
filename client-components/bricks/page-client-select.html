@@ -1,0 +1,85 @@
+<script>
+    const state =
+    {
+        set_id_field_callback: _ => void 0,
+        search_keywords: '',
+        page_num: 1,
+        total_items: 0,
+        num_results_on_page: 10,
+        data_rows: [],
+        lang: {}
+    }
+
+    const methods = 
+    {
+        searchAction(query)
+        {
+            this.render({ ...this.state, page_num: 1, search_keywords: query });
+            this.fetchPage();
+        },
+
+        selectPageFromDataGrid(id)
+        {
+            if (typeof this.state.set_id_field_callback === "function")
+                this.state.set_id_field_callback(id);
+        },
+
+        changePageAction(toPage)
+        {
+            this.render({ ...this.state, page_num: toPage });
+            this.fetchPage();
+        },
+
+        async fetchPage()
+        {
+            const { getMultiple } = await import(AbelMagazine.functionUrl('/admin/panel/pages'));
+            const { data, allCount } = await getMultiple(
+            { 
+                q: this.state.search_keywords || '',
+                page_num: this.state.page_num || 1,
+                order_by: '',
+                num_results_on_page: this.state.num_results_on_page || 10
+            });
+
+            this.render({ ...this.state, data_rows: data.map(m => 
+                ({ 
+                    [this.state.lang.forms.id]: String(m.id),
+                    [this.state.lang.forms.title]: m.title,
+                    [this.state.lang.forms.published]: 
+                        m.is_published
+                        ?   { type: 'image', src: AbelMagazine.Helpers.URLGenerator.generateFileUrl(`assets/pics/check.png`), width: 32 }
+                        :   { type: 'image', src: AbelMagazine.Helpers.URLGenerator.generateFileUrl(`assets/pics/wrong.png`), width: 32 }
+                })), 
+                total_items: allCount 
+            });
+        }
+    }
+
+    function setup()
+    {
+        this.fetchPage();
+    }
+</script>
+
+<template>
+    <div>
+        <basic-search-field 
+            :lang="state.lang" 
+            :searchcallback="this.searchAction.bind(this)" 
+            :searchkeywords="state.search_keywords" 
+        ></basic-search-field>
+        <data-grid
+            :lang="state.lang"
+            :selectlinkparamname="state.lang.forms.id"
+            :returnidcallback="this.selectPageFromDataGrid.bind(this)"
+            :datarows="state.data_rows"
+        ></data-grid>
+        <client-paginator
+            :totalitems="state.total_items"
+            :resultsonpage="state.num_results_on_page"
+            :pagenum="state.page_num"
+            :changepagecallback="this.changePageAction.bind(this)"
+            :lang="state.lang"
+        ></client-paginator>
+    </div>
+</template>

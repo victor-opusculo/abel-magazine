@@ -1,0 +1,70 @@
+<script>
+    const state =
+    {
+        page_id: null,
+        remove: false,
+        searchPagesEnabled: false,
+
+        lang: {}
+    };
+
+    const methods =
+    {
+        changeField(e)
+        {
+            if (e.target.type == 'checkbox')
+                this.render({ ...this.state, [ e.target.name ]: e.target.checked });
+            else
+                this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        searchBtnClicked(e)
+        {
+            this.render({ ...this.state, searchPagesEnabled: !this.state.searchPagesEnabled });
+        },
+
+        setPageId(id)
+        {
+            this.render({ ...this.state, page_id: Number(id) });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            if (!this.state.page_id && !this.state.remove)
+            {
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, "Especifique uma página ou marque a opção de remover.");
+                return;
+            }
+
+            const data =  { 'page_id': this.state.page_id, 'remove': this.state.remove };
+
+            import(AbelMagazine.functionUrl("/admin/panel/pages"))
+            .then(module => module.setSubmissionRulesId(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSettingSubmissionRulesPage));
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };        
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.pageId}">
+            <input type="number" min="1" step="1" name="page_id" :value="state.page_id" @input="changeField" />
+            <button type="button" class="btn ml-2" @click="searchBtnClicked">${state.lang.forms.search}</button>
+        </ext-label>
+        <ext-label label="${state.lang.forms.remove}" reverse="1">
+            <input type="checkbox" name="remove" value="1" @change="changeField"/>
+        </ext-label>
+        <page-client-select :if="state.searchPagesEnabled" :set_id_field_callback="this.setPageId.bind(this)" :lang="state.lang"></page-client-select>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

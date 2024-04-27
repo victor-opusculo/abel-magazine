@@ -29,7 +29,8 @@
     'incorrectCurrentPassword' => 'Senha atual incorreta!',
     'tokenNotFound' => 'Token não encontrado!',
     'invalidToken' => 'Token inválido!',
-    'finalArticleAlreadyUploaded' => 'The file with authors is already uploaded.',
+    'finalArticleAlreadyUploaded' => 'O arquivo com autores já foi enviado.',
+    'pageNotFound' => 'Página não encontrada.',
   ),
   'forms' => 
   array (
@@ -50,6 +51,9 @@
     'save' => 'Salvar',
     'id' => 'ID',
     'name' => 'Nome',
+    'content' => 'Conteúdo',
+    'enableHtml' => 'Habilitar HTML',
+    'published' => 'Publicada',
     'description' => 'Descrição',
     'title' => 'Título',
     'authors' => 'Autor(es)',
@@ -104,6 +108,9 @@
     'errorCreatingToken' => 'Erro ao enviar dados para token!',
     'errorSavingOpinion' => 'Erro ao salvar parecer!',
     'errorChangingStatus' => 'Erro ao alterar status!',
+    'errorCreatingPage' => 'Erro ao criar página!',
+    'errorEditingPage' => 'Erro ao editar página!',
+    'errorSettingSubmissionRulesPage' => 'Erro ao definir página!',
     'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
     'changeData' => 'Alterar dados',
     'changePassword' => 'Alterar senha',
@@ -118,6 +125,8 @@
     'disapproved' => 'Reprovado',
     'feedbackMessage' => 'Mensagem de feedback',
     'send' => 'Enviar',
+    'specifyPageOrSelectRemove' => 'Specifique uma página ou marque a opção de remover',
+    'pageId' => 'Página ID',
   ),
   'functions' => 
   array (
@@ -162,6 +171,13 @@
     'opinionDeleteError' => 'Não foi possível excluir o parecer!',
     'articleStatusChangeSuccess' => 'Status alterado com sucesso!',
     'articleStatusChangeError' => 'Não foi possível alterar o status!',
+    'pageCreateSuccess' => 'Página criada com sucesso!',
+    'pageCreateError' => 'Não foi possível criar a página!',
+    'pageEditSuccess' => 'Página editada com sucesso!',
+    'pageDeleteSuccess' => 'Página excluída com sucesso!',
+    'pageDeleteError' => 'Não foi possível excluir a página!',
+    'settingChangeSuccess' => 'Configuração alterada com sucesso!',
+    'settingChangeError' => 'Não foi possível alterar a configuração!',
   ),
   'layout' => 
   array (
@@ -172,6 +188,7 @@
     'editProfile' => 'Alterar perfil',
     'adminPanelHome' => 'Home',
     'submitterPanel' => 'Painel do autor',
+    'submissionRules' => 'Normas de submissão',
   ),
   'pages' => 
   array (
@@ -246,5 +263,11 @@
     'notPublishedYet' => 'Esta edição ainda não foi publicada.',
     'sendYourArticle' => 'Envie seu artigo',
     'sendYourFinalArticleVersion' => 'Envie a versão com identificação de autores',
+    'page' => 'Página',
+    'pages' => 'Páginas',
+    'newPage' => 'Nova página',
+    'editPage' => 'Editar página',
+    'deletePage' => 'Excluir página',
+    'defineSubmissionRulesPage' => 'Definir página de regras de submissão',
   ),
 );

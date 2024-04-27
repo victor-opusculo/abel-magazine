@@ -46,6 +46,9 @@ final class Edit extends Component
 
             if ($evTokensExist || $asOpinionsExist)
                 $this->canEdit = false;
+
+            $langs = I18n::availableLangs() + [ 'es' => 'Español' ];
+            $this->availableLangs = array_map(fn($lang, $alias) => [ 'code' => $lang, 'label' => $alias ], array_keys($langs), array_values($langs));
         }
         catch (Exception $e)
         {
@@ -57,6 +60,7 @@ final class Edit extends Component
     private ?Article $article = null;
     private bool $canEdit = true;
     private array $availableEditions = [];
+    private array $availableLangs = [];
 
     protected function markup(): Component|array|null
     {
@@ -66,7 +70,7 @@ final class Edit extends Component
             tag('submitter-edit-article',
                 ...$this->article->getValuesForHtmlForm([ 'is_approved', 'status', 'submitter_id' ]), 
                 langJson: Data::hscq(I18n::getFormsTranslationsAsJson()),
-                availableLanguages: Data::hscq(json_encode(array_map(fn($lang, $alias) => [ 'code' => $lang, 'label' => $alias ], array_keys(I18n::availableLangs()), array_values(I18n::availableLangs())))),
+                availableLanguages: Data::hscq(json_encode($this->availableLangs)),
                 availableEditions: Data::hscq(json_encode($this->availableEditions)),
                 allowed_mime_types: implode(',', NotIddedArticleUpload::ALLOWED_TYPES)
             )

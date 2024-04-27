@@ -39,6 +39,13 @@
     "opinionDeleteSuccess": "Review deleted successfully!",
     "opinionDeleteError": "Not possible to delete review!",
     "articleStatusChangeSuccess": "Status changed successfully!",
-    "articleStatusChangeError": "Not possible to change status!"
+    "articleStatusChangeError": "Not possible to change status!",
+    "pageCreateSuccess": "Page created successfully!",
+    "pageCreateError": "Not possible to create page!",
+    "pageEditSuccess": "Page edited successfully!",
+    "pageDeleteSuccess": "Page deleted successfully!",
+    "pageDeleteError": "Not possible to delete page!",
+    "settingChangeSuccess": "Setting changed successfully!",
+    "settingChangeError": "Not possible to change setting!"
 
 }

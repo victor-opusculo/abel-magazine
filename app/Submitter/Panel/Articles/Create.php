@@ -34,6 +34,9 @@ final class Create extends Component
             $this->submitter = (new Submitter([ 'id' => $_SESSION['user_id'] ?? 0 ]))
             ->setCryptKey(Connection::getCryptoKey())
             ->getSingle($conn);
+
+            $langs = I18n::availableLangs() + [ 'es' => 'Español' ];
+            $this->availableLangs = array_map(fn($lang, $alias) => [ 'code' => $lang, 'label' => $alias ], array_keys($langs), array_values($langs));
         }
         catch (Exception $e)
         {
@@ -42,6 +45,7 @@ final class Create extends Component
     }
 
     private array $availableEditions = [];
+    private array $availableLangs = [];
     private ?Submitter $submitter = null;
 
     protected function markup(): Component|array|null
@@ -51,7 +55,7 @@ final class Create extends Component
             tag('h1', children: text(I18n::get('pages.newArticle'))),
             tag('submitter-edit-article', 
                 langJson: Data::hscq(I18n::getFormsTranslationsAsJson()),
-                availableLanguages: Data::hscq(json_encode(array_map(fn($lang, $alias) => [ 'code' => $lang, 'label' => $alias ], array_keys(I18n::availableLangs()), array_values(I18n::availableLangs())))),
+                availableLanguages: Data::hscq(json_encode($this->availableLangs)),
                 availableEditions: Data::hscq(json_encode($this->availableEditions)),
                 allowed_mime_types: implode(',', NotIddedArticleUpload::ALLOWED_TYPES),
                 authors: Data::hscq(json_encode([ $this->submitter->full_name->unwrapOr('') ]))

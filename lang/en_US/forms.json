@@ -16,6 +16,9 @@
     "save": "Save",
     "id": "ID",
     "name": "Name",
+    "content": "Content",
+    "enableHtml": "Enable HTML",
+    "published": "Published",
     "description": "Description",
     "title": "Title",
     "authors": "Author(s)",
@@ -69,7 +72,10 @@
     "errorEditingProfile": "Error editing profile!",
     "errorCreatingToken": "Error sending data for token creation.",
     "errorSavingOpinion": "Error saving review!",
-    "errorChangingStatus": "Error changind status!",
+    "errorChangingStatus": "Error changing status!",
+    "errorCreatingPage": "Error creating page!",
+    "errorEditingPage": "Error editing page!",
+    "errorSettingSubmissionRulesPage": "Error setting page!",
     "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
     "changeData": "Change data",
     "changePassword": "Change password",
@@ -83,6 +89,8 @@
     "approved": "Approved",
     "disapproved": "Disapproved",
     "feedbackMessage": "Feedback message",
-    "send": "Send"
+    "send": "Send",
+    "specifyPageOrSelectRemove": "Specify a page or mark the remove option",
+    "pageId": "Page ID"
 
 }

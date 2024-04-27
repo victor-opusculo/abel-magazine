@@ -16,6 +16,9 @@
     "save": "Salvar",
     "id": "ID",
     "name": "Nome",
+    "content": "Conteúdo",
+    "enableHtml": "Habilitar HTML",
+    "published": "Publicada",
     "description": "Descrição",
     "title": "Título",
     "authors": "Autor(es)",
@@ -70,6 +73,9 @@
     "errorCreatingToken": "Erro ao enviar dados para token!",
     "errorSavingOpinion": "Erro ao salvar parecer!",
     "errorChangingStatus": "Erro ao alterar status!",
+    "errorCreatingPage": "Erro ao criar página!",
+    "errorEditingPage": "Erro ao editar página!",
+    "errorSettingSubmissionRulesPage": "Erro ao definir página!",
     "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
     "changeData": "Alterar dados",
     "changePassword": "Alterar senha",
@@ -83,5 +89,7 @@
     "approved": "Aprovado",
     "disapproved": "Reprovado",
     "feedbackMessage": "Mensagem de feedback",
-    "send": "Enviar"
+    "send": "Enviar",
+    "specifyPageOrSelectRemove": "Specifique uma página ou marque a opção de remover",
+    "pageId": "Página ID"
 }

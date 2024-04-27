@@ -29,6 +29,9 @@ final class I18n
 
     public static function getAlias(string $lang) : string
     {
+        if ($lang === 'es')
+            return 'Español';
+
         $langs = self::availableLangs();
         if (isset($langs[$lang]))
             return $langs[$lang];

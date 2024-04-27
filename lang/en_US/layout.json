@@ -5,5 +5,6 @@
     "submitterLayoutUserName": "Author logged-in: {name}",
     "editProfile": "Edit profile",
     "adminPanelHome": "Home",
-    "submitterPanel": "Author panel"
+    "submitterPanel": "Author's panel",
+    "submissionRules": "Submission rules"
 }
