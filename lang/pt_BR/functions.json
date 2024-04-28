@@ -54,6 +54,6 @@
     "otpCreateError": "Erro ao criar código temporário!",
     "passwordChangedSuccess": "Senha alterada com sucesso!",
     "passwordChangedError": "Erro ao alterar senha!",
-    "notifyEmailChangeSuccess": "E-mail alterado com sucesso!"
+    "notifyEmailChangeSuccess": "Configurações alteradas com sucesso!"
 
 }

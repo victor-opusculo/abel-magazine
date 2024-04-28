@@ -1,9 +1,10 @@
 <h2 style="font-size: 1.3em;"><?php
 
+use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 
 ?>Olá!</h2>
-<p>Um novo artigo foi enviado no portal de revistas da ABEL. Acesse-o pelo link abaixo:</p>
+<p>A versão com identificação de autores do artigo "<?php echo Data::hsc($article->title->unwrap()) ?>" foi submetida pelo portal de revistas. Veja no link abaixo:</p>
 <span style="font-weight: bold;
 			font-size: 1em;
 			display: block;

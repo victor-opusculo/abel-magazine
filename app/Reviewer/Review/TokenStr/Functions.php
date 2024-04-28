@@ -11,6 +11,7 @@ use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAuthorArticleApproved;
 use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 
@@ -47,6 +48,9 @@ final class Functions extends BaseFunctionsClass
                 {
                     $token->article->status = Option::some(ArticleStatus::Approved->value);
                     $token->article->is_approved = Option::some(0);
+
+                    try { $token->article->fetchSubmitter($conn); (new NotifyAuthorArticleApproved)->getSingle($conn)->sendEmail($token->article, $token->article->submitter); }
+                    catch (Exception) {}
                 }
                 else
                 {

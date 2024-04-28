@@ -54,6 +54,6 @@
     "otpCreateError": "Error creating temporary password!",
     "passwordChangedSuccess": "Password changed successfully!",
     "passwordChangedError": "Error changing password!",
-    "notifyEmailChangeSuccess": "E-mail changed successfully!"
+    "notifyEmailChangeSuccess": "Settings changed successfully!"
 
 }

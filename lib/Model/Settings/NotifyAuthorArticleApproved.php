@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
+use VictorOpusculo\AbelMagazine\Lib\Model\Submitters\Submitter;
 use VictorOpusculo\MyOrm\DataEntity;
 use VictorOpusculo\MyOrm\DataProperty;
 use VictorOpusculo\MyOrm\Option;
@@ -13,29 +14,30 @@ use VictorOpusculo\MyOrm\Option;
  * @property Option<string> name
  * @property Option<string> value
  */
-final class EmailToNotifyNewArticle extends DataEntity
+final class NotifyAuthorArticleApproved extends DataEntity
 {
     public function __construct($initialValues = null)
     {
         $this->properties = (object)
         [
-            'name' => new DataProperty(null, fn() => 'EMAIL_NOTIFICATION_NEW_ARTICLE', DataProperty::MYSQL_STRING),
+            'name' => new DataProperty(null, fn() => 'NOTIFY_AUTHOR_ARTICLE_GETS_APPROVED', DataProperty::MYSQL_STRING),
             'value' => new DataProperty(null, fn() => null, DataProperty::MYSQL_STRING)
         ];
 
         parent::__construct($initialValues);
 
-        $this->properties->name->setValue(Option::some('EMAIL_NOTIFICATION_NEW_ARTICLE'));
+        $this->properties->name->setValue(Option::some('NOTIFY_AUTHOR_ARTICLE_GETS_APPROVED'));
+        $this->properties->value->valueTransformer = [ Data::class, 'booleanTransformer' ];
     }
 
     protected string $databaseTable = 'settings';
-    protected string $formFieldPrefixName = 'emailNotifyNewArticle';
+    protected string $formFieldPrefixName = '...';
     protected array $primaryKeys = ['name'];
     protected array $setPrimaryKeysValue = ['name'];
 
-    public function sendEmail(Article $article) : void
+    public function sendEmail(Article $article, Submitter $submitter) : void
     {
-        if (!$this->value->unwrapOr(null))
+        if (!(bool)(int)$this->value->unwrapOr(0))
             return;
 
         $configs = Data::getMailConfigs();
@@ -54,16 +56,16 @@ final class EmailToNotifyNewArticle extends DataEntity
         $mail->From = $configs['sender']; // Sua conta de email que ser� remetente da mensagem
         $mail->FromName = I18n::get('layout.topBarSiteDescription'); // Nome da conta de email
         // DADOS DO DESTINAT�RIO
-        $mail->AddAddress($this->value->unwrapOr('n@a'), "ABEL"); // Define qual conta de email receber� a mensagem
+        $mail->AddAddress($submitter->email->unwrapOr('n@a'), $submitter->full_name->unwrapOr('autor(a)')); // Define qual conta de email receber� a mensagem
 
         // Defini��o de HTML/codifica��o
         $mail->IsHTML(true); // Define que o e-mail ser� enviado como HTML
         $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
         // DEFINI��O DA MENSAGEM
-        $mail->Subject  = "ABEL - Novo artigo enviado!"; // Assunto da mensagem
+        $mail->Subject  = "ABEL - Seu artigo foi aprovado!"; // Assunto da mensagem
 
         ob_start();
-        $__VIEW = 'new-article-notification-message.php';
+        $__VIEW = 'article-approved-notification-message.php';
         require_once (__DIR__ . '/../../Mail/email-base-body.php');
         $emailBody = ob_get_clean();
         ob_end_clean();

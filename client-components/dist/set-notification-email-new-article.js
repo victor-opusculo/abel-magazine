@@ -29,30 +29,44 @@
   
     const state =
     {
-        email: '',
+        newArticleEmail: '',
+        notifyAuthorArticleApproved: 0,
+        notifyAdminFinalArticleUploaded: 0,
         lang: {}
     };
 
     function setup()
     {
-        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };
+        this.state = 
+        { 
+            ...this.state, 
+            lang: JSON.parse(this.getAttribute('langJson')),
+            newArticleEmail: this.getAttribute('newArticleEmail'),
+            notifyAuthorArticleApproved: this.getAttribute('notifyAuthorArticleApproved'),
+            notifyAdminFinalArticleUploaded: this.getAttribute('notifyAdminFinalArticleUploaded'),
+        };
     }
 
     const methods =
     {
-        changeEmail(e)
+        changeField(e)
         {
-            this.render({ ...this.state, email: e.target.value });
+            if (e.target.type === 'checkbox')
+                this.render({ ...this.state, [e.target.name]: Number(e.target.checked) });
+            else
+                this.render({ ...this.state, [e.target.name]: e.target.value });
         },
 
         submit(e)
         {
             e.preventDefault();
 
+            const { lang, ...data } = this.state;
+
             import(AbelMagazine.functionUrl('/admin/panel/articles'))
-            .then(module => module.changeNotifyEmail({ email: this.state.email }))
+            .then(module => module.changeNotifyEmail(data))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
-            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorChangingEmail));
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorChangingSettings));
         }
     };
 
@@ -60,8 +74,14 @@
   const __template = function({ state }) {
     return [  
     h("form", {"onsubmit": this.submit.bind(this)}, [
-      h("ext-label", {"label": `${state.lang.forms.email}`}, [
-        h("input", {"type": `email`, "maxlength": `140`, "required": ``, "value": state.email, "onchange": this.changeEmail.bind(this), "class": `w-full`}, "")
+      h("ext-label", {"label": `${state.lang.forms.adminEmail}`}, [
+        h("input", {"type": `email`, "maxlength": `140`, "name": `newArticleEmail`, "value": state.newArticleEmail, "onchange": this.changeField.bind(this), "class": `w-full`}, "")
+      ]),
+      h("ext-label", {"label": `${state.lang.forms.notifySubmitterWhenArticleGetsApproved}`, "reverse": `1`}, [
+        h("input", {"type": `checkbox`, "value": `1`, "name": `notifyAuthorArticleApproved`, "checked": Boolean(Number(state.notifyAuthorArticleApproved)), "onchange": this.changeField.bind(this), "class": `w-full`}, "")
+      ]),
+      h("ext-label", {"label": `${state.lang.forms.notifyWhenSubmitterUploadsFinalArticle}`, "reverse": `1`}, [
+        h("input", {"type": `checkbox`, "value": `1`, "name": `notifyAdminFinalArticleUploaded`, "checked": Boolean(Number(state.notifyAdminFinalArticleUploaded)), "onchange": this.changeField.bind(this), "class": `w-full`}, "")
       ]),
       h("div", {"class": `text-center mt-2`}, [
         h("button", {"type": `submit`, "class": `btn`}, `${state.lang.forms.save}`)

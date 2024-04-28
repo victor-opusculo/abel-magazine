@@ -115,7 +115,7 @@
     'errorEditingPage' => 'Erro ao editar página!',
     'errorSettingSubmissionRulesPage' => 'Erro ao definir página!',
     'errorGeneratingOtp' => 'Erro ao criar o código temporário!',
-    'errorChangingEmail' => 'Erro ao definir e-mail!',
+    'errorChangingSettings' => 'Erro ao definir configurações!',
     'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
     'changeData' => 'Alterar dados',
     'changePassword' => 'Alterar senha',
@@ -135,6 +135,9 @@
     'codeSentToYourEmail' => 'Código enviado para seu e-mail',
     'wait' => 'Aguarde...',
     'proceed' => 'Proceder',
+    'notifySubmitterWhenArticleGetsApproved' => 'Notificar autor quando o artigo for aprovado por todos os avaliadores',
+    'notifyWhenSubmitterUploadsFinalArticle' => 'Notificar administrador (e-mail acima) quando autor subir o arquivo final do artigo (com identificação de autor)',
+    'adminEmail' => 'E-mail geral de administrador para recebimento de notificações',
   ),
   'functions' => 
   array (
@@ -193,7 +196,7 @@
     'otpCreateError' => 'Erro ao criar código temporário!',
     'passwordChangedSuccess' => 'Senha alterada com sucesso!',
     'passwordChangedError' => 'Erro ao alterar senha!',
-    'notifyEmailChangeSuccess' => 'E-mail alterado com sucesso!',
+    'notifyEmailChangeSuccess' => 'Configurações alteradas com sucesso!',
   ),
   'layout' => 
   array (
@@ -211,8 +214,6 @@
     'recoverLoginTitle' => 'ABEL - Recuperar acesso ao painel de autor',
     'recoverLoginGreeting' => 'Olá, {name}!',
     'recoverLoginMessage' => 'Você solicitou a recuperação do seu acesso ao painel de autor do portal de revistas da ABEL. Informe o código temporário abaixo na página que o pede: ',
-    'newArticleTitle' => 'ABEL - Novo artigo enviado!',
-    'newArticleMessage' => 'Um novo artigo foi enviado no portal de revistas da ABEL. Acesse-o pelo link abaixo:',
   ),
   'pages' => 
   array (
@@ -302,6 +303,6 @@
     'reviewDirectLink' => 'Link direto para avaliação',
     'noneYet' => 'Nenhum ainda',
     'recoveryAccess' => 'Recuperação de acesso',
-    'changeNotificationEmail' => 'Alterar e-mail de notificação',
+    'changeNotificationEmail' => 'Alterar configurações de e-mail',
   ),
 );

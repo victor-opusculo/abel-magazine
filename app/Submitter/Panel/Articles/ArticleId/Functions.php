@@ -9,6 +9,8 @@ use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToNotifyNewArticle;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAdminFinalArticleUploaded;
 use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 use VictorOpusculo\PComp\Rpc\FormDataBody;
@@ -85,6 +87,9 @@ final class Functions extends BaseFunctionsClass
             $result = $article->save($conn);
             if ($result['affectedRows'] > 0)
             {
+                try { $adminEmail = (new EmailToNotifyNewArticle)->getSingle($conn)->value->unwrapOr(null); (new NotifyAdminFinalArticleUploaded)->getSingle($conn)->sendEmail($article, $adminEmail); }
+                catch (Exception) {}
+
                 LogEngine::writeLog("Artigo com identificação salvo. ID: {$article->id->unwrapOr(0)}");
                 return [ 'success' => I18n::get('functions.articleSubmissionSuccess') ];
             }

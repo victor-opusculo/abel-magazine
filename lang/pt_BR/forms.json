@@ -77,7 +77,7 @@
     "errorEditingPage": "Erro ao editar página!",
     "errorSettingSubmissionRulesPage": "Erro ao definir página!",
     "errorGeneratingOtp": "Erro ao criar o código temporário!",
-    "errorChangingEmail": "Erro ao definir e-mail!",
+    "errorChangingSettings": "Erro ao definir configurações!",
     "passwordNotBlankMin5Chars": "Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.",
     "changeData": "Alterar dados",
     "changePassword": "Alterar senha",
@@ -96,5 +96,8 @@
     "pageId": "Página ID",
     "codeSentToYourEmail": "Código enviado para seu e-mail",
     "wait": "Aguarde...",
-    "proceed": "Proceder"
+    "proceed": "Proceder",
+    "notifySubmitterWhenArticleGetsApproved": "Notificar autor quando o artigo for aprovado por todos os avaliadores",
+    "notifyWhenSubmitterUploadsFinalArticle": "Notificar administrador (e-mail acima) quando autor subir o arquivo final do artigo (com identificação de autor)",
+    "adminEmail": "E-mail geral de administrador para recebimento de notificações"
 }

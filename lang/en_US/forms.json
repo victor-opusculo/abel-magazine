@@ -77,7 +77,7 @@
     "errorEditingPage": "Error editing page!",
     "errorSettingSubmissionRulesPage": "Error setting page!",
     "errorGeneratingOtp": "Error creating temporary password!",
-    "errorChangingEmail": "Error changing e-mail!",
+    "errorChangingSettings": "Error changing settings!",
     "passwordNotBlankMin5Chars": "New password should not be blank and must have 5 or more chars.",
     "changeData": "Change data",
     "changePassword": "Change password",
@@ -96,6 +96,8 @@
     "pageId": "Page ID",
     "codeSentToYourEmail": "Code sent to your e-mail",
     "wait": "Wait...",
-    "proceed": "Proceed"
-
+    "proceed": "Proceed",
+    "notifySubmitterWhenArticleGetsApproved": "Notify author/submitter when article gets approved by all reviewers",
+    "notifyWhenSubmitterUploadsFinalArticle": "Notify administrator (e-mail above) when author/submitter uploads final article file",
+    "adminEmail": "General administrator e-mail for notifications"
 }
