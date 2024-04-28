@@ -29,6 +29,9 @@ final class Functions extends BaseFunctionsClass
             ->getSingle($conn)
             ->fillPropertiesFromFormInput($data);
 
+            if ($admin->existsEmailOnAnotherAdmin($conn))
+                throw new Exception(I18n::get('exceptions.emailAlreadyInUse'));
+
             if ($data['administrators:currpassword'])
             {
                 if ($admin->verifyPasswords($data['administrators:currpassword']))

@@ -35,6 +35,20 @@ class Administrator extends DataEntity
     protected string $formFieldPrefixName = 'administrators';
     protected array $primaryKeys = ['id'];
 
+    public function existsEmailOnAnotherAdmin(mysqli $conn) : bool
+    {
+        $selector = (new SqlSelector)
+        ->addSelectColumn('COUNT(*)')
+        ->setTable($this->databaseTable)
+        ->addWhereClause("{$this->getWhereQueryColumnName('email')} = ?")
+        ->addWhereClause("AND {$this->getWhereQueryColumnName('id')} != ?")
+        ->addValue('s', $this->email->unwrap())
+        ->addValue('i', $this->id->unwrap());
+
+        $count = (int)$selector->run($conn, SqlSelector::RETURN_FIRST_COLUMN_VALUE);
+        return $count > 0;
+    }
+
     public function verifyPasswords(string $givenPassword) : bool
     {
         if ($this->password_hash->unwrapOr(false))

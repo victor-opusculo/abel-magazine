@@ -21,5 +21,6 @@
     "pageNotFound": "Page not found.",
     "expiredOtp": "Temporary password has expired! Try generating a new one.",
     "wrongOtp": "Temporary password is incorrect!",
-    "invalidEmail": "Invalid e-mail!"
+    "invalidEmail": "Invalid e-mail!",
+    "emailAlreadyInUse": "E-mail already in use by other user."
 }

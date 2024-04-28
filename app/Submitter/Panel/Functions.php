@@ -31,6 +31,10 @@ final class Functions extends BaseFunctionsClass
             ->setCryptKey(Connection::getCryptoKey())
             ->fillPropertiesFromFormInput($data);
 
+
+            if ($submitter->existsEmailWithAnotherId($conn))
+                throw new Exception(I18n::get('exceptions.emailAlreadyInUse'));
+
             if ($data['submitters:currpassword'])
             {
                 if ($submitter->verifyPassword($data['submitters:currpassword']))
