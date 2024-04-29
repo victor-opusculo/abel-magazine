@@ -4,7 +4,7 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 
 ?>Olá, <?php echo Data::hsc($submitter->full_name->unwrapOr('autor(a)')) ?>!</h2>
-<p>Seu artigo "<?php echo Data::hsc($article->title->unwrap()) ?>" foi aprovado por nossos avaliadores. Leia o feedback em seu painel de autor, pelo link abaixo:"</p>
+<p>Seu artigo "<?php echo Data::hsc($article->title->unwrap()) ?>" foi aprovado por nossos avaliadores. Leia o feedback em seu painel de autor, pelo link abaixo:</p>
 <span style="font-weight: bold;
 			font-size: 1em;
 			display: block;

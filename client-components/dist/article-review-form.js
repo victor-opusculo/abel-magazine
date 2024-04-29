@@ -35,6 +35,7 @@
         assessor_name: '',
         assessor_email: '',
         feedback_message: '',
+        waiting: false,
         lang: {}
     };
 
@@ -53,6 +54,8 @@
         {
             e.preventDefault();
 
+            this.render({ ...this.state, waiting: true });
+
             const data = {};
 
             for (const prop in this.state)
@@ -63,7 +66,8 @@
             .then(module => module.saveOpinion(data))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
             .then(AbelMagazine.Helpers.URLGenerator.goToPageOnSuccess("/"))
-            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSavingOpinion));
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSavingOpinion))
+            .finally(() => this.render({ ...this.state, waiting: false }));
         }
     }
 
@@ -97,7 +101,12 @@
         h("textarea", {"name": `feedback_message`, "onchange": this.changeField.bind(this), "value": state.feedback_message, "rows": `6`, "class": `w-full`}, "")
       ]),
       h("div", {"class": `mt-2 text-center`}, [
-        h("button", {"type": `submit`, "class": `btn`}, `${state.lang.forms.send}`)
+        h("button", {"type": `submit`, "class": `btn`, "disabled": state.waiting}, [
+          ((state.waiting) ? h("loading-spinner", {"additionalclasses": `invert w-[1em] h-[1em]`}, "") : ''),
+`
+                ${state.lang.forms.send}
+            `
+        ])
       ])
     ])
   ]
