@@ -1,6 +1,6 @@
 vendor/
 phinx.php
-/**/php_errors.
+/**/php_errors.log
 log/*.log
 
 uploads/media/*
