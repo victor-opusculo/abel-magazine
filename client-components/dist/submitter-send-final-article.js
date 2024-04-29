@@ -33,7 +33,9 @@
         file: null,
         allowed_mime_types: '',
         button_label: '',
-        error: ''
+        error: '',
+
+        waiting: false
     }
 
     const methods =
@@ -47,6 +49,8 @@
         {
             e.preventDefault();
 
+            this.render({ ...this.state, waiting: true });
+
             const fd = new FormData();
             fd.append('file_article_id', this.state.file);
 
@@ -54,7 +58,8 @@
             .then(module => module.uploadFinal(fd))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
             .then(() => window.location.reload())
-            .catch(AbelMagazine.Alerts.pushError(this.state.error));
+            .catch(AbelMagazine.Alerts.pushError(this.state.error))
+            .finally(() => this.render({ ...this.state, waiting: false }));
         }
     }
 
@@ -63,7 +68,12 @@
     return [  
     h("form", {"onsubmit": this.submit.bind(this)}, [
       h("input", {"type": `file`, "accept": `${state.allowed_mime_types}`, "onchange": this.setFile.bind(this), "class": `file:btn mr-2`, "required": ``}, ""),
-      h("button", {"type": `submit`, "class": `btn`}, `${state.button_label}`)
+      h("button", {"type": `submit`, "class": `btn`, "disabled": state.waiting}, [
+        ((state.waiting) ? h("loading-spinner", {"additionalclasses": `invert w-[1em] h-[1em]`}, "") : ''),
+`
+            ${state.button_label}
+        `
+      ])
     ])
   ]
   }

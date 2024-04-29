@@ -5,7 +5,9 @@
         file: null,
         allowed_mime_types: '',
         button_label: '',
-        error: ''
+        error: '',
+
+        waiting: false
     }
 
     const methods =
@@ -19,6 +21,8 @@
         {
             e.preventDefault();
 
+            this.render({ ...this.state, waiting: true });
+
             const fd = new FormData();
             fd.append('file_article_id', this.state.file);
 
@@ -26,7 +30,8 @@
             .then(module => module.uploadFinal(fd))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
             .then(() => window.location.reload())
-            .catch(AbelMagazine.Alerts.pushError(this.state.error));
+            .catch(AbelMagazine.Alerts.pushError(this.state.error))
+            .finally(() => this.render({ ...this.state, waiting: false }));
         }
     }
 </script>
@@ -34,6 +39,9 @@
 <template>
     <form @submit="submit">
         <input type="file" accept="${state.allowed_mime_types}" @change="setFile" class="file:btn mr-2" required />
-        <button type="submit" class="btn">${state.button_label}</button>
+        <button type="submit" class="btn" :disabled="state.waiting">
+            <loading-spinner :if="state.waiting" additionalclasses="invert w-[1em] h-[1em]"></loading-spinner>
+            ${state.button_label}
+        </button>
     </form>
 </template>

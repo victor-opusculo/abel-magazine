@@ -77,7 +77,7 @@ final class NotifyAuthorArticleApproved extends DataEntity
         $mail->ClearAllRecipients();
 
         // Exibe uma mensagem de resultado do envio (sucesso/erro)
-        if (!$sent)
-            throw new \Exception("Não foi possível enviar o e-mail! Detalhes do erro: " . $mail->ErrorInfo);
+        //if (!$sent)
+         //   throw new \Exception("Não foi possível enviar o e-mail! Detalhes do erro: " . $mail->ErrorInfo);
     } 
 }

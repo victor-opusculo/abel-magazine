@@ -180,7 +180,12 @@
       ]),
       h("p", {"class": `text-red-500 font-bold`}, `${state.lang.forms.notIddedFileUploadWarning}`),
       h("div", {"class": `mt-4 text-center`}, [
-        h("button", {"type": `submit`, "class": `btn`, "disabled": state.waiting}, `${state.lang.forms.save}`)
+        h("button", {"type": `submit`, "class": `btn`, "disabled": state.waiting}, [
+          ((state.waiting) ? h("loading-spinner", {"additionalclasses": `invert w-[1em] h-[1em]`}, "") : ''),
+`
+                ${state.lang.forms.save}
+            `
+        ])
       ])
     ])
   ]

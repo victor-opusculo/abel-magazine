@@ -151,7 +151,10 @@
         </ext-label>
         <p class="text-red-500 font-bold">${state.lang.forms.notIddedFileUploadWarning}</p>
         <div class="mt-4 text-center">
-            <button type="submit" class="btn" :disabled="state.waiting">${state.lang.forms.save}</button>
+            <button type="submit" class="btn" :disabled="state.waiting">
+                <loading-spinner :if="state.waiting" additionalclasses="invert w-[1em] h-[1em]"></loading-spinner>
+                ${state.lang.forms.save}
+            </button>
         </div>
     </form>
 </template>
