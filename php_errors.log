@@ -1,0 +1,539 @@
+[04-Apr-2024 19:53:17 America/Sao_Paulo] PHP Fatal error:  Uncaught carry0987\I18n\Exception\IOException: Language key must include a namespace: topBarSiteDescription in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:81
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('en_US', 'topBarSiteDescr...')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('topBarSiteDescr...')
+#2 C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php(27): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('topBarSiteDescr...')
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\Components\Navigation\TopBar->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\Components\Navigation\TopBar))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(120): VictorOpusculo\PComp\Component->prepareSetUp()
+#11 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#12 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 81
+[07-Apr-2024 17:20:48 America/Sao_Paulo] PHP Fatal error:  Uncaught carry0987\I18n\Exception\IOException: Language key must include a namespace: topBarSiteDescription in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:81
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('pt_BR', 'topBarSiteDescr...')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('topBarSiteDescr...')
+#2 C:\inetpub\wwwroot\abel-magazine\app\BaseLayout.php(44): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('topBarSiteDescr...')
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\BaseLayout->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(120): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#6 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 81
+[07-Apr-2024 21:26:39 America/Sao_Paulo] PHP Warning:  Undefined global variable $_SESSION in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 36
+[07-Apr-2024 21:26:39 America/Sao_Paulo] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 37
+[07-Apr-2024 21:27:31 America/Sao_Paulo] PHP Warning:  Undefined global variable $_SESSION in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 36
+[07-Apr-2024 21:27:31 America/Sao_Paulo] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 37
+[07-Apr-2024 21:28:27 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:37:23 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:38:28 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:38:44 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:39:28 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:39:39 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:41:22 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:13
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 13
+[07-Apr-2024 21:42:37 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 143
+[07-Apr-2024 21:44:46 America/Sao_Paulo] PHP Warning:  Undefined property: VictorOpusculo\AbelMagazine\Lib\Model\Exceptions\EmailNotFound::$getMessage in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 45
+[07-Apr-2024 21:44:46 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Functions::login(): Return value must be of type array, string returned in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php:45
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Functions->login(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Functions), 'login')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 45
+[07-Apr-2024 21:46:13 America/Sao_Paulo] PHP Warning:  Undefined global variable $_SESSION in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 39
+[07-Apr-2024 21:46:13 America/Sao_Paulo] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 40
+[07-Apr-2024 21:46:33 America/Sao_Paulo] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\inetpub\wwwroot\abel-magazine\app\Admin\Functions.php on line 40
+[07-Apr-2024 22:27:20 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Layout.php on line 28
+[07-Apr-2024 22:29:04 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Layout.php on line 28
+[07-Apr-2024 22:29:50 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Layout.php on line 28
+[08-Apr-2024 19:14:41 America/Sao_Paulo] PHP Fatal error:  Illegal offset type in Command line code on line 1
+[08-Apr-2024 19:15:17 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Illegal offset type in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[08-Apr-2024 19:36:43 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined function \VictorOpusculo\AbelMagazine\Lib\Middlewares\adminLoginCheck() in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\BaseFunctionsClass.php:23
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(116): VictorOpusculo\PComp\Rpc\BaseFunctionsClass->__applyMiddlewares()
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Media\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\BaseFunctionsClass.php on line 23
+[08-Apr-2024 19:38:01 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Layout.php on line 28
+[08-Apr-2024 20:24:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Object of class VictorOpusculo\PComp\Text could not be converted to string in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\HtmlTag.php:46
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\HtmlTag.php(33): VictorOpusculo\PComp\HtmlTag->getPropertiesAsHtml(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(78): VictorOpusculo\PComp\HtmlTag->render()
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\HtmlTag.php(34): VictorOpusculo\PComp\Component->renderChildren()
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(26): VictorOpusculo\PComp\HtmlTag->render()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(60): VictorOpusculo\PComp\Prelude\render(Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(26): VictorOpusculo\PComp\Component->render()
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(60): VictorOpusculo\PComp\Prelude\render(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(26): VictorOpusculo\PComp\Component->render()
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(28): VictorOpusculo\PComp\Prelude\render(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(28): VictorOpusculo\PComp\Prelude\render(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(60): VictorOpusculo\PComp\Prelude\render(Array)
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(78): VictorOpusculo\PComp\Component->render()
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\HtmlTag.php(34): VictorOpusculo\PComp\Component->renderChildren()
+#13 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(26): VictorOpusculo\PComp\HtmlTag->render()
+#14 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(28): VictorOpusculo\PComp\Prelude\render(Array)
+#15 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(60): VictorOpusculo\PComp\Prelude\render(Array)
+#16 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Prelude.php(26): VictorOpusculo\PComp\Component->render()
+#17 C:\inetpub\wwwroot\abel-magazine\index.php(41): VictorOpusculo\PComp\Prelude\render(Array)
+#18 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\HtmlTag.php on line 46
+[13-Apr-2024 20:20:48 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:20:50 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:20:51 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:22:40 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:23:08 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:26:41 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 25
+[13-Apr-2024 20:26:51 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions::create(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php:24
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions->create(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\Editions\Functions), 'create')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Magazines\MagazineId\Editions\Functions.php on line 24
+[13-Apr-2024 21:55:43 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\Lib\Helpers\QueryString::getQueryStringAsArrayExcept(): Argument #1 must be of type array, string given, called in C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php on line 31 and defined in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php:16
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php(31): VictorOpusculo\AbelMagazine\Lib\Helpers\QueryString::getQueryStringAsArrayExcept('page')
+#1 [internal function]: VictorOpusculo\AbelMagazine\Components\Navigation\TopBar->VictorOpusculo\AbelMagazine\Components\Navigation\{closure}('en_US', 'English (US)')
+#2 C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php(32): array_map(Object(Closure), Array, Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\Components\Navigation\TopBar->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\Components\Navigation\TopBar))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#11 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#12 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php on line 16
+[13-Apr-2024 21:55:46 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\Lib\Helpers\QueryString::getQueryStringAsArrayExcept(): Argument #1 must be of type array, string given, called in C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php on line 31 and defined in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php:16
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php(31): VictorOpusculo\AbelMagazine\Lib\Helpers\QueryString::getQueryStringAsArrayExcept('page')
+#1 [internal function]: VictorOpusculo\AbelMagazine\Components\Navigation\TopBar->VictorOpusculo\AbelMagazine\Components\Navigation\{closure}('en_US', 'English (US)')
+#2 C:\inetpub\wwwroot\abel-magazine\components\Navigation\TopBar.php(32): array_map(Object(Closure), Array, Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\Components\Navigation\TopBar->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\Components\Navigation\TopBar))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#11 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#12 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php on line 16
+[14-Apr-2024 16:43:59 America/Sao_Paulo] PHP Fatal error:  Constant expression contains invalid operations in C:\inetpub\wwwroot\abel-magazine\components\Data\Gallery.php on line 15
+[14-Apr-2024 16:44:28 America/Sao_Paulo] PHP Fatal error:  Default value for property of type Closure may not be null. Use the nullable type ?Closure to allow null default value in C:\inetpub\wwwroot\abel-magazine\components\Data\Gallery.php on line 15
+[19-Apr-2024 19:14:54 America/Sao_Paulo] PHP Warning:  Undefined array key "page" in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php on line 20
+[19-Apr-2024 19:14:54 America/Sao_Paulo] PHP Warning:  Undefined array key "page" in C:\inetpub\wwwroot\abel-magazine\lib\Helpers\QueryString.php on line 20
+[19-Apr-2024 19:17:52 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Cannot assign string to property VictorOpusculo\PComp\Rpc\BaseFunctionsClass::$middlewares of type array in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Functions.php:16
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(93): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Functions->__construct(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Functions.php on line 16
+[19-Apr-2024 19:19:06 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Cannot assign string to property VictorOpusculo\PComp\Rpc\BaseFunctionsClass::$middlewares of type array in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Functions.php:16
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(93): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Functions->__construct(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Functions.php on line 16
+[19-Apr-2024 19:40:18 America/Sao_Paulo] PHP Warning:  Undefined array key "file_article_nid" in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php on line 59
+[19-Apr-2024 19:40:18 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php on line 59
+[19-Apr-2024 19:40:18 America/Sao_Paulo] PHP Deprecated:  basename(): Passing null to parameter #1 ($path) of type string is deprecated in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php on line 59
+[19-Apr-2024 19:40:18 America/Sao_Paulo] PHP Warning:  Undefined array key "file_article_nid" in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php on line 60
+[19-Apr-2024 19:40:18 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\Lib\Model\FileUploadUtils::checkForUploadError(): Argument #1 ($fileData) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php on line 60 and defined in C:\inetpub\wwwroot\abel-magazine\lib\Model\FileUploadUtils.php:38
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Upload\NotIddedArticleUpload.php(60): VictorOpusculo\AbelMagazine\Lib\Model\FileUploadUtils::checkForUploadError(NULL, 10485760, Array, Array, Array)
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php(118): VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\NotIddedArticleUpload::checkForUploadError(Array, 'file_article_ni...')
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(137): VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article->beforeDatabaseInsert(Object(mysqli))
+#3 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Functions.php(33): VictorOpusculo\MyOrm\DataEntity->save(Object(mysqli))
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(136): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Functions->create(Array, Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Functions), 'create')
+#6 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#7 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\lib\Model\FileUploadUtils.php on line 38
+[19-Apr-2024 19:44:35 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: DateTime::setTimezone(): Argument #1 ($timezone) must be of type DateTimeZone, string given in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php:42
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php(42): DateTime->setTimezone('America/Sao_Pau...')
+#1 [internal function]: VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home->VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\{closure}(Object(VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article))
+#2 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php(36): array_map(Object(Closure), Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(20): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home->setUp()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout))
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#13 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#14 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#15 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#16 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#17 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php on line 42
+[19-Apr-2024 20:48:45 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property VictorOpusculo\MyOrm\DataObjectProperty::$properties of type object in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataProperty.php:246
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataProperty.php(96): VictorOpusculo\MyOrm\DataObjectProperty->setValue(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(232): VictorOpusculo\MyOrm\DataProperty->setValueFromDatabase(NULL)
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(276): VictorOpusculo\MyOrm\DataEntity->fillPropertiesFromDataRowFromDatabase(Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(101): VictorOpusculo\MyOrm\DataEntity->newInstanceFromDataRowFromDatabase(Array)
+#4 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Create.php(34): VictorOpusculo\MyOrm\DataEntity->getSingle(Object(mysqli))
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(20): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Create->setUp()
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Create))
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout))
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#13 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#14 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#15 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#16 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#17 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#18 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#19 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataProperty.php on line 246
+[19-Apr-2024 21:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "file_article_id" in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 154
+[19-Apr-2024 21:24:23 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Object of class VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus could not be converted to string in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php:129
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(129): mysqli_stmt->execute()
+#1 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\ArticleId\Functions.php(45): VictorOpusculo\MyOrm\DataEntity->save(Object(mysqli))
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(136): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions->edit(Array, Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions), 'edit')
+#4 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#5 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php on line 129
+[19-Apr-2024 21:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "file_article_id" in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 154
+[19-Apr-2024 21:25:13 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Object of class VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus could not be converted to string in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php:129
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(129): mysqli_stmt->execute()
+#1 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\ArticleId\Functions.php(45): VictorOpusculo\MyOrm\DataEntity->save(Object(mysqli))
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(136): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions->edit(Array, Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions), 'edit')
+#4 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#5 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php on line 129
+[19-Apr-2024 21:26:12 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Object of class VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus could not be converted to string in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php:129
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(129): mysqli_stmt->execute()
+#1 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\ArticleId\Functions.php(45): VictorOpusculo\MyOrm\DataEntity->save(Object(mysqli))
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(136): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions->edit(Array, Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions), 'edit')
+#4 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#5 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php on line 129
+[19-Apr-2024 21:26:48 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Object of class VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article could not be converted to string in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\ArticleId\Functions.php:48
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(136): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions->edit(Array, Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\ArticleId\Functions), 'edit')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\ArticleId\Functions.php on line 48
+[20-Apr-2024 12:37:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Named parameter $lgpdtermversion overwrites previous argument in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\EditProfile.php:55
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\Submitter\Panel\EditProfile->markup()
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\EditProfile))
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout))
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#13 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#14 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\EditProfile.php on line 55
+[20-Apr-2024 14:09:48 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: carry0987\I18n\Language\LanguageLoader::getValue(): Return value must be of type string, null returned in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:99
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('pt_BR', 'pages.submitter...')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('pages.submitter...')
+#2 C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\View.php(51): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('pages.submitter...')
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\View->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\View))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Layout))
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#13 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#14 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#15 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#16 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#17 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 99
+[20-Apr-2024 16:20:22 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected token "=", expecting end of file in Command line code on line 1
+[20-Apr-2024 16:20:37 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected token "\", expecting end of file in Command line code on line 1
+[20-Apr-2024 16:20:50 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Undefined constant "aa" in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[20-Apr-2024 16:21:24 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Undefined constant "aa" in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[20-Apr-2024 16:21:41 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Undefined constant "aa" in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[20-Apr-2024 16:22:10 America/Sao_Paulo] PHP Parse error:  Unclosed '[' in Command line code on line 1
+[20-Apr-2024 16:22:28 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Undefined constant "aaa" in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[20-Apr-2024 16:23:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Undefined constant "aaa" in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[20-Apr-2024 16:30:16 America/Sao_Paulo] PHP Warning:  Undefined property: VictorOpusculo\MyOrm\OtherProperties::$articles:remove_idded_file in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 250
+[20-Apr-2024 16:30:16 America/Sao_Paulo] PHP Warning:  Undefined property: VictorOpusculo\MyOrm\OtherProperties::$articles:remove_idded_file in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 280
+[20-Apr-2024 16:30:31 America/Sao_Paulo] PHP Warning:  Undefined property: VictorOpusculo\MyOrm\OtherProperties::$articles:remove_idded_file in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 250
+[20-Apr-2024 16:30:31 America/Sao_Paulo] PHP Warning:  Undefined property: VictorOpusculo\MyOrm\OtherProperties::$articles:remove_idded_file in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 280
+[21-Apr-2024 15:31:46 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: carry0987\I18n\Language\LanguageLoader::getValue(): Return value must be of type string, null returned in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:99
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('pt_BR', 'functions.inval...')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('functions.inval...')
+#2 C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions.php(31): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('functions.inval...')
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions->del(Array)
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions), 'del')
+#5 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#6 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 99
+[21-Apr-2024 15:32:17 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions::del(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions->del(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions), 'del')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions.php on line 25
+[21-Apr-2024 16:30:36 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions::del(): Argument #1 ($data) must be of type array, null given, called in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 131 and defined in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions.php:25
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions->del(NULL)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions), 'del')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\EvaluationTokens\TokenId\Functions.php on line 25
+[21-Apr-2024 21:57:06 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 143
+[21-Apr-2024 21:57:18 America/Sao_Paulo] PHP Warning:  Undefined array key "file_article_id" in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 278
+[21-Apr-2024 21:57:21 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Typed property VictorOpusculo\MyOrm\DataEntity::$postFiles must not be accessed before initialization in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php:277
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\DataEntity.php(133): VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article->afterDatabaseUpdate(Object(mysqli), Array)
+#1 C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\ArticleId\Functions.php(110): VictorOpusculo\MyOrm\DataEntity->save(Object(mysqli))
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Functions->changeStatus(Array)
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\ArticleId\Functions), 'changeStatus')
+#4 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#5 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\lib\Model\Magazines\Article.php on line 277
+[21-Apr-2024 21:57:37 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 143
+[26-Apr-2024 19:51:08 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Login.php on line 23
+[26-Apr-2024 20:10:18 America/Sao_Paulo] PHP Fatal error:  Cannot use empty array elements in arrays in C:\inetpub\wwwroot\abel-magazine\app\router.php on line 87
+[27-Apr-2024 10:41:39 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: carry0987\I18n\Language\LanguageLoader::getValue(): Return value must be of type string, null returned in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:99
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('pt_BR', 'pages.published')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('pages.published')
+#2 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php(40): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('pages.published')
+#3 [internal function]: VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home->VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\{closure}(Object(VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article))
+#4 C:\inetpub\wwwroot\abel-magazine\app\Submitter\Panel\Articles\Home.php(36): array_map(Object(Closure), Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(20): VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home->setUp()
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Articles\Home))
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Submitter\Panel\Layout))
+#12 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#13 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#14 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#15 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#16 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#17 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#18 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#19 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 99
+[27-Apr-2024 10:42:43 America/Sao_Paulo] PHP Warning:  Undefined array key "user_type" in C:\inetpub\wwwroot\abel-magazine\app\Admin\Login.php on line 23
+[27-Apr-2024 11:11:16 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\MyOrm\Option::unwrapOrElse(): Argument #1 ($func) must be of type callable, string given, called in C:\inetpub\wwwroot\abel-magazine\app\Magazine\MagazineStrId\Article\ArticleId.php on line 56 and defined in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\Option.php:37
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\app\Magazine\MagazineStrId\Article\ArticleId.php(56): VictorOpusculo\MyOrm\Option->unwrapOrElse('Artigo')
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId->markup()
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId))
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#10 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#11 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\Option.php on line 37
+[27-Apr-2024 11:11:16 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: VictorOpusculo\MyOrm\Option::unwrapOrElse(): Argument #1 ($func) must be of type callable, string given, called in C:\inetpub\wwwroot\abel-magazine\app\Magazine\MagazineStrId\Article\ArticleId.php on line 56 and defined in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\Option.php:37
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\app\Magazine\MagazineStrId\Article\ArticleId.php(56): VictorOpusculo\MyOrm\Option->unwrapOrElse('Artigo')
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId->markup()
+#2 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId))
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#10 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#11 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\my-orm\src\Option.php on line 37
+[27-Apr-2024 11:12:25 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: carry0987\I18n\Language\LanguageLoader::getValue(): Return value must be of type string, null returned in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php:99
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\I18n.php(79): carry0987\I18n\Language\LanguageLoader->getValue('pt_BR', 'forms.downloadF...')
+#1 C:\inetpub\wwwroot\abel-magazine\lib\Internationalization\I18n.php(27): carry0987\I18n\I18n->fetch('forms.downloadF...')
+#2 C:\inetpub\wwwroot\abel-magazine\app\Magazine\MagazineStrId\Article\ArticleId.php(76): VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n::get('forms.downloadF...')
+#3 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(21): VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId->markup()
+#4 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#5 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\AbelMagazine\App\Magazine\MagazineStrId\Article\ArticleId))
+#6 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#7 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(24): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#8 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(30): VictorOpusculo\PComp\Component->prepareSetUp()
+#9 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(34): VictorOpusculo\PComp\Component->prepareSetupForArrays(Object(VictorOpusculo\PComp\HtmlTag))
+#10 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Component.php(23): VictorOpusculo\PComp\Component->prepareSetupForArrays(Array)
+#11 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\AppInitializer.php(108): VictorOpusculo\PComp\Component->prepareSetUp()
+#12 C:\inetpub\wwwroot\abel-magazine\index.php(14): VictorOpusculo\PComp\AppInitializer->__construct(Array)
+#13 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\vendor\carry0987\i18n\src\Language\LanguageLoader.php on line 99
+[27-Apr-2024 14:34:29 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "VictorOpusculo\AbelMagazine\Lib\Model\Students\SubmitterOtp" not found in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php:110
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Submitter\Functions->createOtp(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Functions), 'createOtp')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php on line 110
+[27-Apr-2024 14:37:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "VictorOpusculo\AbelMagazine\Lib\Model\Students\SubmitterOtp" not found in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php:112
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Submitter\Functions->createOtp(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Functions), 'createOtp')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php on line 112
+[27-Apr-2024 14:37:08 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "VictorOpusculo\AbelMagazine\Lib\Model\Students\SubmitterOtp" not found in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php:112
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Submitter\Functions->createOtp(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Functions), 'createOtp')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php on line 112
+[27-Apr-2024 14:37:31 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "VictorOpusculo\AbelMagazine\Lib\Model\Students\SubmitterOtp" not found in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php:112
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Submitter\Functions->createOtp(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Submitter\Functions), 'createOtp')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Submitter\Functions.php on line 112
+[27-Apr-2024 14:37:49 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php on line 143
+[28-Apr-2024 17:47:55 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int + array in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\Functions.php:47
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\Functions->changeNotifyEmail(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\Functions), 'changeNotifyEma...')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\Functions.php on line 47
+[28-Apr-2024 17:49:28 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int + array in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\Functions.php:49
+Stack trace:
+#0 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(131): VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\Functions->changeNotifyEmail(Array)
+#1 C:\inetpub\wwwroot\abel-magazine\vendor\victor-opusculo\p-comp\src\Rpc\RpcInitializer.php(102): VictorOpusculo\PComp\Rpc\RpcInitializer::callMethod(Object(VictorOpusculo\AbelMagazine\App\Admin\Panel\Articles\Functions), 'changeNotifyEma...')
+#2 C:\inetpub\wwwroot\abel-magazine\function.php(10): VictorOpusculo\PComp\Rpc\RpcInitializer->__construct(Array, 'route', 'call', '/abel-magazine/...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\abel-magazine\app\Admin\Panel\Articles\Functions.php on line 49
