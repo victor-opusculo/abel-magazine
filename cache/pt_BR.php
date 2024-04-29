@@ -34,6 +34,7 @@
     'expiredOtp' => 'Código temporário expirado! Tente gerar um novo.',
     'wrongOtp' => 'Código temporário incorreto!',
     'invalidEmail' => 'E-mail inválido!',
+    'emailAlreadyInUse' => 'E-mail já em uso por outro usuário.',
   ),
   'forms' => 
   array (

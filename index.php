@@ -8,7 +8,7 @@ use function VictorOpusculo\PComp\Prelude\render;
 require_once "vendor/autoload.php";
 
 if (!empty($_GET['change_lang']))
-	setcookie('language', $_GET['change_lang']);
+	setcookie('language', $_GET['change_lang'], 0, '/');
 
 I18n::init($_GET['change_lang'] ?? $_COOKIE['language'] ?? 'pt_BR');
 $app = new AppInitializer(require_once __DIR__ . '/app/router.php');
