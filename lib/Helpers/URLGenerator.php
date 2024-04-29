@@ -73,7 +73,7 @@ final class URLGenerator
 
 		return match (self::$useFriendlyUrls)
 		{
-			true => self::$baseUrl . '/--function' . ($route[0] == '/' ? substr($route, 1) . $qs : $route . $qs),
+			true => self::$baseUrl . '/--function' . ($route[0] == '/' ? substr($route, 1) . $qs : '/' . $route . $qs),
 			false => self::$baseUrl . "/function.php?route=$route$qs"
 		};
 	}
