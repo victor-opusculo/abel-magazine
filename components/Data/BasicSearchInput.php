@@ -26,7 +26,7 @@ class BasicSearchInput extends Component
                 tag('label', children:
                 [
                     text(I18n::get('forms.search') . ': '),
-                    scTag('input', type: 'search', size: 40, name: 'q', maxlength: 280, value: Data::hscq($_GET['q'] ?? '')),
+                    scTag('input', type: 'search', class: 'md:w-[300px] w-[calc(100%-80px)]', name: 'q', maxlength: 280, value: Data::hscq($_GET['q'] ?? '')),
                 ]),
                 tag('button', type: 'submit', class: 'btn min-w-0 ml-2 py-2', children: 
                 [
