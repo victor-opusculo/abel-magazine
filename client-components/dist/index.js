@@ -25,6 +25,9 @@ customElements.define('change-article-status', ChangeArticleStatus)
 import ClientPaginator from './client-paginator.js'
 customElements.define('client-paginator', ClientPaginator)
 
+import ContactForm from './contact-form.js'
+customElements.define('contact-form', ContactForm)
+
 import CreateEvaluationToken from './create-evaluation-token.js'
 customElements.define('create-evaluation-token', CreateEvaluationToken)
 
@@ -60,6 +63,9 @@ customElements.define('page-client-select', PageClientSelect)
 
 import RestoreDeletedButton from './restore-deleted-button.js'
 customElements.define('restore-deleted-button', RestoreDeletedButton)
+
+import SetArticleTemplatePageForm from './set-article-template-page-form.js'
+customElements.define('set-article-template-page-form', SetArticleTemplatePageForm)
 
 import SetNotificationEmailNewArticle from './set-notification-email-new-article.js'
 customElements.define('set-notification-email-new-article', SetNotificationEmailNewArticle)

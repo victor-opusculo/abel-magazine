@@ -6,6 +6,7 @@ use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToContact;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToNotifyNewArticle;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAdminFinalArticleUploaded;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAuthorArticleApproved;
@@ -30,12 +31,16 @@ final class ChangeNotificationEmail extends Component
 
         try { $this->sett3 = (new NotifyAdminFinalArticleUploaded)->getSingle($conn); }
         catch (Exception) { $this->sett3 = (new NotifyAdminFinalArticleUploaded); }
+
+        try { $this->sett4 = (new EmailToContact())->getSingle($conn); }
+        catch (Exception) { $this->sett4 = (new EmailToContact); }
     
     }
 
     private ?EmailToNotifyNewArticle $sett = null;
     private ?NotifyAuthorArticleApproved $sett2 = null;
     private ?NotifyAdminFinalArticleUploaded $sett3 = null;
+    private ?EmailToContact $sett4 = null;
 
     protected function markup(): Component|array|null
     {
@@ -44,6 +49,7 @@ final class ChangeNotificationEmail extends Component
             tag('h1', children: text(I18n::get('pages.changeNotificationEmail'))),
             tag('set-notification-email-new-article', 
                 langJson: Data::hscq(I18n::getFormsTranslationsAsJson()), 
+                contactEmail: $this->sett4->value->unwrapOr(''),
                 newArticleEmail: $this->sett->value->unwrapOr(''),
                 notifyAuthorArticleApproved: $this->sett2->value->unwrapOr(0),
                 notifyAdminFinalArticleUploaded: $this->sett3->value->unwrapOr(0)

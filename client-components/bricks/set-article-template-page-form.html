@@ -53,7 +53,7 @@
             const data =  { 'page_id': this.state.page_id, 'page_id_en': this.state.page_id_en, 'remove': this.state.remove };
 
             import(AbelMagazine.functionUrl("/admin/panel/pages"))
-            .then(module => module.setSubmissionRulesId(data))
+            .then(module => module.setArticleTemplatePageId(data))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
             .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSettingSubmissionRulesPage));
         }

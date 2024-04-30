@@ -34,6 +34,7 @@
     'expiredOtp' => 'Temporary password has expired! Try generating a new one.',
     'wrongOtp' => 'Temporary password is incorrect!',
     'invalidEmail' => 'Invalid e-mail!',
+    'emailAlreadyInUse' => 'E-mail already in use by other user.',
   ),
   'forms' => 
   array (
@@ -115,7 +116,7 @@
     'errorEditingPage' => 'Error editing page!',
     'errorSettingSubmissionRulesPage' => 'Error setting page!',
     'errorGeneratingOtp' => 'Error creating temporary password!',
-    'errorChangingEmail' => 'Error changing e-mail!',
+    'errorChangingSettings' => 'Error changing settings!',
     'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
     'changeData' => 'Change data',
     'changePassword' => 'Change password',
@@ -135,6 +136,10 @@
     'codeSentToYourEmail' => 'Code sent to your e-mail',
     'wait' => 'Wait...',
     'proceed' => 'Proceed',
+    'notifySubmitterWhenArticleGetsApproved' => 'Notify author/submitter when article gets approved by all reviewers',
+    'notifyWhenSubmitterUploadsFinalArticle' => 'Notify administrator (e-mail above) when author/submitter uploads final article file',
+    'adminEmail' => 'General administrator e-mail for notifications',
+    'contactEmail' => 'Contact e-mail',
   ),
   'functions' => 
   array (
@@ -193,7 +198,7 @@
     'otpCreateError' => 'Error creating temporary password!',
     'passwordChangedSuccess' => 'Password changed successfully!',
     'passwordChangedError' => 'Error changing password!',
-    'notifyEmailChangeSuccess' => 'E-mail changed successfully!',
+    'notifyEmailChangeSuccess' => 'Settings changed successfully!',
   ),
   'layout' => 
   array (
@@ -205,14 +210,14 @@
     'adminPanelHome' => 'Home',
     'submitterPanel' => 'Author\'s panel',
     'submissionRules' => 'Submission rules',
+    'submissionTemplate' => 'Article template',
+    'contact' => 'Contact',
   ),
   'mail' => 
   array (
     'recoverLoginTitle' => 'ABEL - Recover access to your author panel',
     'recoverLoginGreeting' => 'Hello, {name}!',
     'recoverLoginMessage' => 'You have requested the recovery of your access to the author panel of the ABEL\'s journal portal. Enter the temporary code below on the page that requests it:',
-    'newArticleTitle' => 'ABEL - New article sent!',
-    'newArticleMessage' => 'A new article has been sent on ABEL\'s journal portal. Open it by clicking the link below:',
   ),
   'pages' => 
   array (
@@ -293,6 +298,7 @@
     'editPage' => 'Edit page',
     'deletePage' => 'Delete page',
     'defineSubmissionRulesPage' => 'Set submission rules page',
+    'defineArticleTemplatePage' => 'Set article template page',
     'publishArticle' => 'Publish article',
     'unpublishArticle' => 'Unpublish article',
     'publicationStatus' => 'Publication status',
@@ -302,6 +308,6 @@
     'reviewDirectLink' => 'Review direct link',
     'noneYet' => 'None yet',
     'recoveryAccess' => 'Access recovery',
-    'changeNotificationEmail' => 'Change notification e-mail',
+    'changeNotificationEmail' => 'Change e-mail settings',
   ),
 );

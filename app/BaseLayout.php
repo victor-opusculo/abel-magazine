@@ -28,7 +28,9 @@ final class BaseLayout extends Component
                     [
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/'), label: I18n::get('layout.adminPanelHome')),
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/submitter/panel'), label: I18n::get('layout.submitterPanel')),
-                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_rules'), label: I18n::get('layout.submissionRules'))
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_rules'), label: I18n::get('layout.submissionRules')),
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_template'), label: I18n::get('layout.submissionTemplate')),
+                        component(NavBarItem::class, url: URLGenerator::generatePageUrl('/contact'), label: I18n::get('layout.contact'))
                         
                     ])
                 ),
@@ -36,7 +38,7 @@ final class BaseLayout extends Component
                 $this->children
             ]),
 
-            tag('dialog', id: 'messageBox', class: 'backdrop:backdrop-blur', children:
+            tag('dialog', id: 'messageBox', class: 'backdrop:backdrop-blur fixed', children:
             [
                     tag('form', method: 'dialog', class: 'text-center min-w-[350px] p-4 dark:text-white dark:bg-zinc-800', children:
                     [

@@ -76,6 +76,7 @@
     "editPage": "Edit page",
     "deletePage": "Delete page",
     "defineSubmissionRulesPage": "Set submission rules page",
+    "defineArticleTemplatePage": "Set article template page",
     "publishArticle": "Publish article",
     "unpublishArticle": "Unpublish article",
     "publicationStatus": "Publication status",

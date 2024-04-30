@@ -50,12 +50,12 @@ final class HomePage extends Component
                 linkGetter: fn(Magazine $m) => URLGenerator::generatePageUrl("/magazine/{$m->string_identifier->unwrapOr('')}"),
                 overlayElementsGetters:
                 [
-                    fn(Magazine $m) => tag('span', class: 'font-bold', children: text($m->name->unwrapOr(''))),
-                    fn(Magazine $m) => text(
+                    fn(Magazine $m) => tag('span', class: 'font-bold', children: text($m->name->unwrapOr('')))
+                    /*fn(Magazine $m) => text(
                         $m->editionCount > 1 
                             ? $m->editionCount . " " . mb_strtolower(I18n::get('pages.editions'))
                             : $m->editionCount . " " . mb_strtolower(I18n::get("pages.edition"))
-                    )
+                    )*/
                 ]
             )
         ];

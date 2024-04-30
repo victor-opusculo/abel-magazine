@@ -26,7 +26,7 @@ class TopBar extends Component
         return tag('div', class: 'flex flex-row justify-between p-2 bg-indigo-800', children: 
         [
             tag('span', class: 'uppercase text-white', children: 
-                tag('a', href: URLGenerator::generatePageUrl('/'), children: text(I18n::get("layout.topBarSiteDescription")))
+                tag('a', href: URLGenerator::generatePageUrl('/'), children: text("Revista Brasileira de Educação Legislativa"))
             ),
             tag('span', children: 
                 array_map(

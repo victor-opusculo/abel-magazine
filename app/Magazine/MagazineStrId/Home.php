@@ -72,7 +72,7 @@ final class Home extends Component
                     fn(Edition $e) => tag('span', children: text($e->edition_label->unwrapOr(''))),
                     fn(Edition $e) => tag('span', children: 
                         $e->is_published->unwrapOr(false)
-                            ?   text(date_create($e->ref_date->unwrapOr('0001-01-01'))->format('m/Y'))
+                            ?   [] //text(date_create($e->ref_date->unwrapOr('0001-01-01'))->format('m/Y'))
                             :   ($e->is_open_for_submissions->unwrapOr(false)
                                 ?   tag('span', class: 'font-bold text-green-600', children: text(I18n::get('pages.submissionsOpen')))
                                 :   tag('span', class: 'font-bold text-zinc-600', children: text(I18n::get('pages.publicationSoon')))

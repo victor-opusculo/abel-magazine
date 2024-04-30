@@ -7,15 +7,15 @@ use VictorOpusculo\AbelMagazine\Components\Site\PageViewer;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Pages\Page;
-use VictorOpusculo\AbelMagazine\Lib\Model\Settings\SubmissionRulesPageId;
-use VictorOpusculo\AbelMagazine\Lib\Model\Settings\SubmissionRulesPageIdEnglish;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\TemplateFilePageId;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\TemplateFilePageIdEnglish;
 use VictorOpusculo\PComp\Component;
 use VictorOpusculo\PComp\Context;
 use VictorOpusculo\PComp\HeadManager;
 
 use function VictorOpusculo\PComp\Prelude\component;
 
-final class SubmissionRules extends Component
+final class ArticleTemplate extends Component
 {
     protected function setUp()
     {
@@ -26,9 +26,9 @@ final class SubmissionRules extends Component
             $lang = I18n::$instance->fetchCurrentLang();
             $id = match ($lang)
             {
-                'en_US' => (new SubmissionRulesPageIdEnglish)->getSingle($conn)->value->unwrapOr(null),
-                'pt_BR' => (new SubmissionRulesPageId)->getSingle($conn)->value->unwrapOr(null),
-                default => (new SubmissionRulesPageId)->getSingle($conn)->value->unwrapOr(null)
+                'en_US' => (new TemplateFilePageIdEnglish)->getSingle($conn)->value->unwrapOr(null),
+                'pt_BR' => (new TemplateFilePageId)->getSingle($conn)->value->unwrapOr(null),
+                default => (new TemplateFilePageId)->getSingle($conn)->value->unwrapOr(null)
             };  
 
             if (is_null($id))

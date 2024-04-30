@@ -4,7 +4,9 @@ namespace VictorOpusculo\AbelMagazine\App;
 return 
 [
     '/' => \VictorOpusculo\AbelMagazine\App\HomePage::class,
+    '__functions' => \VictorOpusculo\AbelMagazine\App\Functions::class,
     '__layout' => \VictorOpusculo\AbelMagazine\App\BaseLayout::class,
+    '/contact' => \VictorOpusculo\AbelMagazine\App\Contact::class,
     '/admin' => fn() =>
     [
         '/' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
@@ -93,6 +95,7 @@ return
                 '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Functions::class,
                 '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Create::class,
                 '/set_submission_rules_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubRulesPageId::class,
+                '/set_submission_template_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubTemplatePageId::class,
                 '/[pageId]' => fn() =>
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\View::class,
@@ -163,6 +166,7 @@ return
     ],
     '/info' => fn() =>
     [
-        '/submission_rules' => \VictorOpusculo\AbelMagazine\App\Info\SubmissionRules::class
+        '/submission_rules' => \VictorOpusculo\AbelMagazine\App\Info\SubmissionRules::class,
+        '/submission_template' => \VictorOpusculo\AbelMagazine\App\Info\ArticleTemplate::class
     ]
 ];

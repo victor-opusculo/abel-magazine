@@ -1,6 +1,7 @@
 <script>
     const state =
     {
+        contactEmail: '',
         newArticleEmail: '',
         notifyAuthorArticleApproved: 0,
         notifyAdminFinalArticleUploaded: 0,
@@ -13,6 +14,7 @@
         { 
             ...this.state, 
             lang: JSON.parse(this.getAttribute('langJson')),
+            contactEmail: this.getAttribute('contactEmail'),
             newArticleEmail: this.getAttribute('newArticleEmail'),
             notifyAuthorArticleApproved: this.getAttribute('notifyAuthorArticleApproved'),
             notifyAdminFinalArticleUploaded: this.getAttribute('notifyAdminFinalArticleUploaded'),
@@ -45,6 +47,9 @@
 
 <template>
     <form @submit="submit">
+        <ext-label label="${state.lang.forms.contactEmail}">
+            <input type="email" maxlength="140" name="contactEmail" :value="state.contactEmail" @change="changeField" class="w-full" />
+        </ext-label>
         <ext-label label="${state.lang.forms.adminEmail}">
             <input type="email" maxlength="140" name="newArticleEmail" :value="state.newArticleEmail" @change="changeField" class="w-full" />
         </ext-label>

@@ -5,6 +5,7 @@ use Exception;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToContact;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\EmailToNotifyNewArticle;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAdminFinalArticleUploaded;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\NotifyAuthorArticleApproved;
@@ -30,6 +31,7 @@ final class Functions extends BaseFunctionsClass
         try
         {
             [ 
+                'contactEmail' => $contactEmail,
                 'newArticleEmail' => $newArticleEmail, 
                 'notifyAuthorArticleApproved' => $notifyAuthorArticleApproved,
                 'notifyAdminFinalArticleUploaded' => $notifyAdminFinalArticleUploaded
@@ -44,9 +46,13 @@ final class Functions extends BaseFunctionsClass
             $sett3 = new NotifyAdminFinalArticleUploaded();
             $sett3->value = Option::some($newArticleEmail && mb_strlen($newArticleEmail) > 0 ? $notifyAdminFinalArticleUploaded : 0);
 
+            $sett4 = new EmailToContact();
+            $sett4->value = Option::some($contactEmail);
+
             $result = $sett->save($conn);
             $result['affectedRows'] += $sett2->save($conn)['affectedRows'];
             $result['affectedRows'] += $sett3->save($conn)['affectedRows'];
+            $result['affectedRows'] += $sett4->save($conn)['affectedRows'];
 
             if ($result['affectedRows'] > 0)
             {

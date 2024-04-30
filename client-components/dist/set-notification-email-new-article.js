@@ -29,6 +29,7 @@
   
     const state =
     {
+        contactEmail: '',
         newArticleEmail: '',
         notifyAuthorArticleApproved: 0,
         notifyAdminFinalArticleUploaded: 0,
@@ -41,6 +42,7 @@
         { 
             ...this.state, 
             lang: JSON.parse(this.getAttribute('langJson')),
+            contactEmail: this.getAttribute('contactEmail'),
             newArticleEmail: this.getAttribute('newArticleEmail'),
             notifyAuthorArticleApproved: this.getAttribute('notifyAuthorArticleApproved'),
             notifyAdminFinalArticleUploaded: this.getAttribute('notifyAdminFinalArticleUploaded'),
@@ -74,6 +76,9 @@
   const __template = function({ state }) {
     return [  
     h("form", {"onsubmit": this.submit.bind(this)}, [
+      h("ext-label", {"label": `${state.lang.forms.contactEmail}`}, [
+        h("input", {"type": `email`, "maxlength": `140`, "name": `contactEmail`, "value": state.contactEmail, "onchange": this.changeField.bind(this), "class": `w-full`}, "")
+      ]),
       h("ext-label", {"label": `${state.lang.forms.adminEmail}`}, [
         h("input", {"type": `email`, "maxlength": `140`, "name": `newArticleEmail`, "value": state.newArticleEmail, "onchange": this.changeField.bind(this), "class": `w-full`}, "")
       ]),

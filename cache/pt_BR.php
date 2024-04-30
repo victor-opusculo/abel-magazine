@@ -117,6 +117,7 @@
     'errorSettingSubmissionRulesPage' => 'Erro ao definir página!',
     'errorGeneratingOtp' => 'Erro ao criar o código temporário!',
     'errorChangingSettings' => 'Erro ao definir configurações!',
+    'errorSendingMessage' => 'Erro ao enviar a mensagem!',
     'passwordNotBlankMin5Chars' => 'Nova senha não pode ser em branco e deve ter pelo menos 5 caracteres.',
     'changeData' => 'Alterar dados',
     'changePassword' => 'Alterar senha',
@@ -139,6 +140,10 @@
     'notifySubmitterWhenArticleGetsApproved' => 'Notificar autor quando o artigo for aprovado por todos os avaliadores',
     'notifyWhenSubmitterUploadsFinalArticle' => 'Notificar administrador (e-mail acima) quando autor subir o arquivo final do artigo (com identificação de autor)',
     'adminEmail' => 'E-mail geral de administrador para recebimento de notificações',
+    'contactEmail' => 'E-mail para contato',
+    'optional' => 'Opcional',
+    'subject' => 'Assunto',
+    'message' => 'Mensagem',
   ),
   'functions' => 
   array (
@@ -198,6 +203,7 @@
     'passwordChangedSuccess' => 'Senha alterada com sucesso!',
     'passwordChangedError' => 'Erro ao alterar senha!',
     'notifyEmailChangeSuccess' => 'Configurações alteradas com sucesso!',
+    'emailSentSuccess' => 'Mensagem enviada com sucesso!',
   ),
   'layout' => 
   array (
@@ -209,6 +215,8 @@
     'adminPanelHome' => 'Home',
     'submitterPanel' => 'Painel do autor',
     'submissionRules' => 'Normas de submissão',
+    'submissionTemplate' => 'Template de artigo',
+    'contact' => 'Contato',
   ),
   'mail' => 
   array (
@@ -295,6 +303,7 @@
     'editPage' => 'Editar página',
     'deletePage' => 'Excluir página',
     'defineSubmissionRulesPage' => 'Definir página de regras de submissão',
+    'defineArticleTemplatePage' => 'Definir página de template de arquivo',
     'publishArticle' => 'Publicar artigo',
     'unpublishArticle' => 'Despublicar artigo',
     'publicationStatus' => 'Status de publicação',
