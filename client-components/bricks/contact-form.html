@@ -29,7 +29,7 @@
             this.render({ ...this.state, waiting: true });
 
             const { lang, waiting, ...data } = this.state;
-            import(AbelMagazine.functionUrl(`/`))
+            import(AbelMagazine.functionUrl(`/base`))
             .then(module => module.contactEmail(data))
             .then(AbelMagazine.Alerts.pushFromJsonResult)
             .then(([ ret, json ]) => json.success ? this.clearForm() : null) 

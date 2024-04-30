@@ -67,6 +67,9 @@ customElements.define('restore-deleted-button', RestoreDeletedButton)
 import SetArticleTemplatePageForm from './set-article-template-page-form.js'
 customElements.define('set-article-template-page-form', SetArticleTemplatePageForm)
 
+import SetHomepagePreText from './set-homepage-pre-text.js'
+customElements.define('set-homepage-pre-text', SetHomepagePreText)
+
 import SetNotificationEmailNewArticle from './set-notification-email-new-article.js'
 customElements.define('set-notification-email-new-article', SetNotificationEmailNewArticle)
 

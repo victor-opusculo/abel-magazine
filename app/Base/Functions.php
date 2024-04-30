@@ -1,5 +1,5 @@
 <?php
-namespace VictorOpusculo\AbelMagazine\App;
+namespace VictorOpusculo\AbelMagazine\App\Base;
 
 use Exception;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;

@@ -70,7 +70,8 @@ final class Home extends Component
             [
                 tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/create"), children: text(I18n::get('pages.newPage'))),
                 tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_rules_page"), children: text(I18n::get('pages.defineSubmissionRulesPage'))),
-                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_template_page"), children: text(I18n::get('pages.defineArticleTemplatePage')))
+                tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_template_page"), children: text(I18n::get('pages.defineArticleTemplatePage'))),
+                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_homepage_pre_text_page"), children: text(I18n::get('pages.defineHomePagePreTextPage')))
             ]),
 
             component(DataGrid::class,

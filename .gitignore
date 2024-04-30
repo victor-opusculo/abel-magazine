@@ -11,3 +11,5 @@ uploads/articles/**/*
 
 token.txt
 !.htaccess
+
+connect-ssh.bat

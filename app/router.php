@@ -4,9 +4,12 @@ namespace VictorOpusculo\AbelMagazine\App;
 return 
 [
     '/' => \VictorOpusculo\AbelMagazine\App\HomePage::class,
-    '__functions' => \VictorOpusculo\AbelMagazine\App\Functions::class,
     '__layout' => \VictorOpusculo\AbelMagazine\App\BaseLayout::class,
     '/contact' => \VictorOpusculo\AbelMagazine\App\Contact::class,
+    '/base' => fn() =>
+    [
+        '__functions' => \VictorOpusculo\AbelMagazine\App\Base\Functions::class,
+    ],
     '/admin' => fn() =>
     [
         '/' => \VictorOpusculo\AbelMagazine\App\Admin\Login::class,
@@ -96,6 +99,7 @@ return
                 '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\Create::class,
                 '/set_submission_rules_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubRulesPageId::class,
                 '/set_submission_template_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubTemplatePageId::class,
+                '/set_homepage_pre_text_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetHomepagePreTextPageId::class,
                 '/[pageId]' => fn() =>
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\View::class,

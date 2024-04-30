@@ -304,6 +304,7 @@
     'deletePage' => 'Excluir página',
     'defineSubmissionRulesPage' => 'Definir página de regras de submissão',
     'defineArticleTemplatePage' => 'Definir página de template de arquivo',
+    'defineHomePagePreTextPage' => 'Definir página com texto para página inicial',
     'publishArticle' => 'Publicar artigo',
     'unpublishArticle' => 'Despublicar artigo',
     'publicationStatus' => 'Status de publicação',

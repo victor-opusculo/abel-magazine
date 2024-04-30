@@ -117,6 +117,7 @@
     'errorSettingSubmissionRulesPage' => 'Error setting page!',
     'errorGeneratingOtp' => 'Error creating temporary password!',
     'errorChangingSettings' => 'Error changing settings!',
+    'errorSendingMessage' => 'Error sending message!',
     'passwordNotBlankMin5Chars' => 'New password should not be blank and must have 5 or more chars.',
     'changeData' => 'Change data',
     'changePassword' => 'Change password',
@@ -140,6 +141,9 @@
     'notifyWhenSubmitterUploadsFinalArticle' => 'Notify administrator (e-mail above) when author/submitter uploads final article file',
     'adminEmail' => 'General administrator e-mail for notifications',
     'contactEmail' => 'Contact e-mail',
+    'optional' => 'Optional',
+    'subject' => 'Subject',
+    'message' => 'Message',
   ),
   'functions' => 
   array (
@@ -199,6 +203,7 @@
     'passwordChangedSuccess' => 'Password changed successfully!',
     'passwordChangedError' => 'Error changing password!',
     'notifyEmailChangeSuccess' => 'Settings changed successfully!',
+    'emailSentSuccess' => 'Message sent successfully!',
   ),
   'layout' => 
   array (
@@ -299,6 +304,7 @@
     'deletePage' => 'Delete page',
     'defineSubmissionRulesPage' => 'Set submission rules page',
     'defineArticleTemplatePage' => 'Set article template page',
+    'defineHomePagePreTextPage' => 'Set homepage text page',
     'publishArticle' => 'Publish article',
     'unpublishArticle' => 'Unpublish article',
     'publicationStatus' => 'Publication status',

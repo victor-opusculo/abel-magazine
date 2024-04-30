@@ -6,6 +6,8 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Pages\Page;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\HomePagePreTextPageId;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\HomePagePreTextPageIdEnglish;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\SubmissionRulesPageId;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\SubmissionRulesPageIdEnglish;
 use VictorOpusculo\AbelMagazine\Lib\Model\Settings\TemplateFilePageId;
@@ -117,6 +119,46 @@ final class Functions extends BaseFunctionsClass
             if ($result['affectedRows'] > 0)
             {
                 LogEngine::writeLog("Páginas de template de artigo definidas! ID: {$newId}");
+                return [ 'success' => I18n::get('functions.settingChangeSuccess') ];
+            }
+            else
+            {
+                return [ 'info' => I18n::get('functions.noDataChanged') ];
+            }
+            
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];
+        }
+    }
+
+    public function setHomePagePreTextPageId(array $data): array
+    {
+        $conn = Connection::get();
+        try
+        {
+            [ 'page_id' => $newId, 'page_id_en' => $newIdEnglish, 'remove' => $remove ] = $data;
+            $sett = new HomePagePreTextPageId();
+            $settEn = new HomePagePreTextPageIdEnglish();
+
+            if (!$remove)
+            {
+                $sett->value = Option::some($newId);
+                $settEn->value = Option::some($newIdEnglish);
+            }
+            else
+            {
+                $sett->value = Option::some(null);
+                $settEn->value = Option::some(null);
+            }
+
+            $result = $sett->save($conn);
+            $result['affectedRows'] += $settEn->save($conn)['affectedRows'];
+            if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Páginas de pré-texto de página inicial definidas! ID: {$newId}");
                 return [ 'success' => I18n::get('functions.settingChangeSuccess') ];
             }
             else

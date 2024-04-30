@@ -2,12 +2,17 @@
 namespace VictorOpusculo\AbelMagazine\App;
 
 use Exception;
+use VictorOpusculo\AbelMagazine\App\Page\PageId;
 use VictorOpusculo\AbelMagazine\Components\Data\Gallery;
+use VictorOpusculo\AbelMagazine\Components\Site\PageViewer;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Edition;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Magazine;
+use VictorOpusculo\AbelMagazine\Lib\Model\Pages\Page;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\HomePagePreTextPageId;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\HomePagePreTextPageIdEnglish;
 use VictorOpusculo\PComp\Component;
 use VictorOpusculo\PComp\Context;
 use VictorOpusculo\PComp\HeadManager;
@@ -34,16 +39,38 @@ final class HomePage extends Component
         {
             Context::getRef('page_messages')[] = $e->getMessage();
         }
+
+        try
+        {
+            $lang = I18n::$instance->fetchCurrentLang();
+            $pageId = match ($lang)
+            {
+                'en_US' => (new HomePagePreTextPageIdEnglish)->getSingle($conn)->value->unwrapOr(null),
+                'pt_BR' => (new HomePagePreTextPageId)->getSingle($conn)->value->unwrapOr(null),
+                default => (new HomePagePreTextPageId)->getSingle($conn)->value->unwrapOr(null)
+            };
+
+            $this->preText = (new Page([ 'id' => $pageId ]))->getSingle($conn);
+        }
+        catch (Exception)
+        {
+        }
+
     }
 
     /** @var Magazine[] */
     private array $magazines = [];
+
+    private ?Page $preText = null;
 
     protected function markup(): Component|array|null
     {
         return 
         [
             tag('h1', children: text(I18n::get("layout.homePageTitle"))),
+            isset($this->preText)
+                ?   component(PageViewer::class, page: $this->preText, showTitle: false)
+                :   null,
             component(Gallery::class, 
                 dataRows: $this->magazines,
                 imageGetter: fn(Magazine $m) => URLGenerator::generateFileUrl($m->coverImage->fileNameFromBaseDir()),
