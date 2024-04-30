@@ -7,12 +7,12 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 <p>E-mail: <?php echo Data::hsc($senderEmail); ?> </p>
 <p>Telefone: <?php echo Data::hsc($senderTelephone); ?> </p>
 <p>Mensagem: </p>
-<span style="font-weight: bold;
+<div style="font-weight: bold;
 			font-size: 1em;
 			display: block;
 			padding: 25px;
 			margin: 10px;
 			background-color: #eeeeee;
 			text-align: left;">
-			<p><?php echo nl2br(Data::hsc($senderMessage)); ?></p>
-		</span>
+			<?php echo nl2br(Data::hsc($senderMessage)); ?>
+</div>
