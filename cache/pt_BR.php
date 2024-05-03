@@ -216,6 +216,7 @@
     'submitterPanel' => 'Painel do autor',
     'submissionRules' => 'Normas de submissão',
     'submissionTemplate' => 'Template de artigo',
+    'editorialTeam' => 'Equipe Editorial',
     'contact' => 'Contato',
   ),
   'mail' => 
@@ -305,6 +306,7 @@
     'defineSubmissionRulesPage' => 'Definir página de regras de submissão',
     'defineArticleTemplatePage' => 'Definir página de template de arquivo',
     'defineHomePagePreTextPage' => 'Definir página com texto para página inicial',
+    'defineEditorialTeamPage' => 'Definir página da equipe de editorial',
     'publishArticle' => 'Publicar artigo',
     'unpublishArticle' => 'Despublicar artigo',
     'publicationStatus' => 'Status de publicação',

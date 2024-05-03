@@ -216,6 +216,7 @@
     'submitterPanel' => 'Author\'s panel',
     'submissionRules' => 'Submission rules',
     'submissionTemplate' => 'Article template',
+    'editorialTeam' => 'Editorial team',
     'contact' => 'Contact',
   ),
   'mail' => 
@@ -305,6 +306,7 @@
     'defineSubmissionRulesPage' => 'Set submission rules page',
     'defineArticleTemplatePage' => 'Set article template page',
     'defineHomePagePreTextPage' => 'Set homepage text page',
+    'defineEditorialTeamPage' => 'Set editorial team page',
     'publishArticle' => 'Publish article',
     'unpublishArticle' => 'Unpublish article',
     'publicationStatus' => 'Publication status',

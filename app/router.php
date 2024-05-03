@@ -100,6 +100,7 @@ return
                 '/set_submission_rules_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubRulesPageId::class,
                 '/set_submission_template_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetSubTemplatePageId::class,
                 '/set_homepage_pre_text_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetHomepagePreTextPageId::class,
+                '/set_editorial_team_page' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\SetEditorialTeamPageId::class,
                 '/[pageId]' => fn() =>
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\View::class,
@@ -171,6 +172,7 @@ return
     '/info' => fn() =>
     [
         '/submission_rules' => \VictorOpusculo\AbelMagazine\App\Info\SubmissionRules::class,
-        '/submission_template' => \VictorOpusculo\AbelMagazine\App\Info\ArticleTemplate::class
+        '/submission_template' => \VictorOpusculo\AbelMagazine\App\Info\ArticleTemplate::class,
+        '/editorial_team' => \VictorOpusculo\AbelMagazine\App\Info\EditorialTeam::class
     ]
 ];

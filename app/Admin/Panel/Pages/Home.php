@@ -68,10 +68,11 @@ final class Home extends Component
 
             tag('div', class: 'my-2 text-left', children:
             [
-                tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/create"), children: text(I18n::get('pages.newPage'))),
-                tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_rules_page"), children: text(I18n::get('pages.defineSubmissionRulesPage'))),
-                tag('a', class: 'btn mr-2', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_template_page"), children: text(I18n::get('pages.defineArticleTemplatePage'))),
-                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_homepage_pre_text_page"), children: text(I18n::get('pages.defineHomePagePreTextPage')))
+                tag('a', class: 'btn mr-1', href: URLGenerator::generatePageUrl("/admin/panel/pages/create"), children: text(I18n::get('pages.newPage'))),
+                tag('a', class: 'btn mr-1', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_rules_page"), children: text(I18n::get('pages.defineSubmissionRulesPage'))),
+                tag('a', class: 'btn mr-1', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_submission_template_page"), children: text(I18n::get('pages.defineArticleTemplatePage'))),
+                tag('a', class: 'btn mr-1', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_homepage_pre_text_page"), children: text(I18n::get('pages.defineHomePagePreTextPage'))),
+                tag('a', class: 'btn', href: URLGenerator::generatePageUrl("/admin/panel/pages/set_editorial_team_page"), children: text(I18n::get('pages.defineEditorialTeamPage'))) 
             ]),
 
             component(DataGrid::class,
