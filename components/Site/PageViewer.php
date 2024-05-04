@@ -23,17 +23,14 @@ class PageViewer extends Component
     public static function applyTranslationIfUsed(string $pageContent) : string
     {
         $lang = I18n::$instance->fetchCurrentLang();
-        if (mb_ereg('<i18n lang="([A-Za-z_]+)">((\r\n|\r|\n|.)*?)<\/i18n>', $pageContent))
-        {
-            $subMatches = null;
-            if (mb_ereg('<i18n lang="(' . $lang . ')">((\r\n|\r|\n|.)*?)<\/i18n>', $pageContent, $subMatches))
+        $result = mb_ereg_replace_callback('<i18n lang="([A-Za-z_]+)">((\r\n|\r|\n|.)*?)<\/i18n>', 
+            function($matches) use ($lang)
             {
-                $translatedContent = $subMatches[2] ?? '';
-                return $translatedContent;
-            }
-            return '';
-        }
-        return $pageContent;
+                return $matches[1] === $lang ? $matches[2] : '';
+            },
+            $pageContent
+        );
+        return $result ? $result : '';
     }
 
     protected function markup(): Component|array|null
