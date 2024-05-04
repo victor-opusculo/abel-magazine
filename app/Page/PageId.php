@@ -28,7 +28,7 @@ final class PageId extends Component
             if (!$page->is_published->unwrapOr(false))
                 throw new Exception(I18n::get("exceptions.pageNotFound"));
 
-            HeadManager::$title = $page->title->unwrapOrElse(fn() => I18n::get('pages.page'));
+            HeadManager::$title = PageViewer::applyTranslationIfUsed($page->title->unwrapOrElse(fn() => I18n::get('pages.page')));
             $this->page = $page;
         }
         catch (Exception $e)
