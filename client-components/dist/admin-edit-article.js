@@ -163,7 +163,7 @@
       ]),
       h("hr", {}, ""),
       h("ext-label", {"label": `${state.lang.forms.title}`}, [
-        h("input", {"type": `text`, "name": `title`, "maxlength": `140`, "required": ``, "class": `w-full`, "onchange": this.changeField.bind(this), "value": state.title}, "")
+        h("input", {"type": `text`, "name": `title`, "maxlength": `300`, "required": ``, "class": `w-full`, "onchange": this.changeField.bind(this), "value": state.title}, "")
       ]),
       h("div", {"class": `ml-2`}, [
         h("label", {}, `${state.lang.forms.authors}`),
@@ -179,7 +179,7 @@
         h("textarea", {"name": `resume`, "class": `w-full`, "rows": `8`, "onchange": this.changeField.bind(this), "value": state.resume, "required": ``}, "")
       ]),
       h("ext-label", {"label": `${state.lang.forms.keywords}`}, [
-        h("input", {"type": `text`, "name": `keywords`, "maxlength": `140`, "required": ``, "class": `w-full`, "onchange": this.changeField.bind(this), "value": state.keywords}, "")
+        h("input", {"type": `text`, "name": `keywords`, "maxlength": `300`, "required": ``, "class": `w-full`, "onchange": this.changeField.bind(this), "value": state.keywords}, "")
       ]),
       h("ext-label", {"label": `${state.lang.forms.language}`}, [
         h("select", {"name": `language`, "onchange": this.changeField.bind(this), "required": ``}, [

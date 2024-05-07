@@ -122,7 +122,7 @@
         </ext-label>
         <hr/>
         <ext-label label="${state.lang.forms.title}">
-            <input type="text" name="title" maxlength="140" required class="w-full" @change="changeField" :value="state.title" />
+            <input type="text" name="title" maxlength="300" required class="w-full" @change="changeField" :value="state.title" />
         </ext-label>
         <div class="ml-2">
             <label>${state.lang.forms.authors}</label>
@@ -138,7 +138,7 @@
             <textarea name="resume" class="w-full" rows="8" @change="changeField" :value="state.resume" required></textarea>
         </ext-label>
         <ext-label label="${state.lang.forms.keywords}">
-            <input type="text" name="keywords" maxlength="140" required class="w-full" @change="changeField" :value="state.keywords" />
+            <input type="text" name="keywords" maxlength="300" required class="w-full" @change="changeField" :value="state.keywords" />
         </ext-label>
         <ext-label label="${state.lang.forms.language}">
             <select name="language" @change="changeField" required>

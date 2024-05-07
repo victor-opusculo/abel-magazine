@@ -8,6 +8,7 @@ use VictorOpusculo\AbelMagazine\Components\Data\Gallery;
 use VictorOpusculo\AbelMagazine\Components\Data\OrderByLinks;
 use VictorOpusculo\AbelMagazine\Components\Data\Paginator;
 use VictorOpusculo\AbelMagazine\Components\Layout\DefaultPageFrame;
+use VictorOpusculo\AbelMagazine\Lib\Helpers\Data;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
@@ -92,7 +93,7 @@ final class EditionId extends Component
                     linkGetter: fn(Article $a) => URLGenerator::generatePageUrl("/magazine/{$this->magazineStrId}/article/{$a->id->unwrapOr(0)}"),
                     overlayElementsGetters:
                     [
-                        fn(Article $a) => tag('span', class: 'font-bold', children: text($a->title->unwrapOr('***'))),
+                        fn(Article $a) => tag('span', class: 'font-bold', children: text(Data::truncateText($a->title->unwrapOr('***'), 120))),
                         fn(Article $a) => tag('span', children: text(I18n::getAlias($a->language->unwrapOr('***')))),
                         fn(Article $a) => tag('span', children: text(
                             date_create($a->submission_datetime->unwrapOr('now'), new DateTimeZone('UTC'))
