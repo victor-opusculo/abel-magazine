@@ -19,7 +19,7 @@ class Gallery extends Component
 
     protected function markup(): Component|array|null
     {
-        return tag('div', class: 'flex flex-col md:flex-row p-4 justify-center items-center', children:
+        return tag('div', class: 'flex flex-col md:flex-row md:flex-wrap p-4 justify-center items-center', children:
             count($this->dataRows) > 0 ?
                 array_map(fn($dr) => tag('a', class: 'border-zinc-300 m-2 border relative block overflow-clip h-[300px] w-[300px] hover:brightness-75 bg-zinc-200 rounded-lg', 
                 href: ($this->linkGetter)($dr),

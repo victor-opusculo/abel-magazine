@@ -198,7 +198,7 @@ class Article extends DataEntity
 
         if (mb_strlen($searchKeywords) > 3)
             $selector
-            ->addWhereClause("AND (MATCH (title, resume, keywords) AGAINST (?) OR magazines.name LIKE ? OR editions.title LIKE ?)")
+            ->addWhereClause("AND (MATCH ({$this->databaseTable}.title, resume, keywords) AGAINST (?) OR magazines.name LIKE ? OR editions.title LIKE ?)")
             ->addValue('s', $searchKeywords)
             ->addValues('ss', ["%$searchKeywords%", "%$searchKeywords%"]);
 
