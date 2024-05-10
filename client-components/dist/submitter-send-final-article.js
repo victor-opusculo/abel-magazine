@@ -68,6 +68,8 @@
     return [  
     h("form", {"onsubmit": this.submit.bind(this)}, [
       h("input", {"type": `file`, "accept": `${state.allowed_mime_types}`, "onchange": this.setFile.bind(this), "class": `file:btn mr-2`, "required": ``}, ""),
+` (PDF)
+        `,
       h("button", {"type": `submit`, "class": `btn`, "disabled": state.waiting}, [
         ((state.waiting) ? h("loading-spinner", {"additionalclasses": `invert w-[1em] h-[1em]`}, "") : ''),
 `

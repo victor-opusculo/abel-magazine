@@ -12,7 +12,7 @@ final class NotIddedArticleUpload
 
     public const UPLOAD_DIR = 'uploads/articles/{articleId}/';
     public const ALLOWED_TYPES = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-    public const MAX_SIZE = 10485760 /* 10MB */;
+    public const MAX_SIZE = 52428800 /* 50MB */;
 
     /**
      * Processa o upload de arquivo de artigos.

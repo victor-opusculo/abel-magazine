@@ -38,7 +38,7 @@
 
 <template>
     <form @submit="submit">
-        <input type="file" accept="${state.allowed_mime_types}" @change="setFile" class="file:btn mr-2" required />
+        <input type="file" accept="${state.allowed_mime_types}" @change="setFile" class="file:btn mr-2" required /> (PDF)
         <button type="submit" class="btn" :disabled="state.waiting">
             <loading-spinner :if="state.waiting" additionalclasses="invert w-[1em] h-[1em]"></loading-spinner>
             ${state.button_label}
