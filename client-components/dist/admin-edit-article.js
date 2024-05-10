@@ -30,6 +30,7 @@
     const state =
     {
         allowed_mime_types: '',
+        allowed_mime_types_final: '',
         available_editions: [],
         available_languages: [],
         waiting: false,
@@ -198,7 +199,7 @@
         h("label", {}, [
 `${state.lang.forms.iddedFile}: 
                 `,
-          h("input", {"type": `file`, "accept": `${state.allowed_mime_types}`, "name": `fileIdded`, "class": `file:btn mr-4`, "onchange": this.setFile.bind(this)}, "")
+          h("input", {"type": `file`, "accept": `${state.allowed_mime_types_final}`, "name": `fileIdded`, "class": `file:btn mr-4`, "onchange": this.setFile.bind(this)}, "")
         ]),
         h("label", {}, [
           h("input", {"type": `checkbox`, "name": `remove_idded_file`, "checked": state.remove_idded_file, "onchange": this.changeField.bind(this)}, ""),

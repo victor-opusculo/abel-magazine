@@ -8,6 +8,7 @@ use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Edition;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\IddedArticleUpload;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\NotIddedArticleUpload;
 use VictorOpusculo\PComp\Component;
 use VictorOpusculo\PComp\Context;
@@ -57,7 +58,8 @@ final class Edit extends Component
                 langJson: Data::hscq(I18n::getFormsTranslationsAsJson()),
                 availableLanguages: Data::hscq(json_encode(array_map(fn($lang, $alias) => [ 'code' => $lang, 'label' => $alias ], array_keys(I18n::availableLangs()), array_values(I18n::availableLangs())))),
                 availableEditions: Data::hscq(json_encode($this->availableEditions)),
-                allowed_mime_types: implode(',', NotIddedArticleUpload::ALLOWED_TYPES)
+                allowed_mime_types: implode(',', NotIddedArticleUpload::ALLOWED_TYPES),
+                allowed_mime_types_final: implode(',', IddedArticleUpload::ALLOWED_TYPES)
             )
         ])
         : null;
