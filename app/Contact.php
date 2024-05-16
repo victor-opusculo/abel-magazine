@@ -39,7 +39,8 @@ final class Contact extends Component
             tag('div', class: 'mt-2', children: 
             [
                 tag('p', class: 'font-bold', children: text("Associação Brasileira das Escolas do Legislativo e de Contas (ABEL)")),
-                tag('p', class: 'font-bold', children: text("Brasília/DF"))
+                tag('p', class: 'font-bold', children: text("CNPJ: 05.801.353.0001-04")),
+                tag('p', class: 'font-bold', children: text("Endereço: SHIS, QL 18, Conjunto 6, Casa 2, Lago SUL, CEP: 71650-065, Brasília/DF"))
             ]),
             tag('div', class: 'mt-2', children: tag('a', class: 'link', href: 'mailto:' . $this->contactEmail, children: text('📧 ' . $this->contactEmail)))
         ]);
