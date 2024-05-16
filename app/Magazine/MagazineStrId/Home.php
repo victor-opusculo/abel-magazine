@@ -57,7 +57,8 @@ final class Home extends Component
     {
         return isset($this->magazine) ? component(DefaultPageFrame::class, children:
         [
-            tag('h1', children: text($this->magazine->name->unwrapOrElse(fn() => I18n::get('pages.magazine')))),
+            tag('h1', children: text(I18n::get('pages.editions'))),
+            tag('h2', children: text($this->magazine->name->unwrapOrElse(fn() => I18n::get('pages.magazine')))),
 
             component(BasicSearchInput::class),
             component(OrderByLinks::class, linksDefinitions: [ I18n::get('forms.title') => 'title', I18n::get('forms.refDate')=> 'ref_date' ]),
@@ -72,7 +73,10 @@ final class Home extends Component
                     fn(Edition $e) => tag('span', children: text($e->edition_label->unwrapOr(''))),
                     fn(Edition $e) => tag('span', children: 
                         $e->is_published->unwrapOr(false)
-                            ?   [] //text(date_create($e->ref_date->unwrapOr('0001-01-01'))->format('m/Y'))
+                            ?   ( $e->is_open_for_submissions->unwrapOr(false)
+                                    ?   text(I18n::get('pages.continuousFlow'))
+                                    :   text(date_create($e->ref_date->unwrapOr('0001-01-01'))->format('m/Y'))
+                                )
                             :   ($e->is_open_for_submissions->unwrapOr(false)
                                 ?   tag('span', class: 'font-bold text-green-600', children: text(I18n::get('pages.submissionsOpen')))
                                 :   tag('span', class: 'font-bold text-zinc-600', children: text(I18n::get('pages.publicationSoon')))

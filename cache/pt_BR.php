@@ -207,7 +207,7 @@
   ),
   'layout' => 
   array (
-    'topBarSiteDescription' => 'Portal de revistas da ABEL',
+    'topBarSiteDescription' => 'Portal da revista da ABEL',
     'homePageTitle' => 'Bem vindo(a)!',
     'adminLayoutAdminName' => 'Administrador(a) logado(a): {name}',
     'submitterLayoutUserName' => 'Autor logado: {name}',
@@ -317,5 +317,6 @@
     'noneYet' => 'Nenhum ainda',
     'recoveryAccess' => 'Recuperação de acesso',
     'changeNotificationEmail' => 'Alterar configurações de e-mail',
+    'continuousFlow' => 'Fluxo Contínuo',
   ),
 );

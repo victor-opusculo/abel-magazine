@@ -36,6 +36,11 @@ final class Contact extends Component
         [
             tag('h1', children: text(I18n::get('layout.contact'))),
             tag('contact-form', langJson: Data::hscq(I18n::getFormsTranslationsAsJson())),
+            tag('div', class: 'mt-2', children: 
+            [
+                tag('p', class: 'font-bold', children: text("Associação Brasileira das Escolas do Legislativo e de Contas (ABEL)")),
+                tag('p', class: 'font-bold', children: text("Brasília/DF"))
+            ]),
             tag('div', class: 'mt-2', children: tag('a', class: 'link', href: 'mailto:' . $this->contactEmail, children: text('📧 ' . $this->contactEmail)))
         ]);
     }
