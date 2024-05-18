@@ -89,5 +89,6 @@
     "noneYet": "None yet",
     "recoveryAccess": "Access recovery",
     "changeNotificationEmail": "Change e-mail settings",
-    "continuousFlow": "Continuous Flow"
+    "continuousFlow": "Continuous Flow",
+    "currentEdition": "Current Edition"
 }

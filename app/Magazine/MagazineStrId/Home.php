@@ -74,7 +74,7 @@ final class Home extends Component
                     fn(Edition $e) => tag('span', children: 
                         $e->is_published->unwrapOr(false)
                             ?   ( $e->is_open_for_submissions->unwrapOr(false)
-                                    ?   text(I18n::get('pages.continuousFlow'))
+                                    ?   text(I18n::get('pages.continuousFlow') . ' | ' . I18n::get('pages.currentEdition'))
                                     :   text(date_create($e->ref_date->unwrapOr('0001-01-01'))->format('m/Y'))
                                 )
                             :   ($e->is_open_for_submissions->unwrapOr(false)

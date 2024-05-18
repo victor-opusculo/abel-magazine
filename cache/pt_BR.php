@@ -318,5 +318,6 @@
     'recoveryAccess' => 'Recuperação de acesso',
     'changeNotificationEmail' => 'Alterar configurações de e-mail',
     'continuousFlow' => 'Fluxo Contínuo',
+    'currentEdition' => 'Edição atual',
   ),
 );
