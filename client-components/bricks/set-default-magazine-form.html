@@ -1,0 +1,57 @@
+<script>
+    const state =
+    {
+        magazine_id: null,
+        remove: false,
+
+        lang: {}
+    };
+
+    const methods =
+    {
+        changeField(e)
+        {
+            if (e.target.type == 'checkbox')
+                this.render({ ...this.state, [ e.target.name ]: e.target.checked });
+            else
+                this.render({ ...this.state, [e.target.name]: e.target.value });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            if ((!this.state.magazine_id) && !this.state.remove)
+            {
+                AbelMagazine.Alerts.push(AbelMagazine.Alerts.types.error, "Especifique uma página para os dois idiomas ou marque a opção de remover.");
+                return;
+            }
+
+            const data =  { 'magazine_id': this.state.magazine_id, 'remove': this.state.remove };
+
+            import(AbelMagazine.functionUrl("/admin/panel/magazines"))
+            .then(module => module.setDefaultMagazine(data))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.errorSettingSubmissionRulesPage));
+        }
+    };
+
+    function setup()
+    {
+        this.state = { ...this.state, lang: JSON.parse(this.getAttribute('langJson')) };        
+    }
+</script>
+
+<template>
+    <form @submit="submit">
+        <ext-label label="${state.lang.forms.magazineId}">
+            <input type="number" min="1" step="1" name="magazine_id" :value="state.magazine_id" @input="changeField" />
+        </ext-label>
+        <ext-label label="${state.lang.forms.remove}" reverse="1">
+            <input type="checkbox" name="remove" value="1" @change="changeField"/>
+        </ext-label>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn">${state.lang.forms.save}</button>
+        </div>
+    </form>
+</template>

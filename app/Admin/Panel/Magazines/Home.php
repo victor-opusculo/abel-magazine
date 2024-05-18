@@ -60,7 +60,11 @@ final class Home extends Component
             component(OrderByLinks::class, linksDefinitions: [ I18n::get('pages.id') => 'id', I18n::get('pages.name') => 'name', I18n::get('pages.stringIdentifier') => 'string_identifier' ]),
             tag('div', class: 'flex flex-row justify-between my-2', children: 
             [
-                tag('a', class: 'btn', href: URLGenerator::generatePageUrl('/admin/panel/magazines/create'), children: text(I18n::get('pages.newJournal'))),
+                tag('span', children:
+                [
+                    tag('a', class: 'btn', href: URLGenerator::generatePageUrl('/admin/panel/magazines/create'), children: text(I18n::get('pages.newJournal'))),
+                    tag('a', class: 'btn ml-2', href: URLGenerator::generatePageUrl('/admin/panel/magazines/set_default_magazine'), children: text(I18n::get('pages.defineDefaultMagazine'))),
+                ]),
                 tag('a', class: 'btn', href: URLGenerator::generatePageUrl($_GET['page'], $this->showSoftDeleted ? [] : [ 'show_deleted' => 1 ]), children:
                     text($this->showSoftDeleted ? I18n::get('pages.showNonDeletedOnly') : I18n::get('pages.showDeleted'))
                 )

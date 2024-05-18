@@ -144,6 +144,7 @@
     'optional' => 'Opcional',
     'subject' => 'Assunto',
     'message' => 'Mensagem',
+    'magazineId' => 'Revista ID',
   ),
   'functions' => 
   array (
@@ -307,6 +308,7 @@
     'defineArticleTemplatePage' => 'Definir página de template de arquivo',
     'defineHomePagePreTextPage' => 'Definir página com texto para página inicial',
     'defineEditorialTeamPage' => 'Definir página da equipe de editorial',
+    'defineDefaultMagazine' => 'Definir revista padrão',
     'publishArticle' => 'Publicar artigo',
     'unpublishArticle' => 'Despublicar artigo',
     'publicationStatus' => 'Status de publicação',
@@ -319,5 +321,6 @@
     'changeNotificationEmail' => 'Alterar configurações de e-mail',
     'continuousFlow' => 'Fluxo Contínuo',
     'currentEdition' => 'Edição atual',
+    'current' => 'Atual',
   ),
 );

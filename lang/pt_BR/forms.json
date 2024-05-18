@@ -104,5 +104,6 @@
     "contactEmail": "E-mail para contato",
     "optional": "Opcional",
     "subject": "Assunto",
-    "message": "Mensagem"
+    "message": "Mensagem",
+    "magazineId": "Revista ID" 
 }

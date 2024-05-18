@@ -1,12 +1,17 @@
 <?php
 namespace VictorOpusculo\AbelMagazine\App;
 
+use Exception;
 use VictorOpusculo\AbelMagazine\Components\NavBar;
 use VictorOpusculo\AbelMagazine\Components\NavBarItem;
 use VictorOpusculo\AbelMagazine\Components\Navigation\TopBar;
 use VictorOpusculo\AbelMagazine\Components\PageMessages;
 use VictorOpusculo\AbelMagazine\Lib\Helpers\URLGenerator;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
+use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Edition;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Magazine;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\DefaultMagazineId;
 use VictorOpusculo\PComp\Component;
 
 use function VictorOpusculo\PComp\Prelude\component;
@@ -16,6 +21,23 @@ use function VictorOpusculo\PComp\Prelude\text;
 
 final class BaseLayout extends Component
 {
+
+    protected function setUp()
+    {
+        $conn = Connection::get();
+        try
+        {
+            $defaultMagId = (new DefaultMagazineId)->getSingle($conn)->value->unwrapOr(null);
+
+            $this->defaultMagazine = (new Magazine([ 'id' => $defaultMagId ]))->getSingle($conn);
+            $this->currentEdition = (new Edition([ 'magazine_id' => $defaultMagId ]))->getSingleCurrentFromMagazine($conn);
+        }
+        catch (Exception) {}
+    }
+
+    private ?Magazine $defaultMagazine = null;
+    private ?Edition $currentEdition = null;
+
     protected function markup(): Component|array|null
     {
         return 
@@ -31,6 +53,12 @@ final class BaseLayout extends Component
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_rules'), label: I18n::get('layout.submissionRules')),
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/submission_template'), label: I18n::get('layout.submissionTemplate')),
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/info/editorial_team'), label: I18n::get('layout.editorialTeam')),
+                        isset($this->defaultMagazine)
+                            ? component(NavBarItem::class, url: URLGenerator::generatePageUrl("/magazine/{$this->defaultMagazine->string_identifier->unwrapOr('')}"), label: I18n::get('pages.editions'))
+                            : null,
+                        isset($this->currentEdition)
+                            ? component(NavBarItem::class, url: URLGenerator::generatePageUrl("/magazine/{$this->defaultMagazine->string_identifier->unwrapOr('')}/edition/{$this->currentEdition->id->unwrapOr(0)}"), label: I18n::get('pages.current'))
+                            : null, 
                         component(NavBarItem::class, url: URLGenerator::generatePageUrl('/contact'), label: I18n::get('layout.contact'))
                         
                     ])

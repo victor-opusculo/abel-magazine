@@ -65,6 +65,24 @@ class Edition extends DataEntity
             throw new DatabaseEntityNotFound(I18n::get('exceptions.editionNotFound'), $this->databaseTable);
     }
 
+    public function getSingleCurrentFromMagazine(mysqli $conn) : self
+    {
+        $selector = $this->getGetSingleSqlSelector()
+        ->clearWhereClauses()
+        ->clearValues()
+        ->addWhereClause("{$this->getWhereQueryColumnName('magazine_id')} = ?")
+        ->addValue('i', $this->magazine_id->unwrap())
+        ->setOrderBy("{$this->databaseTable}.ref_date DESC")
+        ->setLimit('1');
+
+        $dr = $selector->run($conn, SqlSelector::RETURN_SINGLE_ASSOC);
+
+        if (isset($dr))
+            return $this->newInstanceFromDataRowFromDatabase($dr);
+        else
+            throw new DatabaseEntityNotFound(I18n::get('exceptions.editionNotFound'), $this->databaseTable);
+    }
+
     public function getCount(mysqli $conn, string $searchKeywords) : int
     {
         $selector = (new SqlSelector)

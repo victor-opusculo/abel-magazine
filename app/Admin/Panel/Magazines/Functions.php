@@ -6,6 +6,8 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\LogEngine;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Magazine;
+use VictorOpusculo\AbelMagazine\Lib\Model\Settings\DefaultMagazineId;
+use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 
 require_once __DIR__ . '/../../../../lib/Middlewares/AdminLoginCheck.php';
@@ -41,6 +43,35 @@ final class Functions extends BaseFunctionsClass
                 LogEngine::writeErrorLog("Erro ao criar revista.");
                 return [ 'error' => I18n::get('functions.magazineCreatedError') ];
             }
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];
+        }
+    }
+
+    public function setDefaultMagazine(array $data) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            [ 'magazine_id' => $magId, 'remove' => $remove ] = $data;
+
+            $sett = new DefaultMagazineId();
+            if ($magId && !$remove)
+                $sett->value = Option::some($magId);
+            else
+                $sett->value = Option::some(null);
+
+            $result = $sett->save($conn);
+            if ($result['affectedRows'] > 0)
+            {
+                LogEngine::writeLog("Revista padrão definida. ID: {$sett->value->unwrapOr(0)}");
+                return [ 'success' => I18n::get('functions.notifyEmailChangeSuccess') ];
+            }
+            else
+                return [ 'info' => I18n::get('functions.noDataChanged') ];
         }
         catch (Exception $e)
         {

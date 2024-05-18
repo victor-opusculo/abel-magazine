@@ -38,6 +38,7 @@ return
                 '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Home::class,
                 '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Functions::class,
                 '/create' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\Create::class,
+                '/set_default_magazine' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\SetDefaultMagazineId::class,
                 '/[magazineId]' => fn() =>
                 [
                     '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Magazines\MagazineId\View::class,

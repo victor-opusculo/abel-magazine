@@ -104,5 +104,6 @@
     "contactEmail": "Contact e-mail",
     "optional": "Optional",
     "subject": "Subject",
-    "message": "Message"
+    "message": "Message",
+    "magazineId": "Journal ID" 
 }

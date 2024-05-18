@@ -79,6 +79,7 @@
     "defineArticleTemplatePage": "Set article template page",
     "defineHomePagePreTextPage": "Set homepage text page",
     "defineEditorialTeamPage": "Set editorial team page",
+    "defineDefaultMagazine": "Set default journal",
     "publishArticle": "Publish article",
     "unpublishArticle": "Unpublish article",
     "publicationStatus": "Publication status",
@@ -90,5 +91,6 @@
     "recoveryAccess": "Access recovery",
     "changeNotificationEmail": "Change e-mail settings",
     "continuousFlow": "Continuous Flow",
-    "currentEdition": "Current Edition"
+    "currentEdition": "Current Edition",
+    "current": "Current"
 }
