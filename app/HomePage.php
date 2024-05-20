@@ -25,7 +25,7 @@ final class HomePage extends Component
 {
     protected function setUp()
     {
-        HeadManager::$title = "Revista de Educação Legislativa em Foco - RELF";
+        HeadManager::$title = "Revista Educação Legislativa em Foco - RELF";
         $conn = Connection::get();
         try
         {
