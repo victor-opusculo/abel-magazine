@@ -36,7 +36,8 @@ final class Home extends Component
             [
                 I18n::get('forms.id') => fn(Magazine $m) => $m->id->unwrapOr(0),
                 I18n::get('forms.name') => fn(Magazine $m) => $m->name->unwrapOr('***'),
-                I18n::get('pages.stringIdentifier') => fn(Magazine $m) => $m->string_identifier->unwrapOr('')
+                I18n::get('pages.stringIdentifier') => fn(Magazine $m) => $m->string_identifier->unwrapOr(''),
+                I18n::get('forms.issn') => fn(Magazine $m) => $m->issn->unwrapOr('')
             ]);
         }
         catch (Exception $e)

@@ -145,6 +145,7 @@
     'subject' => 'Assunto',
     'message' => 'Mensagem',
     'magazineId' => 'Revista ID',
+    'issn' => 'ISSN',
   ),
   'functions' => 
   array (

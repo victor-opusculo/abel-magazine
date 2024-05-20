@@ -34,6 +34,7 @@
         description: '',
         cover_image_media_id: null,
         string_identifier: '',
+        issn: null,
         search_media_enabled: false,
         lang: {}
     };
@@ -104,6 +105,9 @@
       ]),
       h("ext-label", {"label": `${state.lang.forms.stringIdentifier}`}, [
         h("input", {"type": `text`, "maxlength": `140`, "class": `w-full`, "name": `string_identifier`, "oninput": this.changeField.bind(this), "required": ``, "value": state.string_identifier, "pattern": `^[A-Za-z0-9_\\-]{5,140}$`, "placeholder": `${state.lang.forms.noSpacesAllowedMin5chars}`}, "")
+      ]),
+      h("ext-label", {"label": `${state.lang.forms.issn}`}, [
+        h("input", {"type": `text`, "maxlength": `50`, "class": `w-full`, "name": `issn`, "oninput": this.changeField.bind(this), "required": ``, "value": state.issn}, "")
       ]),
       h("ext-label", {"label": `${state.lang.forms.logoImagePictureMediaId}`}, [
         h("input", {"type": `number`, "min": `1`, "step": `1`, "class": `w-[calc(100%-200px)] mr-2`, "name": `cover_image_media_id`, "oninput": this.changeField.bind(this), "value": state.cover_image_media_id}, ""),

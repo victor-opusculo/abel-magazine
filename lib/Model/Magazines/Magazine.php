@@ -16,6 +16,7 @@ use VictorOpusculo\MyOrm\Option;
  * @property Option description
  * @property Option cover_image_media_id
  * @property Option string_identifier
+ * @property Option issn
  * @property Option deleted_at
  */
 class Magazine extends DataEntity
@@ -29,6 +30,7 @@ class Magazine extends DataEntity
             'description' => new DataProperty('description', fn() => '', DataProperty::MYSQL_STRING),
             'cover_image_media_id' => new DataProperty('cover_image_media_id', fn() => null, DataProperty::MYSQL_INT),
             'string_identifier' => new DataProperty('string_identifier', fn() => null, DataProperty::MYSQL_STRING),
+            'issn' => new DataProperty('issn', fn() => null, DataProperty::MYSQL_STRING),
             'deleted_at' => new DataProperty(null, fn() => null, DataProperty::MYSQL_STRING)
         ];
 

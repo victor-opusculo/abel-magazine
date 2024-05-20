@@ -105,5 +105,6 @@
     "optional": "Opcional",
     "subject": "Assunto",
     "message": "Mensagem",
-    "magazineId": "Revista ID" 
+    "magazineId": "Revista ID",
+    "issn": "ISSN"
 }

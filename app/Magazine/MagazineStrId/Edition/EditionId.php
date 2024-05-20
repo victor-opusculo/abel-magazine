@@ -65,6 +65,7 @@ final class EditionId extends Component
             tag('div', class: 'flex flex-row justify-between font-bold text-lg', children: 
             [
                 tag('span', children: text($this->edition->magazine->name->unwrapOr(''))),
+                tag('span', children: text(I18n::get('forms.issn') . ': ' . $this->edition->magazine->issn->unwrapOr(''))),
                 tag('span', children: text($this->edition->edition_label->unwrapOr('')))
             ]),
 

@@ -86,6 +86,7 @@ final class View extends Component
                 tag('div', class: 'whitespace-pre-line', children: text($this->magazine->description->unwrapOr('')))
             ),
             component(Label::class, labelBold: true, label: I18n::get('pages.stringIdentifier'), children: text($this->magazine->string_identifier->unwrapOr(''))),
+            component(Label::class, labelBold: true, label: I18n::get('forms.issn'), children: text($this->magazine->issn->unwrapOr(''))),
             component(Label::class, labelBold: true, label: I18n::get('pages.directLink'), children:
                 tag('a', class: 'link', href: URLGenerator::generatePageUrl("/magazine/{$this->magazine->string_identifier->unwrapOr('')}"), children:
                     text(URLGenerator::generatePageUrl("/magazine/{$this->magazine->string_identifier->unwrapOr('')}"))

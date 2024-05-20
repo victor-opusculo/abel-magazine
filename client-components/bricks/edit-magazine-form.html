@@ -6,6 +6,7 @@
         description: '',
         cover_image_media_id: null,
         string_identifier: '',
+        issn: null,
         search_media_enabled: false,
         lang: {}
     };
@@ -75,6 +76,9 @@
         </ext-label>
         <ext-label label="${state.lang.forms.stringIdentifier}">
             <input type="text" maxlength="140" class="w-full" name="string_identifier" @input="changeField" required :value="state.string_identifier" pattern="^[A-Za-z0-9_\\-]{5,140}$" placeholder="${state.lang.forms.noSpacesAllowedMin5chars}"/>
+        </ext-label>
+        <ext-label label="${state.lang.forms.issn}">
+            <input type="text" maxlength="50" class="w-full" name="issn" @input="changeField" required :value="state.issn"/>
         </ext-label>
         <ext-label label="${state.lang.forms.logoImagePictureMediaId}">
             <input type="number" min="1" step="1" class="w-[calc(100%-200px)] mr-2" name="cover_image_media_id" @input="changeField" :value="state.cover_image_media_id" />

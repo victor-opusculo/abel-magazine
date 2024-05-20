@@ -60,6 +60,8 @@ final class Home extends Component
             tag('h1', children: text(I18n::get('pages.editions'))),
             tag('h2', children: text($this->magazine->name->unwrapOrElse(fn() => I18n::get('pages.magazine')))),
 
+            tag('p', class: 'text-center', children: text(I18n::get('forms.issn') . ': ' . $this->magazine->issn->unwrapOr(''))),
+
             component(BasicSearchInput::class),
             component(OrderByLinks::class, linksDefinitions: [ I18n::get('forms.title') => 'title', I18n::get('forms.refDate')=> 'ref_date' ]),
 
