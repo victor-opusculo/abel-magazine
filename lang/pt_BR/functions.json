@@ -55,6 +55,7 @@
     "passwordChangedSuccess": "Senha alterada com sucesso!",
     "passwordChangedError": "Erro ao alterar senha!",
     "notifyEmailChangeSuccess": "Configurações alteradas com sucesso!",
-    "emailSentSuccess": "Mensagem enviada com sucesso!"
+    "emailSentSuccess": "Mensagem enviada com sucesso!",
+    "finalPdfMissing": "Arquivo PDF final faltante!"
 
 }

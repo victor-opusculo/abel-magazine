@@ -7,10 +7,12 @@ use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\FinalPubArticleUpload;
 use VictorOpusculo\MyOrm\Option;
 use VictorOpusculo\PComp\Rpc\BaseFunctionsClass;
 use VictorOpusculo\PComp\Rpc\FormDataBody;
 use VictorOpusculo\PComp\Rpc\IgnoreMethod;
+use VictorOpusculo\PComp\Rpc\ReturnsContentType;
 
 require_once __DIR__ . '/../../../../../lib/Middlewares/AdminLoginCheck.php';
 
@@ -137,6 +139,9 @@ final class Functions extends BaseFunctionsClass
             if ($article->status->unwrapOr('') !== ArticleStatus::ApprovedWithIddedFile->value)
                 throw new Exception(I18n::get('functions.changeApprovedStatusNotIddedFille'));
 
+            if ($article->finalPublicationFile() === false)
+                throw new Exception(I18n::get("functions.finalPdfMissing"));
+
             $article->is_approved = Option::some(match ($toStatus)
             {
                 'approve' => 1,
@@ -162,5 +167,26 @@ final class Functions extends BaseFunctionsClass
             return [ 'error' => $e->getMessage() ];
         }
 
+    }
+
+    #[FormDataBody]
+    public function uploadPublication(array $post, array $files) : array
+    {
+        $conn = Connection::get();
+        try
+        {
+            $article = (new Article([ 'id' => $this->articleId ]))->getSingle($conn);
+
+            FinalPubArticleUpload::checkForUploadError($files, "file");
+            FinalPubArticleUpload::deleteArticleFile($article->id->unwrap());
+            FinalPubArticleUpload::uploadArticleFile($article->id->unwrap(), $files, "file");
+
+            return [ 'success' => I18n::get('functions.articleSubmissionSuccess') ];
+        }
+        catch (Exception $e)
+        {
+            LogEngine::writeErrorLog($e->getMessage());
+            return [ 'error' => $e->getMessage() ];
+        }
     }
 }

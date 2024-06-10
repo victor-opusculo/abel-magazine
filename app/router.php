@@ -109,6 +109,13 @@ return
                     '/edit' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\Edit::class,
                     '/delete' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Pages\PageId\Delete::class
                 ]
+            ],
+            '/submitters' => fn() =>
+            [
+                '/[submitterId]' => fn() =>
+                [
+                    '/' => \VictorOpusculo\AbelMagazine\App\Admin\Panel\Submitters\SubmitterId\View::class
+                ]
             ]
         ],
         '__functions' => \VictorOpusculo\AbelMagazine\App\Admin\Functions::class

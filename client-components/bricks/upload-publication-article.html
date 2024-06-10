@@ -1,0 +1,51 @@
+
+<script>
+    const state = 
+    {
+        article_id: 0,
+        lang: {},
+        allowed_mime_types: null,
+        file: null
+    };
+
+    const methods =
+    {
+        setFile(e)
+        {
+            this.render({ ...this.state, file: e.target.files[0] });
+        },
+
+        submit(e)
+        {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append("articleId", this.state.article_id);
+            formData.append("file", this.state.file);
+
+            import(AbelMagazine.functionUrl(`/admin/panel/articles/${this.state.article_id}`))
+            .then(({ uploadPublication }) => uploadPublication(formData))
+            .then(AbelMagazine.Alerts.pushFromJsonResult)
+            .then(() => window.location.reload())
+            .catch(AbelMagazine.Alerts.pushError(this.state.lang.forms.finalPdfUploadError));
+        }
+    };
+
+    function setup()
+    {
+        this.state = 
+        { 
+            ...this.state, 
+            lang: JSON.parse(this.getAttribute("langJson"))
+        };
+    }
+</script>
+<template>
+    <form @submit="submit" class="my-2">
+        <label>
+            <span class="font-bold">${state.lang.forms.finalPdfUploadLabel} </span>
+            <input type="file" @change="setFile" accept="${state.allowed_mime_types}" class="file:btn" />
+            <button type="submit" class="btn ml-2">${state.lang.forms.send}</button>
+        </label>
+    </form>
+</template>

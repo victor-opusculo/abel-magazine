@@ -74,7 +74,7 @@ final class ArticleId extends Component
             ),
 
             component(Label::class, labelBold: true, label: I18n::get('pages.article'), children: 
-                tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('/fetch_article.php', [ 'id' => $this->article->id->unwrapOr(0) ]), children: text(I18n::get('pages.downloadFullArticle')))
+                tag('a', class: 'btn', href: URLGenerator::generateScriptUrl('fetch_article_final.php', [ 'id' => $this->article->id->unwrapOr(0) ]), children: text(I18n::get('pages.downloadFullArticle')))
             )
         ])
         : null;

@@ -334,4 +334,14 @@ class Article extends DataEntity
     {
         return '/uploads/articles/' . $this->id->unwrapOr(0) . '/idded.' . $this->idded_file_extension->unwrapOr('');
     }
+
+    public function finalPublicationFile() : string|false
+    {
+        $files = glob(System::systemBaseDir() . '/uploads/articles/' . $this->id->unwrapOr(0) . '/publication.*');
+
+        if ($files && count($files) > 0)
+            return array_pop($files);
+        else
+            return false;
+    }
 }

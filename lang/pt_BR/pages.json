@@ -92,5 +92,8 @@
     "changeNotificationEmail": "Alterar configurações de e-mail",
     "continuousFlow": "Fluxo Contínuo",
     "currentEdition": "Edição atual",
-    "current": "Atual"
+    "current": "Atual",
+    "viewAuthor": "Ver autor",
+    "timezone": "Fuso horário",
+    "registrationDateTime": "Data de cadastro"
 }

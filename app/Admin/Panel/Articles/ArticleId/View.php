@@ -16,6 +16,7 @@ use VictorOpusculo\AbelMagazine\Lib\Model\Assessors\AssessorOpinion;
 use VictorOpusculo\AbelMagazine\Lib\Model\Database\Connection;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Article;
 use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\ArticleStatus;
+use VictorOpusculo\AbelMagazine\Lib\Model\Magazines\Upload\FinalPubArticleUpload;
 use VictorOpusculo\PComp\Component;
 use VictorOpusculo\PComp\Context;
 use VictorOpusculo\PComp\HeadManager;
@@ -53,6 +54,8 @@ final class View extends Component
                                                         ->setTimezone(new DateTimeZone($_SESSION['user_timezone'] ?? 'America/Sao_Paulo'))
                                                         ->format(I18n::get('pages.dateTimeFormat'))
             ], $opinions);
+
+            $this->finalFile = $this->article->finalPublicationFile();
         }
         catch (Exception $e)
         {
@@ -64,6 +67,8 @@ final class View extends Component
 
     private ?Article $article = null;
     private array $opinions = [];
+
+    private string|false $finalFile = false;
 
     protected function markup(): Component|array|null
     {
@@ -130,14 +135,20 @@ final class View extends Component
                         :   text(I18n::get('pages.notPublished'))
                 ]),
                 
-                $this->article->status->unwrapOr('') === ArticleStatus::ApprovedWithIddedFile->value && $this->article->idded_file_extension->unwrapOr(null)
+                $this->article->status->unwrapOr('') === ArticleStatus::ApprovedWithIddedFile->value && $this->finalFile
                     ?    tag('change-article-approvation-status',
                             error: I18n::get('forms.errorChangingStatus'),
                             article_id: $this->article->id->unwrapOr(0),
                             label_approve: !$this->article->is_approved->unwrapOr(false) ? I18n::get('pages.publishArticle') : '',
                             label_disapprove: $this->article->is_approved->unwrapOr(false) ? I18n::get('pages.unpublishArticle') : ''
                         )
-                    : null
+                    : null,
+
+                tag('upload-publication-article',
+                    article_id: $this->article->id->unwrapOr(0),
+                    langJson: Data::hscq(I18n::getFormsTranslationsAsJson()),
+                    allowed_mime_types: implode(",", FinalPubArticleUpload::ALLOWED_TYPES)
+                )
             ]),
 
             component(ConvenienceLinks::class,

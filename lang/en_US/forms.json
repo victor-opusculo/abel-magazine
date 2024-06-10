@@ -106,5 +106,8 @@
     "subject": "Subject",
     "message": "Message",
     "magazineId": "Journal ID",
-    "issn": "ISSN"
+    "issn": "ISSN",
+    "finalPdfUploadLabel": "Final PDF",
+    "finalPdfUploadError": "Error uploading file!",
+    "finalPdfMissing": "Final PDF file missing!"
 }

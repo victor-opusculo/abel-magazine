@@ -6,12 +6,12 @@ use VictorOpusculo\AbelMagazine\Lib\Helpers\System;
 use VictorOpusculo\AbelMagazine\Lib\Internationalization\I18n;
 use VictorOpusculo\AbelMagazine\Lib\Model\FileUploadUtils;
 
-final class IddedArticleUpload
+final class FinalPubArticleUpload
 {
     private function __construct() { }
 
     public const UPLOAD_DIR = 'uploads/articles/{articleId}/';
-    public const ALLOWED_TYPES = ['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    public const ALLOWED_TYPES = ['application/pdf'];
     public const MAX_SIZE = 52428800 /* 50MB */;
 
     /**
@@ -27,7 +27,7 @@ final class IddedArticleUpload
             $fullDir = str_replace("{articleId}", (string)$articleId, System::systemBaseDir() . '/' . self::UPLOAD_DIR);
             $fileName = basename($filePostData[$fileInputElementName]["name"]);
             $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-            $uploadFile = $fullDir . "idded.$fileExtension";
+            $uploadFile = $fullDir . "publication.$fileExtension";
         
             FileUploadUtils::checkForUploadError($filePostData[$fileInputElementName], self::MAX_SIZE, [self::class, 'throwException'], [ $fileName, $articleId ], self::ALLOWED_TYPES);
 
@@ -63,7 +63,7 @@ final class IddedArticleUpload
     public static function deleteArticleFile(int $articleId) : bool
     {
         $fullDir = str_replace("{articleId}", (string)$articleId, System::systemBaseDir() . '/' . self::UPLOAD_DIR);
-        $locationFilePath = $fullDir . "idded.*";
+        $locationFilePath = $fullDir . "publication.*";
         
         $files = glob($locationFilePath);
         foreach ($files as $file)

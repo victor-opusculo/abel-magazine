@@ -146,6 +146,8 @@
     'message' => 'Mensagem',
     'magazineId' => 'Revista ID',
     'issn' => 'ISSN',
+    'finalPdfUploadLabel' => 'PDF final',
+    'finalPdfUploadError' => 'Erro ao subir arquivo!',
   ),
   'functions' => 
   array (
@@ -206,6 +208,7 @@
     'passwordChangedError' => 'Erro ao alterar senha!',
     'notifyEmailChangeSuccess' => 'Configurações alteradas com sucesso!',
     'emailSentSuccess' => 'Mensagem enviada com sucesso!',
+    'finalPdfMissing' => 'Arquivo PDF final faltante!',
   ),
   'layout' => 
   array (
@@ -323,5 +326,8 @@
     'continuousFlow' => 'Fluxo Contínuo',
     'currentEdition' => 'Edição atual',
     'current' => 'Atual',
+    'viewAuthor' => 'Ver autor',
+    'timezone' => 'Fuso horário',
+    'registrationDateTime' => 'Data de cadastro',
   ),
 );

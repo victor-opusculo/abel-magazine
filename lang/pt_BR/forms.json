@@ -106,5 +106,7 @@
     "subject": "Assunto",
     "message": "Mensagem",
     "magazineId": "Revista ID",
-    "issn": "ISSN"
+    "issn": "ISSN",
+    "finalPdfUploadLabel": "PDF final",
+    "finalPdfUploadError": "Erro ao subir arquivo!"
 }
